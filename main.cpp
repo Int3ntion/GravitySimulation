@@ -11,7 +11,7 @@ double screenWidth = 1920.0f;
 
 
 const double G = 6.6743 * pow(10, -11);
-const double dt = 0.00001;
+const double dt = 0.000001;
 const double PI = 3.141592653589;
 
 GLFWwindow* StartGLFW();
@@ -44,7 +44,7 @@ public:
 	};
 	void DrawSphere() {
 		glColor3f(color[0], color[1], color[2]);
-		const int slices = 32, stacks = 32;
+		const int slices = 64, stacks = 64;
 		const float radius = static_cast<float>(this->radius);
 
 		for (int i = 0; i < stacks; ++i) {
@@ -73,17 +73,6 @@ public:
 			}
 			glEnd();
 		}
-		//glBegin(GL_TRIANGLE_FAN);
-		//glVertex2d(position[0], position[1]);
-
-		//for (int i = 0; i <= 50; ++i) {
-		//	double angle = 2.0f * 3.141592653589 * (static_cast<float>(i) / 50);
-		//	double x = position[0] + cos(angle) * radius;
-		//	double y = position[1] + sin(angle) * radius;
-		//	glVertex2d(x, y);
-		//}
-
-		//glEnd();
 	}
 };
 
@@ -93,15 +82,45 @@ int main() {
 	double centerX = screenWidth / 2.0f;
 	double centerY = screenHeight / 2.0f;
 
+	double cameraX = 0.0f, cameraY = 0.0f, cameraZ = -5000.0f;
+	double cameraSpeed = 50.0f;
+
 	std::vector<Object> objects = {
-		Object(std::vector<double>{300.0f, 300.0f, 0.0f}, std::vector<double>{50000.0f, 0.0f, 400000.0f}, 5.972e24, 50.0f, {1.0f, 0.4f, 0.0f}),
-		Object(std::vector<double>{-300.0f, -300.0f, 0.0f}, std::vector<double>{-50000.0f, 0.0f, -400000.0f}, 5.972e24, 50.0f),
+		Object(std::vector<double>{0.0f, 0.0f, 0.0f}, std::vector<double>{0.0f, 0.0f, 0.0f}, 400.972e24, 300.0f, {1.0f, 0.4f, 0.0f}),
+		Object(std::vector<double>{-2300.0f, 0.0f, 0.0f}, std::vector<double>{0.0f, 3200000.0f, 500000.0f}, 1.972e21, 50.0f, {0.0f, 0.2f, 0.8f}),
 		//Object(std::vector<double>{-400.0f, 400.0f, 0.0f}, std::vector<double>{0.0f, 0.0f, 500000.0f}, 5.972e24, 50.0f, {1.0f, 0.6f, 0.0f}),
-		Object(std::vector<double>{400.0f, -400.0f, 0.0f}, std::vector<double>{0.0f, 0.0f, -600000.0f}, 5.972e24, 50.0f, {0.0f, 0.4f, 0.8f})
+		//Object(std::vector<double>{400.0f, -400.0f, 0.0f}, std::vector<double>{0.0f, 0.0f, -600000.0f}, 5.972e24, 50.0f, {0.0f, 0.4f, 0.8f})
 	};
 
 	while (!glfwWindowShouldClose(window)) {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+			cameraZ += cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_Q) == GLFW_PRESS) {
+			cameraZ -= cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+			cameraX -= cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			cameraX += cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+			cameraY -= cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+			cameraY += cameraSpeed;
+		}
+		if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS) {
+			cameraX = 0.0f, cameraY = 0.0f, cameraZ = -5000.0f;
+		}
+
+		glMatrixMode(GL_MODELVIEW);
+		glLoadIdentity();
+
+		glTranslatef(cameraX, cameraY, cameraZ);
 
 		for (auto& obj : objects) {
 			
@@ -125,12 +144,6 @@ int main() {
 
 			obj.updatePos();
 			obj.DrawSphere();
-			//if (obj.position[1] < 0 || obj.position[1] > screenHeight) {
-			//	obj.velocity[1] *= -0.95;
-			//}
-			//if (obj.position[0] < 0 || obj.position[0] > screenWidth) {
-			//	obj.velocity[0] *= -0.95;
-			//}
 		}
 
 		glfwSwapBuffers(window);
@@ -147,10 +160,9 @@ GLFWwindow* StartGLFW() {
 	glfwMakeContextCurrent(window);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(45.0f, (float)screenWidth / (float)screenHeight, 0.1f, 10000.0f);
+	gluPerspective(45.0f, (float)screenWidth / (float)screenHeight, 0.1f, 40000.0f);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glTranslatef(0.0f, 0.0f, -2000.0f);
 	glEnable(GL_DEPTH_TEST);
 	glfwSwapInterval(1);
 	return window;
