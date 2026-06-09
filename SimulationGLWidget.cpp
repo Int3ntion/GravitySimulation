@@ -59,10 +59,11 @@ void SimulationGLWidget::initializeGL() {
     // Инициализация объектов
     m_objects = {
         Object({0.0, 500.0, 0.0}, {0.0, 0.0, 0.0}, 1.98e30, 300.0, {1.0f, 0.4f, 0.0f}, "Солнце"),
-        Object({-1000.0, 0.0, 0.0}, {0.0, -220000000.0, 5000000.0}, 1.972e8, 50.0, {0.0f, 0.4f, 0.5f}, "Метеор"),
+        Object({-1000.0, 0.0, 0.0}, {0.0, -320000000.0, 5000000.0}, 1.972e8, 20.0, {0.0f, 0.4f, 0.5f}, "Метеор"),
         //Object({500.0, 0.0, 700.0}, {0.0, -4000000.0, -3000000.0}, 1.972e23, 50.0, {0.8f, 0.04f, 0.04f}, "Меркурий"),
         Object({-2000.0, 500.0, 0.0}, {0.0, 0.0, 220000000.0}, 5.972e24, 50.0, {0.1f, 0.2f, 0.5f}, "Земля")
     };
+    emit planetListChanged();
     calculateGravityField();
 }
 
@@ -87,7 +88,7 @@ void SimulationGLWidget::paintGL() {
         static_cast<GLfloat>(m_cameraZ));
 
     glColor3f(0.2f, 0.2f, 0.2f); // Серый цвет для гравитационной сетки
-    const int gridSize = 4000;    // Размер сетки (в единицах мира)
+    const int gridSize = 5000;    // Размер сетки (в единицах мира)
     const int resolution = m_gridResolution; // Разрешение сетки
     const double step = (2.0 * gridSize) / resolution;
     glBegin(GL_LINES);
@@ -160,15 +161,21 @@ void SimulationGLWidget::updateObjects() {
     }
     calculateGravityField();
     updateCamera();
-    update(); // Перерисовка
+    update();
 }
 
 void SimulationGLWidget::startSimulation() {
+    dt = 1e-7;
     m_timer->start(16); // 1000/FPS
 }
 
 void SimulationGLWidget::stopSimulation() {
-    m_timer->stop();
+    if (m_keySpacePressed) {
+        dt = 0;
+    }
+    else {
+        m_timer->stop();
+    }
 }
 
 void SimulationGLWidget::calculateGravityField() {
@@ -203,7 +210,7 @@ void SimulationGLWidget::calculateGravityField() {
 
 void SimulationGLWidget::keyPressEvent(QKeyEvent* event) {
     switch (event->key()) {
-    case Qt::Key_W:
+        case Qt::Key_W:
         m_keyWPressed = true;
         break;
     case Qt::Key_A:
@@ -233,6 +240,8 @@ void SimulationGLWidget::keyPressEvent(QKeyEvent* event) {
     case Qt::Key_Right:
         m_keyRightPressed = true;
         break;
+    case Qt::Key_Space:
+        m_keySpacePressed = true;
     default:
         QOpenGLWidget::keyPressEvent(event);
     }
@@ -270,6 +279,8 @@ void SimulationGLWidget::keyReleaseEvent(QKeyEvent* event) {
     case Qt::Key_Right:
         m_keyRightPressed = false;
         break;
+    case Qt::Key_Space:
+        m_keySpacePressed = false;
     default:
         QOpenGLWidget::keyReleaseEvent(event);
     }
@@ -318,6 +329,12 @@ void SimulationGLWidget::updateCamera() {
     }
     if (m_keyRightPressed) {
         m_cameraYaw += m_rotationSpeed;
+    }
+    if (m_keySpacePressed) {
+        stopSimulation();
+    }
+    if (!m_keySpacePressed) {
+        startSimulation();
     }
     update();
 }

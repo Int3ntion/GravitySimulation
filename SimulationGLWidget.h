@@ -41,6 +41,8 @@ public:
     explicit SimulationGLWidget(QWidget* parent = nullptr);
     ~SimulationGLWidget();
     std::vector<Object> m_objects;
+    double G = 6.6743e-11;
+    double dt = 1e-7;
 
 public slots:
     void startSimulation();
@@ -71,6 +73,7 @@ private:
     bool m_keyDownPressed = false;
     bool m_keyLeftPressed = false;
     bool m_keyRightPressed = false;
+    bool m_keySpacePressed = false;
 
     std::vector<std::vector<double>> m_gravityField;
     int m_gridResolution = 100; // Разрешение сетки
@@ -81,7 +84,7 @@ private:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
     void updateCamera();
-    static constexpr double G = 6.6743e-11;
-    static constexpr double dt = 0.0000001;
 
+signals:
+    void planetListChanged();
 };
