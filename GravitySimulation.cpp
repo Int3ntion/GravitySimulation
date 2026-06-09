@@ -2,11 +2,11 @@
 #include "SimulationGLWidget.h"
 #include "AddPlanetDialog.h"
 #include "PlanetInfoDialog.h"
+#include <QDebug>
 
 GravitySimulation::GravitySimulation(QWidget *parent)
     : QMainWindow(parent)
 {
-    ui.setupUi(this);
     setupUI();
 
     connect(m_glWidget, &SimulationGLWidget::planetListChanged, this, &GravitySimulation::updatePlanetList);
@@ -28,6 +28,7 @@ void GravitySimulation::setupUI() {
     QVBoxLayout* vBoxLayout = new QVBoxLayout();
     m_glWidget = new SimulationGLWidget(this);
 
+
     m_listWidget = new QListWidget(this);
     connect(m_listWidget, &QListWidget::itemDoubleClicked, this, &GravitySimulation::onPlanetDoubleClicked);
     m_listWidget->setFixedWidth(300);
@@ -38,7 +39,6 @@ void GravitySimulation::setupUI() {
     m_gSlider->setValue(67);         // начальное значение ~6.7e-11
     gLayout->addWidget(new QLabel("Гравитационная постоянная (G):", this));
     gLayout->addWidget(m_gSlider);
-    gLayout->addWidget(m_gLabel);
 
     vBoxLayout->addWidget(m_listWidget);
     vBoxLayout->addLayout(gLayout);

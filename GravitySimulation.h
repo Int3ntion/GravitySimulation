@@ -9,7 +9,6 @@
 #include <QDebug>
 #include <iostream>
 #include <QLabel>
-#include "ui_GravitySimulation.h"
 #include "SimulationGLWidget.h"
 
 class GravitySimulation : public QMainWindow
@@ -29,12 +28,10 @@ public slots:
     void onGSliderChanged(int value);
 
 private:
-    Ui::GravitySimulationClass ui;
     SimulationGLWidget* m_glWidget;
     QListWidget* m_listWidget;
     QHBoxLayout* m_mainLayout;
     QSlider* m_gSlider;
-    QLabel* m_gLabel;
 
     void setupUI();
 };

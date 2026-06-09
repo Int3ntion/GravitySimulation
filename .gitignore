@@ -1,0 +1,32 @@
+build/
+cmake-build-debug/
+cmake-build-release/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# IDE (Qt Creator, Visual Studio)
+*.user
+*.pro.user
+.vs/
+.idea/
+*.sln
+*.vcxproj
+*.filters
+
+*.tmp
+*.log
+
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Файлы, специфичные для Windows
+Thumbs.db
+Desktop.ini
