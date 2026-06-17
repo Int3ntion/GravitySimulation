@@ -11,20 +11,22 @@
  */
 
 #include "GravitySimulation.h"
-#include "SimulationGLWidget.h"
-#include "AddPlanetDialog.h"
-#include "PlanetInfoDialog.h"
+
 #include <QDebug>
 
- /**
-  * @brief Конструктор класса GravitySimulation.
-  *
-  * Инициализирует главное окно, настраивает пользовательский интерфейс (UI)
-  * и устанавливает соединения сигналов и слотов между виджетами и логикой приложения.
-  *
-  * @param parent Указатель на родительский виджет (по умолчанию nullptr).
-  */
-GravitySimulation::GravitySimulation(QWidget *parent)
+#include "AddPlanetDialog.h"
+#include "PlanetInfoDialog.h"
+#include "SimulationGLWidget.h"
+
+/**
+ * @brief Конструктор класса GravitySimulation.
+ *
+ * Инициализирует главное окно, настраивает пользовательский интерфейс (UI)
+ * и устанавливает соединения сигналов и слотов между виджетами и логикой приложения.
+ *
+ * @param parent Указатель на родительский виджет (по умолчанию nullptr).
+ */
+GravitySimulation::GravitySimulation(QWidget* parent)
     : QMainWindow(parent)
 {
     setupUI();
@@ -38,7 +40,8 @@ GravitySimulation::GravitySimulation(QWidget *parent)
  * Освобождает ресурсы, занятые объектом.
  */
 GravitySimulation::~GravitySimulation()
-{}
+{
+}
 
 /**
  * @brief Настраивает пользовательский интерфейс главного окна.
@@ -48,7 +51,8 @@ GravitySimulation::~GravitySimulation()
  * - Панель управления слева со списком планет, слайдером G и кнопкой добавления.
  * - Устанавливает связи между элементами управления и слотами обработки событий.
  */
-void GravitySimulation::setupUI() {
+void GravitySimulation::setupUI()
+{
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
 
@@ -61,15 +65,14 @@ void GravitySimulation::setupUI() {
     QVBoxLayout* vBoxLayout = new QVBoxLayout();
     m_glWidget = new SimulationGLWidget(this);
 
-
     m_listWidget = new QListWidget(this);
     connect(m_listWidget, &QListWidget::itemDoubleClicked, this, &GravitySimulation::onPlanetDoubleClicked);
     m_listWidget->setFixedWidth(300);
 
     auto* gLayout = new QHBoxLayout();
     m_gSlider = new QSlider(Qt::Horizontal, this);
-    m_gSlider->setRange(1, 200);   // 1e-12 – 2e-10 (масштабируем)
-    m_gSlider->setValue(67);         // начальное значение ~6.7e-11
+    m_gSlider->setRange(1, 200);  // 1e-12 – 2e-10 (масштабируем)
+    m_gSlider->setValue(67);      // начальное значение ~6.7e-11
     gLayout->addWidget(new QLabel("Гравитационная постоянная (G):", this));
     gLayout->addWidget(m_gSlider);
 
@@ -82,7 +85,7 @@ void GravitySimulation::setupUI() {
     m_glWidget->setMinimumWidth(300);
     m_glWidget->setMinimumHeight(150);
     m_mainLayout->addLayout(vBoxLayout);
-    m_mainLayout->addWidget(m_glWidget, 1); // 1 - Растяжение этого виджета
+    m_mainLayout->addWidget(m_glWidget, 1);  // 1 - Растяжение этого виджета
 
     centralWidget->setLayout(m_mainLayout);
 }
@@ -93,7 +96,8 @@ void GravitySimulation::setupUI() {
  * Вызывает метод startSimulation у виджета отрисовки (SimulationGLWidget),
  * который активирует таймер обновления кадров.
  */
-void GravitySimulation::onStartSimulation() {
+void GravitySimulation::onStartSimulation()
+{
     m_glWidget->startSimulation();
 }
 
@@ -103,7 +107,8 @@ void GravitySimulation::onStartSimulation() {
  * Вызывает метод stopSimulation у виджета отрисовки, приостанавливая
  * расчет физики и перерисовку сцены.
  */
-void GravitySimulation::onStopSimulation() {
+void GravitySimulation::onStopSimulation()
+{
     m_glWidget->stopSimulation();
 }
 
@@ -114,10 +119,12 @@ void GravitySimulation::onStopSimulation() {
  * хранящихся в векторе m_objects виджета m_glWidget.
  * Вызывается при изменении состава планет (добавление, удаление, переименование).
  */
-void GravitySimulation::updatePlanetList() {
+void GravitySimulation::updatePlanetList()
+{
     m_listWidget->clear();
 
-    for (const auto& obj : m_glWidget->m_objects) {
+    for (const auto& obj : m_glWidget->m_objects)
+    {
         m_listWidget->addItem(obj.name);
     }
 }
@@ -129,15 +136,18 @@ void GravitySimulation::updatePlanetList() {
  * для проверки уникальности. Если пользователь подтверждает ввод (Accepted),
  * создается новый объект Object и добавляется в симуляцию.
  */
-void GravitySimulation::onAddPlanet() {
+void GravitySimulation::onAddPlanet()
+{
     QStringList existingNames;
 
-    for (const auto& planet : m_glWidget->m_objects) {
+    for (const auto& planet : m_glWidget->m_objects)
+    {
         existingNames << planet.name;
     }
 
     AddPlanetDialog dialog(existingNames, this);
-    if (dialog.exec() == QDialog::Accepted) {
+    if (dialog.exec() == QDialog::Accepted)
+    {
         QString name = dialog.getPlanetName();
         double mass = dialog.getMass();
         std::vector<double> position = dialog.getPosition();
@@ -164,7 +174,8 @@ void GravitySimulation::onAddPlanet() {
  *
  * @param item Указатель на элемент списка (QListWidgetItem), по которому был сделан двойной клик.
  */
-void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item) {
+void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item)
+{
     int index = m_listWidget->row(item);
     if (index < 0 || index > m_glWidget->m_objects.size()) return;
 
@@ -173,14 +184,17 @@ void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item) {
     PlanetInfoDialog dialog(planet, this);
     int result = dialog.exec();
 
-    if (result == QDialog::Accepted) {
+    if (result == QDialog::Accepted)
+    {
         QString newName = dialog.getNewName();
-        if (!newName.isEmpty()) {
+        if (!newName.isEmpty())
+        {
             planet.name = newName;
             updatePlanetList();
         }
     }
-    else if (result == -1) {
+    else if (result == -1)
+    {
         m_glWidget->m_objects.erase(m_glWidget->m_objects.begin() + index);
         m_glWidget->update();
         updatePlanetList();
@@ -195,7 +209,8 @@ void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item) {
  *
  * @param value Новое целочисленное значение, полученное от слайдера.
  */
-void GravitySimulation::onGSliderChanged(int value) {
+void GravitySimulation::onGSliderChanged(int value)
+{
     double G = value * 1e-12;
     m_glWidget->G = G;
 }

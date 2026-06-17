@@ -11,32 +11,33 @@
 
 #pragma once
 
-#include <QtWidgets/QMainWindow>
-#include <QOpenGLWidget>
-#include <QListWidget>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QDebug>
-#include <iostream>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QListWidget>
+#include <QOpenGLWidget>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QtWidgets/QMainWindow>
+#include <iostream>
+
 #include "SimulationGLWidget.h"
 
 /**
  * @class GravitySimulation
  * @brief Основной класс приложения, управляющий симуляцией гравитации и пользовательским интерфейсом.
- * 
+ *
  * Класс отвечает за:
  * - Инициализацию и компоновку UI (виджет отрисовки, список планет, слайдер G).
  * - Обработку пользовательских событий (добавление планет, запуск/остановка симуляции).
  * - Синхронизацию данных между логикой симуляции (SimulationGLWidget) и отображением (QListWidget).
- * 
+ *
  */
 class GravitySimulation : public QMainWindow
 {
     Q_OBJECT
 
-public:
+   public:
     /**
      * @brief Конструктор класса GravitySimulation.
      *
@@ -45,7 +46,7 @@ public:
      *
      * @param parent Указатель на родительский виджет. По умолчанию равен nullptr.
      */
-    GravitySimulation(QWidget *parent = nullptr);
+    GravitySimulation(QWidget* parent = nullptr);
 
     /**
      * @brief Деструктор класса GravitySimulation.
@@ -64,7 +65,7 @@ public:
      */
     void updatePlanetList();
 
-public slots:
+   public slots:
     /**
      * @brief Слот для запуска симуляции гравитационного взаимодействия.
      *
@@ -108,7 +109,7 @@ public slots:
      */
     void onGSliderChanged(int value);
 
-private:
+   private:
     /// @brief Указатель на виджет OpenGL для отрисовки 3D сцены и расчета физики.
     SimulationGLWidget* m_glWidget;
 

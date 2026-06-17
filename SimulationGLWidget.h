@@ -15,25 +15,26 @@
 
 #pragma once
 
-#include <QOpenGLWidget>
-#include <QOpenGLFunctions>
-#include <QTimer>
 #include <QKeyEvent>
+#include <QOpenGLFunctions>
+#include <QOpenGLWidget>
+#include <QTimer>
 #include <vector>
 
 /**
  * @struct Object
  * @brief Структура, представляющая физическое тело в гравитационной симуляции.
- * 
+ *
  * Хранит кинематические и динамические параметры объекта:
  * - Позиция и скорость (векторы из 3 координат).
  * - Масса и радиус (скалярные величины).
  * - Цвет (RGB) и имя (для отображения в UI).
- * 
+ *
  * Предоставляет методы для изменения состояния (ускорение, обновление позиции)
  * и отрисовки объекта в виде сферы.
  */
-struct Object {
+struct Object
+{
     /// @brief Текущая позиция объекта в 3D-пространстве (x, y, z).
     std::vector<double> position;
 
@@ -66,21 +67,23 @@ struct Object {
      * @param n Имя объекта (по умолчанию пустая строка).
      */
     Object(std::vector<double> pos, std::vector<double> vel, double m, double r = 20.0f,
-        std::vector<double> c = { 1.0f, 0.0f, 0.0f }, QString n = "")
-        : position(pos), velocity(vel), radius(r), mass(m), color(c), name(n) {
+           std::vector<double> c = {1.0f, 0.0f, 0.0f}, QString n = "")
+        : position(pos), velocity(vel), radius(r), mass(m), color(c), name(n)
+    {
     }
 
     /**
      * @brief Применяет ускорение к объекту за один шаг времени.
-     * 
+     *
      * Изменяет вектор скорости, добавляя приращения по каждой оси.
      * Используется для интеграции уравнений движения.
-     * 
+     *
      * @param x Приращение скорости по оси X.
      * @param y Приращение скорости по оси Y.
      * @param z Приращение скорости по оси Z.
      */
-    void accelerate(double x, double y, double z) {
+    void accelerate(double x, double y, double z)
+    {
         velocity[0] += x;
         velocity[1] += y;
         velocity[2] += z;
@@ -93,7 +96,8 @@ struct Object {
      *
      * @param dt Шаг времени (временной интервал с последнего обновления).
      */
-    void updatePos(double dt) {
+    void updatePos(double dt)
+    {
         position[0] += velocity[0] * dt;
         position[1] += velocity[1] * dt;
         position[2] += velocity[2] * dt;
@@ -123,10 +127,11 @@ struct Object {
  * @inherit QOpenGLWidget
  * @inherit QOpenGLFunctions
  */
-class SimulationGLWidget : public QOpenGLWidget, protected QOpenGLFunctions {
+class SimulationGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
+{
     Q_OBJECT
 
-public:
+   public:
     /**
      * @brief Конструктор класса SimulationGLWidget.
      *
@@ -154,7 +159,7 @@ public:
     /// Маленькое значение (1e-7) необходимо для стабильности симуляции при больших массах.
     double dt = 1e-7;
 
-public slots:
+   public slots:
     /**
      * @brief Запускает симуляцию гравитационного взаимодействия.
      *
@@ -191,7 +196,7 @@ public slots:
      */
     void updateObjects();
 
-protected:
+   protected:
     /**
      * @brief Инициализация OpenGL контекста при первом создании виджета.
      *
@@ -223,7 +228,7 @@ protected:
      */
     void paintGL() override;
 
-private:
+   private:
     /// @brief Таймер, управляющий частотой обновления симуляции (примерно 60 FPS).
     QTimer* m_timer;
 
@@ -325,7 +330,7 @@ private:
      */
     void updateCamera();
 
-signals:
+   signals:
     /**
      * @brief Сигнал, уведомляющий главное окно
      * об изменении списка объектов в симуляции.

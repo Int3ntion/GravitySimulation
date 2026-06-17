@@ -23,38 +23,40 @@
 
 /**
  * @brief Конструктор класса PlanetInfoDialog.
- * 
+ *
  * Инициализирует модальное диалоговое окно с информацией о переданной планете.
  * Создает и настраивает все элементы интерфейса: метки, поля ввода, спинбоксы
  * и кнопки управления. Настраивает компоновку (layout) элементов.
- * 
+ *
  * @param planet Константная ссылка на объект планеты (структура Object),
  *               данные которой будут отображены в диалоге.
  * @param parent Указатель на родительский виджет (по умолчанию nullptr).
  */
-PlanetInfoDialog::PlanetInfoDialog(const Object& planet, QWidget* parent) : QDialog(parent) {
-	setWindowTitle("Информация о планете " + planet.name);
-	setModal(true);
+PlanetInfoDialog::PlanetInfoDialog(const Object& planet, QWidget* parent) : QDialog(parent)
+{
+    setWindowTitle("Информация о планете " + planet.name);
+    setModal(true);
 
-	auto* mainLayout = new QVBoxLayout(this);
+    auto* mainLayout = new QVBoxLayout(this);
 
-	mainLayout->addWidget(new QLabel("Название:"));
-	m_nameEdit = new QLineEdit(planet.name, this);
-	mainLayout->addWidget(m_nameEdit);
+    mainLayout->addWidget(new QLabel("Название:"));
+    m_nameEdit = new QLineEdit(planet.name, this);
+    mainLayout->addWidget(m_nameEdit);
 
-	mainLayout->addWidget(new QLabel("Масса:"));
-	m_massSpin = new QDoubleSpinBox(this);
-	m_massSpin->setValue(planet.mass);
-	m_massSpin->setReadOnly(true);
-	m_massSpin->setButtonSymbols(QAbstractSpinBox::NoButtons);
-	mainLayout->addWidget(m_massSpin);
+    mainLayout->addWidget(new QLabel("Масса:"));
+    m_massSpin = new QDoubleSpinBox(this);
+    m_massSpin->setValue(planet.mass);
+    m_massSpin->setReadOnly(true);
+    m_massSpin->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    mainLayout->addWidget(m_massSpin);
 
     mainLayout->addWidget(new QLabel("Координаты (X, Y, Z):"));
     auto* posLayout = new QHBoxLayout();
     m_posXSpin = new QDoubleSpinBox(this);
     m_posYSpin = new QDoubleSpinBox(this);
     m_posZSpin = new QDoubleSpinBox(this);
-    for (auto* spin : { m_posXSpin, m_posYSpin, m_posZSpin }) {
+    for (auto* spin : {m_posXSpin, m_posYSpin, m_posZSpin})
+    {
         spin->setReadOnly(true);
         spin->setRange(-1e10, 1e10);
         spin->setButtonSymbols(QAbstractSpinBox::NoButtons);
@@ -70,7 +72,8 @@ PlanetInfoDialog::PlanetInfoDialog(const Object& planet, QWidget* parent) : QDia
     m_velXSpin = new QDoubleSpinBox(this);
     m_velYSpin = new QDoubleSpinBox(this);
     m_velZSpin = new QDoubleSpinBox(this);
-    for (auto* spin : { m_velXSpin, m_velYSpin, m_velZSpin }) {
+    for (auto* spin : {m_velXSpin, m_velYSpin, m_velZSpin})
+    {
         spin->setReadOnly(true);
         spin->setRange(-1e10, 1e10);
         spin->setButtonSymbols(QAbstractSpinBox::NoButtons);
@@ -105,7 +108,8 @@ PlanetInfoDialog::PlanetInfoDialog(const Object& planet, QWidget* parent) : QDia
  * который сигнализирует главному окну о необходимости удалить выбранную планету из вектора объектов.
  * После этого диалог закрывается.
  */
-void PlanetInfoDialog::onDeleteButtonClicked() {
+void PlanetInfoDialog::onDeleteButtonClicked()
+{
     done(-1);
 }
 
@@ -117,6 +121,7 @@ void PlanetInfoDialog::onDeleteButtonClicked() {
  *
  * @return QString Строка с новым именем планеты.
  */
-QString PlanetInfoDialog::getNewName() const {
+QString PlanetInfoDialog::getNewName() const
+{
     return m_nameEdit->text();
 }
