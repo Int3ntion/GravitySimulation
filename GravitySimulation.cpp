@@ -1,9 +1,29 @@
+/**
+ * @file GravitySimulation.cpp
+ * @brief Реализация главного окна приложения симуляции гравитации.
+ *
+ * Этот файл содержит реализацию класса GravitySimulation, который управляет
+ * основным интерфейсом приложения: отрисовкой сцены (через SimulationGLWidget),
+ * списком планет, диалогами добавления/редактирования и настройкой
+ * гравитационной постоянной.
+ *
+ * @author Шестаков Денис Сергеевич
+ */
+
 #include "GravitySimulation.h"
 #include "SimulationGLWidget.h"
 #include "AddPlanetDialog.h"
 #include "PlanetInfoDialog.h"
 #include <QDebug>
 
+ /**
+  * @brief Конструктор класса GravitySimulation.
+  *
+  * Инициализирует главное окно, настраивает пользовательский интерфейс (UI)
+  * и устанавливает соединения сигналов и слотов между виджетами и логикой приложения.
+  *
+  * @param parent Указатель на родительский виджет (по умолчанию nullptr).
+  */
 GravitySimulation::GravitySimulation(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -12,9 +32,22 @@ GravitySimulation::GravitySimulation(QWidget *parent)
     connect(m_glWidget, &SimulationGLWidget::planetListChanged, this, &GravitySimulation::updatePlanetList);
 }
 
+/**
+ * @brief Деструктор класса GravitySimulation.
+ *
+ * Освобождает ресурсы, занятые объектом.
+ */
 GravitySimulation::~GravitySimulation()
 {}
 
+/**
+ * @brief Настраивает пользовательский интерфейс главного окна.
+ *
+ * Создает и компонует все элементы интерфейса:
+ * - Центральную область с виджетом OpenGL (SimulationGLWidget).
+ * - Панель управления слева со списком планет, слайдером G и кнопкой добавления.
+ * - Устанавливает связи между элементами управления и слотами обработки событий.
+ */
 void GravitySimulation::setupUI() {
     QWidget* centralWidget = new QWidget(this);
     setCentralWidget(centralWidget);
@@ -54,14 +87,33 @@ void GravitySimulation::setupUI() {
     centralWidget->setLayout(m_mainLayout);
 }
 
+/**
+ * @brief Запускает симуляцию гравитационного взаимодействия.
+ *
+ * Вызывает метод startSimulation у виджета отрисовки (SimulationGLWidget),
+ * который активирует таймер обновления кадров.
+ */
 void GravitySimulation::onStartSimulation() {
     m_glWidget->startSimulation();
 }
 
+/**
+ * @brief Останавливает симуляцию гравитационного взаимодействия.
+ *
+ * Вызывает метод stopSimulation у виджета отрисовки, приостанавливая
+ * расчет физики и перерисовку сцены.
+ */
 void GravitySimulation::onStopSimulation() {
     m_glWidget->stopSimulation();
 }
 
+/**
+ * @brief Обновляет список планет в QListWidget.
+ *
+ * Очищает текущий список и заново заполняет его именами всех объектов,
+ * хранящихся в векторе m_objects виджета m_glWidget.
+ * Вызывается при изменении состава планет (добавление, удаление, переименование).
+ */
 void GravitySimulation::updatePlanetList() {
     m_listWidget->clear();
 
@@ -70,8 +122,21 @@ void GravitySimulation::updatePlanetList() {
     }
 }
 
+/**
+ * @brief Обработчик нажатия кнопки "Добавить планету".
+ *
+ * Открывает диалог AddPlanetDialog, передавая ему список существующих имен
+ * для проверки уникальности. Если пользователь подтверждает ввод (Accepted),
+ * создается новый объект Object и добавляется в симуляцию.
+ */
 void GravitySimulation::onAddPlanet() {
-    AddPlanetDialog dialog(this);
+    QStringList existingNames;
+
+    for (const auto& planet : m_glWidget->m_objects) {
+        existingNames << planet.name;
+    }
+
+    AddPlanetDialog dialog(existingNames, this);
     if (dialog.exec() == QDialog::Accepted) {
         QString name = dialog.getPlanetName();
         double mass = dialog.getMass();
@@ -87,6 +152,18 @@ void GravitySimulation::onAddPlanet() {
     }
 }
 
+/**
+ * @brief Обработчик двойного клика по элементу списка планет.
+ *
+ * При двойном клике открывает диалог PlanetInfoDialog для просмотра/редактирования
+ * информации о выбранной планете.
+ *
+ * Логика диалога:
+ * - Если пользователь нажал OK: планета переименовывается.
+ * - Если пользователь выбрал опцию удаления (возвращает -1): планета удаляется из симуляции.
+ *
+ * @param item Указатель на элемент списка (QListWidgetItem), по которому был сделан двойной клик.
+ */
 void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item) {
     int index = m_listWidget->row(item);
     if (index < 0 || index > m_glWidget->m_objects.size()) return;
@@ -110,6 +187,14 @@ void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item) {
     }
 }
 
+/**
+ * @brief Обработчик изменения значения слайдера гравитационной постоянной (G).
+ *
+ * Преобразует целочисленное значение слайдера в реальное значение константы G
+ * (умножая на 1e-12) и присваивает его полю G виджета симуляции.
+ *
+ * @param value Новое целочисленное значение, полученное от слайдера.
+ */
 void GravitySimulation::onGSliderChanged(int value) {
     double G = value * 1e-12;
     m_glWidget->G = G;

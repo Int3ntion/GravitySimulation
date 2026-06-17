@@ -1,8 +1,38 @@
+/**
+ * @file SimulationGLWidget.cpp
+ * @brief Реализация виджета OpenGL для симуляции гравитационного взаимодействия и отрисовки 3D-сцены.
+ *
+ * Данный файл содержит реализацию класса SimulationGLWidget, который наследуется от QOpenGLWidget.
+ * Он отвечает за:
+ * - Инициализацию контекста OpenGL и настройку проекции.
+ * - Расчет гравитационных сил между объектами (N-body simulation).
+ * - Построение карты гравитационного потенциала (сетка).
+ * - Управление камерой от первого лица.
+ * - Отрисовку планет в виде сфер и гравитационной сетки.
+ *
+ * @author Шестаков Денис Сергеевич
+ */
+
 #include "SimulationGLWidget.h"
 #include <cmath>
 #include <Windows.h>
 #include <gl/GLU.h>
 
+/**
+ * @class Object
+ * @brief Вспомогательный класс (структура данных), описывающий физическое тело в симуляции.
+ * 
+ * Хранит параметры планеты/объекта: позицию, скорость, массу, радиус, цвет и имя.
+ * Содержит метод отрисовки сферы.
+ */
+
+/**
+ * @brief Отрисовывает объект в виде сферы с использованием фиксированного конвейера OpenGL.
+ * 
+ * Сфера строится методом меридианов и параллелей (quad strip).
+ * Цвет устанавливается перед отрисовкой, позиция смещается относительно центра мира.
+ * 
+ */
 void Object::drawSphere() const {
     glColor3f(color[0], color[1], color[2]);
     const int slices = 64, stacks = 64;
@@ -38,6 +68,15 @@ void Object::drawSphere() const {
     }
 }
 
+/**
+ * @brief Конструктор класса SimulationGLWidget.
+ * 
+ * Инициализирует виджет, настраивает политику фокуса, создает таймер для обновления кадров
+ * и подключает сигналы таймера к слотам обновления физики и перерисовки.
+ * Сразу после создания запускает симуляцию.
+ * 
+ * @param parent Указатель на родительский виджет.
+ */
 SimulationGLWidget::SimulationGLWidget(QWidget* parent)
     : QOpenGLWidget(parent) {
     setFocusPolicy(Qt::StrongFocus);
@@ -48,10 +87,22 @@ SimulationGLWidget::SimulationGLWidget(QWidget* parent)
     startSimulation();
 }
 
+/**
+ * @brief Деструктор класса SimulationGLWidget.
+ *
+ * Освобождает ресурсы, занятые таймером.
+ */
 SimulationGLWidget::~SimulationGLWidget() {
     delete m_timer;
 }
 
+/**
+ * @brief Инициализация контекста OpenGL при первом создании виджета.
+ *
+ * Включает тест глубины (GL_DEPTH_TEST) для корректного перекрытия объектов.
+ * Заполняет начальный вектор объектов (Солнце, Земля, Метеор) и рассчитывает
+ * начальное гравитационное поле. Генерирует сигнал об изменении списка планет.
+ */
 void SimulationGLWidget::initializeGL() {
     initializeOpenGLFunctions();
     glEnable(GL_DEPTH_TEST);
@@ -67,6 +118,16 @@ void SimulationGLWidget::initializeGL() {
     calculateGravityField();
 }
 
+/**
+ * @brief Обработка изменения размера окна OpenGL-контекста.
+ *
+ * Настраивает область просмотра (viewport) и устанавливает перспективную проекцию.
+ * Угол обзора устанавливается 45 градусов, соотношение сторон берется из новых размеров окна.
+ * Дальняя плоскость отсечения установлена на 40000 единиц.
+ *
+ * @param w Новая ширина окна в пикселях.
+ * @param h Новая высота окна в пикселях.
+ */
 void SimulationGLWidget::resizeGL(int w, int h) {
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
@@ -74,6 +135,15 @@ void SimulationGLWidget::resizeGL(int w, int h) {
     gluPerspective(45.0f, static_cast<float>(w) / h, 0.1f, 40000.0f);
 }
 
+/**
+ * @brief Основной метод отрисовки кадра (вызывается каждый раз при обновлении виджета).
+ *
+ * Выполняет следующие действия:
+ * 1. Очищает буфер цвета и глубины.
+ * 2. Настраивает матрицу вида (ModelView) с учетом положения и вращения камеры.
+ * 3. Отрисовывает сетку гравитационного поля (линии).
+ * 4. Отрисовывает все объекты (планеты) как сферы.
+ */
 void SimulationGLWidget::paintGL() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -93,7 +163,6 @@ void SimulationGLWidget::paintGL() {
     const double step = (2.0 * gridSize) / resolution;
     glBegin(GL_LINES);
 
-    // Линии по оси X (горизонтальные)
     for (int i = 0; i <= resolution; ++i) {
         for (int j = 0; j < resolution; ++j) {
             double x1 = -gridSize + i * step;
@@ -109,7 +178,6 @@ void SimulationGLWidget::paintGL() {
         }
     }
 
-    // Линии по оси Z (вертикальные)
     for (int j = 0; j <= resolution; ++j) {
         for (int i = 0; i < resolution; ++i) {
             double x1 = -gridSize + i * step;
@@ -131,6 +199,15 @@ void SimulationGLWidget::paintGL() {
     }
 }
 
+/**
+ * @brief Рассчитывает суммарную гравитационную силу, действующую на каждый объект.
+ *
+ * Реализует упрощенную модель N-body задачи. Для каждой пары объектов вычисляется
+ * сила притяжения по закону всемирного тяготения.
+ * Вводится ограничение минимального расстояния (150 единиц) для предотвращения
+ * численной нестабильности при столкновении.
+ * Ускорение применяется непосредственно к скорости объекта через метод accelerate.
+ */
 void SimulationGLWidget::calculateForces() {
     for (auto& obj : m_objects) {
         for (const auto& obj2 : m_objects) {
@@ -154,6 +231,16 @@ void SimulationGLWidget::calculateForces() {
     }
 }
 
+/**
+ * @brief Обновляет состояние симуляции (физика + камера).
+ *
+ * Вызывается по таймеру. Последовательность действий:
+ * 1. Расчет сил и обновление скоростей объектов.
+ * 2. Обновление позиций объектов.
+ * 3. Пересчет карты гравитационного поля.
+ * 4. Обновление позиции камеры на основе нажатых клавиш.
+ * 5. Запрос перерисовки виджета.
+ */
 void SimulationGLWidget::updateObjects() {
     calculateForces();
     for (auto& obj : m_objects) {
@@ -164,11 +251,24 @@ void SimulationGLWidget::updateObjects() {
     update();
 }
 
+/**
+ * @brief Запускает симуляцию, устанавливая шаг времени и запуская таймер.
+ *
+ * Шаг времени dt устанавливается равным 1e-7 (очень маленький шаг для стабильности).
+ * Таймер запускается с интервалом 16 мс, что соответствует примерно 60 FPS.
+ */
 void SimulationGLWidget::startSimulation() {
     dt = 1e-7;
     m_timer->start(16); // 1000/FPS
 }
 
+/**
+ * @brief Останавливает симуляцию.
+ *
+ * Если пробел не нажат, просто останавливает таймер.
+ * Если пробел нажат (режим паузы), устанавливает шаг времени в 0, чтобы физика
+ * не продолжала считаться даже если таймер вдруг сработает.
+ */
 void SimulationGLWidget::stopSimulation() {
     if (m_keySpacePressed) {
         dt = 0;
@@ -178,6 +278,14 @@ void SimulationGLWidget::stopSimulation() {
     }
 }
 
+/**
+ * @brief Рассчитывает карту гравитационного потенциала для визуализации сетки.
+ *
+ * Создает двумерный массив m_gravityField размером (resolution+1)x(resolution+1).
+ * Для каждой точки сетки суммируется потенциал от всех объектов в симуляции.
+ * Формула потенциала упрощена для визуализации: V = -A * r / sqrt(dx^2 + dy^2 + r^2),
+ * где A зависит от логарифма массы. Результат смещается на -300 для лучшей видимости.
+ */
 void SimulationGLWidget::calculateGravityField() {
     const int size = m_gridResolution;
     const double worldSize = 4000.0;
@@ -208,6 +316,15 @@ void SimulationGLWidget::calculateGravityField() {
     }
 }
 
+/**
+ * @brief Обработчик нажатия клавиш клавиатуры.
+ *
+ * Регистрирует нажатие клавиш и записывает в соответствующие флаги-члены класса.
+ * Поддерживает управление камерой (WASD, QE, стрелки) и паузу (Space).
+ * Необработанные клавиши передаются базовому классу.
+ *
+ * @param event Указатель на событие нажатия клавиши (QKeyEvent).
+ */
 void SimulationGLWidget::keyPressEvent(QKeyEvent* event) {
     switch (event->key()) {
         case Qt::Key_W:
@@ -247,6 +364,16 @@ void SimulationGLWidget::keyPressEvent(QKeyEvent* event) {
     }
 }
 
+/**
+ * @brief Обработчик отпускания клавиш клавиатуры.
+ *
+ * Сбрасывает флаги состояния нажатых клавиш в значение false, когда пользователь
+ * отпускает соответствующую кнопку. Это позволяет прекратить движение камеры или
+ * другие действия, привязанные к удержанию клавиши.
+ * Необработанные клавиши передаются базовому классу для стандартной обработки.
+ *
+ * @param event Указатель на событие отпускания клавиши (QKeyEvent).
+ */
 void SimulationGLWidget::keyReleaseEvent(QKeyEvent* event) {
     switch (event->key()) {
     case Qt::Key_W:
@@ -286,6 +413,20 @@ void SimulationGLWidget::keyReleaseEvent(QKeyEvent* event) {
     }
 }
 
+/**
+ * @brief Обновляет позицию и ориентацию камеры на основе состояния клавиш.
+ *
+ * Метод реализует управление камерой от первого лица:
+ * - **Перемещение (W, A, S, D):** Движение вперед/назад и стрейф влево/вправо
+ *   относительно текущего направления взгляда (учитывается угол рысканья m_cameraYaw).
+ * - **Вертикальное перемещение (Q, E):** Подъем и спуск по оси Y.
+ * - **Вращение (Стрелки):** Изменение угла тангажа (Pitch) и рысканья (Yaw).
+ *   Угол тангажа ограничен диапазоном [-90, 90] для предотвращения инверсии камеры.
+ * - **Пауза симуляции (Space):** Если пробел удерживается, симуляция останавливается,
+ *   если отпущен — запускается снова.
+ *
+ * После обновления параметров камеры запрашивается перерисовка виджета.
+ */
 void SimulationGLWidget::updateCamera() {
     if (m_keyWPressed || m_keySPressed || m_keyAPressed || m_keyDPressed) {
         double forwardX = std::sin(-m_cameraYaw * M_PI / 180.0);
