@@ -85,7 +85,7 @@ cmake --build .
 
 После сборки в папке *build* запустите файл **GravitySimulation.exe**.
    - Так как в репозитории нет DLL-библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом **GravitySimulation.exe**:
-    ```cmd
+    ```bash
     windeployqt.exe --release --no-compiler-runtime GravitySimulation.exe
     ```
 
