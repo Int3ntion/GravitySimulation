@@ -1,0 +1,154 @@
+\doxysection{Структура Object}
+\hypertarget{struct_object}{}\label{struct_object}\index{Object@{Object}}
+
+
+Вспомогательный класс (структура данных), описывающий физическое тело в симуляции.  
+
+
+
+
+{\ttfamily \+\#include $<$Simulation\+GLWidget.\+h$>$}
+
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_object_a54f726863d7dd73cc5a3d1588e927659}{Object}} (std::\+vector$<$ double $>$ pos, std::\+vector$<$ double $>$ vel, double m, double r=20.\+0f, std::\+vector$<$ double $>$ c=\{ 1.\+0f, 0.\+0f, 0.\+0f \}, QString n="{}"{})
+\begin{DoxyCompactList}\small\item\em Конструктор структуры \doxylink{struct_object}{Object}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{struct_object_a826f5f9f4719842e3d8ce0dfeca59f8c}{accelerate}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Применяет ускорение к объекту за один шаг времени. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{struct_object_aae5fcb8e6ec18c6087ae5e091bf333fa}{update\+Pos}} (double dt)
+\begin{DoxyCompactList}\small\item\em Обновляет позицию объекта на основе текущей скорости. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{struct_object_a7d7ac5c880ad4a305ec6b3542659f11f}{draw\+Sphere}} () const
+\begin{DoxyCompactList}\small\item\em Отрисовывает объект в виде сферы с использованием Open\+GL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}\label{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7} 
+std::\+vector$<$ double $>$ {\bfseries position}
+\begin{DoxyCompactList}\small\item\em Текущая позиция объекта в 3D-\/пространстве (x, y, z). \end{DoxyCompactList}\item 
+\Hypertarget{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}\label{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a} 
+std::\+vector$<$ double $>$ {\bfseries velocity}
+\begin{DoxyCompactList}\small\item\em Вектор скорости объекта (vx, vy, vz). \end{DoxyCompactList}\item 
+\Hypertarget{struct_object_aacfbf5151daad699c60efc27fb702406}\label{struct_object_aacfbf5151daad699c60efc27fb702406} 
+double {\bfseries radius}
+\begin{DoxyCompactList}\small\item\em Радиус объекта в единицах мира. \end{DoxyCompactList}\item 
+\Hypertarget{struct_object_abbd565f533683168a39d703f3b5c6bae}\label{struct_object_abbd565f533683168a39d703f3b5c6bae} 
+double {\bfseries mass}
+\begin{DoxyCompactList}\small\item\em Масса объекта (в условных единицах, совместимых с константой G). \end{DoxyCompactList}\item 
+\Hypertarget{struct_object_a62cb1c6ffcce0a16939d345dc527d9db}\label{struct_object_a62cb1c6ffcce0a16939d345dc527d9db} 
+std::\+vector$<$ double $>$ {\bfseries color}
+\begin{DoxyCompactList}\small\item\em Цвет объекта в формате RGB (значения от 0.\+0 до 1.\+0). \end{DoxyCompactList}\item 
+\Hypertarget{struct_object_ae9c7bbe181d6d49d69b72a1b59ee4e95}\label{struct_object_ae9c7bbe181d6d49d69b72a1b59ee4e95} 
+QString {\bfseries name}
+\begin{DoxyCompactList}\small\item\em Имя объекта (например, "{}Солнце"{}, "{}Земля"{}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Вспомогательный класс (структура данных), описывающий физическое тело в симуляции. 
+
+Структура, представляющая физическое тело в гравитационной симуляции.
+
+Хранит параметры планеты/\+объекта:\+ позицию, скорость, массу, радиус, цвет и имя. Содержит метод отрисовки сферы.
+
+Хранит кинематические и динамические параметры объекта:\+
+\begin{DoxyItemize}
+\item Позиция и скорость (векторы из 3 координат).
+\item Масса и радиус (скалярные величины).
+\item Цвет (RGB) и имя (для отображения в UI).
+\end{DoxyItemize}
+
+Предоставляет методы для изменения состояния (ускорение, обновление позиции) и отрисовки объекта в виде сферы. 
+
+\label{struct_object_doc-constructors}
+\Hypertarget{struct_object_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{struct_object_a54f726863d7dd73cc5a3d1588e927659}\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{Object()}{Object()}}
+{\footnotesize\ttfamily \label{struct_object_a54f726863d7dd73cc5a3d1588e927659} 
+Object::\+\+Object (\begin{DoxyParamCaption}\item[{std::\+vector$<$ double $>$}]{pos}{, }\item[{std::\+vector$<$ double $>$}]{vel}{, }\item[{double}]{m}{, }\item[{double}]{r}{ = {\ttfamily 20.0f}, }\item[{std::\+vector$<$ double $>$}]{c}{ = {\ttfamily \{~1.0f,~0.0f,~0.0f~\}}, }\item[{QString}]{n}{ = {\ttfamily "{}"{}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор структуры \doxylink{struct_object}{Object}. 
+
+Инициализирует объект заданными параметрами. Значения по умолчанию:\+ радиус = 20.\+0, цвет = красный (1, 0, 0), имя = пустое.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em pos} & Вектор начальной позиции. \\
+\hline
+{\em vel} & Вектор начальной скорости. \\
+\hline
+{\em m} & Масса объекта. \\
+\hline
+{\em r} & Радиус объекта (по умолчанию 20.\+0). \\
+\hline
+{\em c} & Вектор цвета (по умолчанию красный). \\
+\hline
+{\em n} & Имя объекта (по умолчанию пустая строка). \\
+\hline
+\end{DoxyParams}
+
+
+\label{struct_object_doc-func-members}
+\Hypertarget{struct_object_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{struct_object_a826f5f9f4719842e3d8ce0dfeca59f8c}\index{Object@{Object}!accelerate@{accelerate}}
+\index{accelerate@{accelerate}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{accelerate()}{accelerate()}}
+{\footnotesize\ttfamily \label{struct_object_a826f5f9f4719842e3d8ce0dfeca59f8c} 
+void Object::\+accelerate (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Применяет ускорение к объекту за один шаг времени. 
+
+Изменяет вектор скорости, добавляя приращения по каждой оси. Используется для интеграции уравнений движения.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em x} & Приращение скорости по оси X. \\
+\hline
+{\em y} & Приращение скорости по оси Y. \\
+\hline
+{\em z} & Приращение скорости по оси Z. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_object_a7d7ac5c880ad4a305ec6b3542659f11f}\index{Object@{Object}!drawSphere@{drawSphere}}
+\index{drawSphere@{drawSphere}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{drawSphere()}{drawSphere()}}
+{\footnotesize\ttfamily \label{struct_object_a7d7ac5c880ad4a305ec6b3542659f11f} 
+void Object::\+draw\+Sphere (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Отрисовывает объект в виде сферы с использованием Open\+GL. 
+
+Отрисовывает объект в виде сферы с использованием фиксированного конвейера Open\+GL.
+
+Использует текущий цвет объекта и его позицию для построения сферы методом меридианов и параллелей (quad strip). Метод помечен как const, так как не изменяет состояние объекта.
+
+Сфера строится методом меридианов и параллелей (quad strip). Цвет устанавливается перед отрисовкой, позиция смещается относительно центра мира. \Hypertarget{struct_object_aae5fcb8e6ec18c6087ae5e091bf333fa}\index{Object@{Object}!updatePos@{updatePos}}
+\index{updatePos@{updatePos}!Object@{Object}}
+\doxysubsubsection{\texorpdfstring{updatePos()}{updatePos()}}
+{\footnotesize\ttfamily \label{struct_object_aae5fcb8e6ec18c6087ae5e091bf333fa} 
+void Object::\+update\+Pos (\begin{DoxyParamCaption}\item[{double}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Обновляет позицию объекта на основе текущей скорости. 
+
+Вычисляет новую позицию по формуле:\+ pos\+\_\+new = pos\+\_\+old + vel \texorpdfstring{$\ast$}{*} dt.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em dt} & Шаг времени (временной интервал с последнего обновления). \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов структур находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{Simulation\+GLWidget.\+h}}\item 
+\doxymbox{\hyperlink{_simulation_g_l_widget_8cpp}{Simulation\+GLWidget.\+cpp}}\end{DoxyCompactItemize}

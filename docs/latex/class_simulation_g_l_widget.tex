@@ -1,0 +1,273 @@
+\doxysection{Класс Simulation\+GLWidget}
+\hypertarget{class_simulation_g_l_widget}{}\label{class_simulation_g_l_widget}\index{SimulationGLWidget@{SimulationGLWidget}}
+
+
+Основной виджет приложения для симуляции и визуализации гравитации.  
+
+
+
+
+{\ttfamily \+\#include $<$Simulation\+GLWidget.\+h$>$}
+
+Граф наследования:\+Simulation\+GLWidget:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_simulation_g_l_widget}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые слоты}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a397aaaac01d7ffae4eb71e845f7cfde0}{start\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Запускает симуляцию гравитационного взаимодействия. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_ae9dc6995a47711b57916691879eee531}{stop\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Останавливает симуляцию гравитационного взаимодействия. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a8f7648972d51fb8ddbac1cd7e5ea7926}{calculate\+Forces}} ()
+\begin{DoxyCompactList}\small\item\em Рассчитывает силы гравитационного притяжения между всеми объектами. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a3f1615ec26488a6a27b9c66013a0c0e1}{update\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em Выполняет полный цикл обновления состояния симуляции. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Сигналы}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a54d7733cc089f22d472dcbc286449219}{planet\+List\+Changed}} ()
+\begin{DoxyCompactList}\small\item\em Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_simulation_g_l_widget_ad0519dbc15499d778f6a5c5153e8015e}{Simulation\+GLWidget}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_simulation_g_l_widget_ac6c175d52b32d6b7aafec1baacb64575}{\texorpdfstring{$\sim$}{\string~}\+Simulation\+GLWidget}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор класса \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_simulation_g_l_widget_a6c6bcf926ed022d91bbce06688f2e1f0}\label{class_simulation_g_l_widget_a6c6bcf926ed022d91bbce06688f2e1f0} 
+std::\+vector$<$ \doxymbox{\hyperlink{struct_object}{Object}} $>$ {\bfseries m\+\_\+objects}
+\begin{DoxyCompactList}\small\item\em Список всех объектов симуляции. \end{DoxyCompactList}\item 
+\Hypertarget{class_simulation_g_l_widget_af55df4fb752bbabee1d33c16150f5a9a}\label{class_simulation_g_l_widget_af55df4fb752bbabee1d33c16150f5a9a} 
+double {\bfseries G} = 6.\+6743e-\/11
+\begin{DoxyCompactList}\small\item\em Гравитационная постоянная (G). Значение по умолчанию соответствует реальной физической константе. \end{DoxyCompactList}\item 
+\Hypertarget{class_simulation_g_l_widget_ad2549607dde643c6407976cc978e24fa}\label{class_simulation_g_l_widget_ad2549607dde643c6407976cc978e24fa} 
+double {\bfseries dt} = 1e-\/7
+\begin{DoxyCompactList}\small\item\em Шаг времени для численного интегрирования физики. Маленькое значение (1e-\/7) необходимо для стабильности симуляции при больших массах. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a842bc555e047a48292ad2956fb6cf685}{initialize\+GL}} () override
+\begin{DoxyCompactList}\small\item\em Инициализация Open\+GL контекста при первом создании виджета. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_ab68e8f53fd8e456c078a9fa11b4c3abb}{resize\+GL}} (int w, int h) override
+\begin{DoxyCompactList}\small\item\em Обработка изменения размера окна виджета. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_simulation_g_l_widget_a2a81138e7f3594e268afcb41dde35ee2}{paint\+GL}} () override
+\begin{DoxyCompactList}\small\item\em Основной метод отрисовки кадра. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Основной виджет приложения для симуляции и визуализации гравитации. 
+
+Класс объединяет логику физического движка и рендеринг в реальном времени. Основные возможности:\+
+\begin{DoxyItemize}
+\item Реализация N-\/body симуляции (расчет гравитационных сил между всеми объектами).
+\item Визуализация гравитационного поля в виде деформированной сетки.
+\item Камера от первого лица с управлением через клавиатуру (WASD, стрелки, QE).
+\item Интеграция с Qt через сигналы и слоты для уведомления UI об изменениях. 
+\end{DoxyItemize}
+
+\label{class_simulation_g_l_widget_doc-constructors}
+\Hypertarget{class_simulation_g_l_widget_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_simulation_g_l_widget_ad0519dbc15499d778f6a5c5153e8015e}\index{SimulationGLWidget@{SimulationGLWidget}!SimulationGLWidget@{SimulationGLWidget}}
+\index{SimulationGLWidget@{SimulationGLWidget}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{SimulationGLWidget()}{SimulationGLWidget()}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_ad0519dbc15499d778f6a5c5153e8015e} 
+Simulation\+GLWidget::\+\+Simulation\+GLWidget (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор класса \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}. 
+
+Создает виджет, инициализирует параметры камеры по умолчанию и создает таймер для управления частотой кадров симуляции.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr).\\
+\hline
+\end{DoxyParams}
+Инициализирует виджет, настраивает политику фокуса, создает таймер для обновления кадров и подключает сигналы таймера к слотам обновления физики и перерисовки. Сразу после создания запускает симуляцию.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em parent} & Указатель на родительский виджет. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_simulation_g_l_widget_ac6c175d52b32d6b7aafec1baacb64575}\index{SimulationGLWidget@{SimulationGLWidget}!````~SimulationGLWidget@{\texorpdfstring{$\sim$}{\string~}SimulationGLWidget}}
+\index{````~SimulationGLWidget@{\texorpdfstring{$\sim$}{\string~}SimulationGLWidget}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SimulationGLWidget()}{\string~SimulationGLWidget()}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_ac6c175d52b32d6b7aafec1baacb64575} 
+Simulation\+GLWidget::\+\texorpdfstring{$\sim$}{\string~}\+Simulation\+GLWidget (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Деструктор класса \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}. 
+
+Освобождает ресурсы, занятые таймером. 
+
+\label{class_simulation_g_l_widget_doc-func-members}
+\Hypertarget{class_simulation_g_l_widget_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_simulation_g_l_widget_a8f7648972d51fb8ddbac1cd7e5ea7926}\index{SimulationGLWidget@{SimulationGLWidget}!calculateForces@{calculateForces}}
+\index{calculateForces@{calculateForces}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{calculateForces}{calculateForces}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a8f7648972d51fb8ddbac1cd7e5ea7926} 
+void Simulation\+GLWidget::\+calculate\+Forces (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Рассчитывает силы гравитационного притяжения между всеми объектами. 
+
+Рассчитывает суммарную гравитационную силу, действующую на каждый объект.
+
+Проходит по всем парам объектов, вычисляет силу по закону всемирного тяготения и применяет соответствующее ускорение к каждому объекту.
+
+Реализует упрощенную модель N-\/body задачи. Для каждой пары объектов вычисляется сила притяжения по закону всемирного тяготения. Вводится ограничение минимального расстояния (150 единиц) для предотвращения численной нестабильности при столкновении. Ускорение применяется непосредственно к скорости объекта через метод accelerate. \Hypertarget{class_simulation_g_l_widget_a842bc555e047a48292ad2956fb6cf685}\index{SimulationGLWidget@{SimulationGLWidget}!initializeGL@{initializeGL}}
+\index{initializeGL@{initializeGL}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{initializeGL()}{initializeGL()}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a842bc555e047a48292ad2956fb6cf685} 
+void Simulation\+GLWidget::\+initialize\+GL (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Инициализация Open\+GL контекста при первом создании виджета. 
+
+Инициализация контекста Open\+GL при первом создании виджета.
+
+Вызывается автоматически фреймворком Qt. Здесь производится:\+
+\begin{DoxyItemize}
+\item Инициализация функций Open\+GL.
+\item Включение теста глубины (GL\+\_\+\+DEPTH\+\_\+\+TEST).
+\item Создание начального набора объектов (Солнце, Земля, Метеор).
+\item Расчет начального гравитационного поля.
+\item Генерация сигнала {\ttfamily \doxylink{class_simulation_g_l_widget_a54d7733cc089f22d472dcbc286449219}{planet\+List\+Changed}}.
+\end{DoxyItemize}
+
+Включает тест глубины (GL\+\_\+\+DEPTH\+\_\+\+TEST) для корректного перекрытия объектов. Заполняет начальный вектор объектов (Солнце, Земля, Метеор) и рассчитывает начальное гравитационное поле. Генерирует сигнал об изменении списка планет. \Hypertarget{class_simulation_g_l_widget_a2a81138e7f3594e268afcb41dde35ee2}\index{SimulationGLWidget@{SimulationGLWidget}!paintGL@{paintGL}}
+\index{paintGL@{paintGL}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{paintGL()}{paintGL()}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a2a81138e7f3594e268afcb41dde35ee2} 
+void Simulation\+GLWidget::\+paint\+GL (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Основной метод отрисовки кадра. 
+
+Основной метод отрисовки кадра (вызывается каждый раз при обновлении виджета).
+
+Очищает буфер, применяет трансформации камеры, рисует гравитационную сетку и все объекты симуляции. Вызывается каждый раз, когда виджет нужно перерисовать.
+
+Выполняет следующие действия:\+
+\begin{DoxyEnumerate}
+\item Очищает буфер цвета и глубины.
+\item Настраивает матрицу вида (Model\+View) с учетом положения и вращения камеры.
+\item Отрисовывает сетку гравитационного поля (линии).
+\item Отрисовывает все объекты (планеты) как сферы. 
+\end{DoxyEnumerate}\Hypertarget{class_simulation_g_l_widget_a54d7733cc089f22d472dcbc286449219}\index{SimulationGLWidget@{SimulationGLWidget}!planetListChanged@{planetListChanged}}
+\index{planetListChanged@{planetListChanged}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{planetListChanged}{planetListChanged}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a54d7733cc089f22d472dcbc286449219} 
+void Simulation\+GLWidget::\+planet\+List\+Changed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции. 
+
+Генерируется после инициализации объектов или при добавлении/\+удалении планет. Позволяет синхронизировать список в UI (QList\+Widget) с данными симуляции. \Hypertarget{class_simulation_g_l_widget_ab68e8f53fd8e456c078a9fa11b4c3abb}\index{SimulationGLWidget@{SimulationGLWidget}!resizeGL@{resizeGL}}
+\index{resizeGL@{resizeGL}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{resizeGL()}{resizeGL()}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_ab68e8f53fd8e456c078a9fa11b4c3abb} 
+void Simulation\+GLWidget::\+resize\+GL (\begin{DoxyParamCaption}\item[{int}]{w}{, }\item[{int}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Обработка изменения размера окна виджета. 
+
+Обработка изменения размера окна Open\+GL-\/контекста.
+
+Обновляет область просмотра (viewport) и пересчитывает матрицу проекции с учетом нового соотношения сторон окна.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em w} & Новая ширина окна в пикселях. \\
+\hline
+{\em h} & Новая высота окна в пикселях.\\
+\hline
+\end{DoxyParams}
+Настраивает область просмотра (viewport) и устанавливает перспективную проекцию. Угол обзора устанавливается 45 градусов, соотношение сторон берется из новых размеров окна. Дальняя плоскость отсечения установлена на 40000 единиц.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em w} & Новая ширина окна в пикселях. \\
+\hline
+{\em h} & Новая высота окна в пикселях. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_simulation_g_l_widget_a397aaaac01d7ffae4eb71e845f7cfde0}\index{SimulationGLWidget@{SimulationGLWidget}!startSimulation@{startSimulation}}
+\index{startSimulation@{startSimulation}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{startSimulation}{startSimulation}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a397aaaac01d7ffae4eb71e845f7cfde0} 
+void Simulation\+GLWidget::\+start\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Запускает симуляцию гравитационного взаимодействия. 
+
+Запускает симуляцию, устанавливая шаг времени и запуская таймер.
+
+Устанавливает шаг времени и запускает внутренний таймер, который вызывает обновление физики и перерисовку кадра.
+
+Шаг времени dt устанавливается равным 1e-\/7 (очень маленький шаг для стабильности). Таймер запускается с интервалом 16 мс, что соответствует примерно 60 FPS. \Hypertarget{class_simulation_g_l_widget_ae9dc6995a47711b57916691879eee531}\index{SimulationGLWidget@{SimulationGLWidget}!stopSimulation@{stopSimulation}}
+\index{stopSimulation@{stopSimulation}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{stopSimulation}{stopSimulation}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_ae9dc6995a47711b57916691879eee531} 
+void Simulation\+GLWidget::\+stop\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Останавливает симуляцию гравитационного взаимодействия. 
+
+Останавливает симуляцию.
+
+Останавливает таймер обновления кадров. Если симуляция была приостановлена клавишей пробела, также сбрасывает шаг времени в ноль.
+
+Если пробел не нажат, просто останавливает таймер. Если пробел нажат (режим паузы), устанавливает шаг времени в 0, чтобы физика не продолжала считаться даже если таймер вдруг сработает. \Hypertarget{class_simulation_g_l_widget_a3f1615ec26488a6a27b9c66013a0c0e1}\index{SimulationGLWidget@{SimulationGLWidget}!updateObjects@{updateObjects}}
+\index{updateObjects@{updateObjects}!SimulationGLWidget@{SimulationGLWidget}}
+\doxysubsubsection{\texorpdfstring{updateObjects}{updateObjects}}
+{\footnotesize\ttfamily \label{class_simulation_g_l_widget_a3f1615ec26488a6a27b9c66013a0c0e1} 
+void Simulation\+GLWidget::\+update\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Выполняет полный цикл обновления состояния симуляции. 
+
+Обновляет состояние симуляции (физика + камера).
+
+Последовательно вызывает:\+
+\begin{DoxyEnumerate}
+\item Расчет сил ({\ttfamily \doxylink{class_simulation_g_l_widget_a8f7648972d51fb8ddbac1cd7e5ea7926}{calculate\+Forces}}).
+\item Обновление позиций объектов.
+\item Пересчет карты гравитационного поля.
+\item Обновление камеры на основе ввода пользователя.
+\item Запрос перерисовки виджета.
+\end{DoxyEnumerate}
+
+Вызывается по таймеру. Последовательность действий:\+
+\begin{DoxyEnumerate}
+\item Расчет сил и обновление скоростей объектов.
+\item Обновление позиций объектов.
+\item Пересчет карты гравитационного поля.
+\item Обновление позиции камеры на основе нажатых клавиш.
+\item Запрос перерисовки виджета. 
+\end{DoxyEnumerate}
+
+Объявления и описания членов классов находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{Simulation\+GLWidget.\+h}}\item 
+\doxymbox{\hyperlink{_simulation_g_l_widget_8cpp}{Simulation\+GLWidget.\+cpp}}\end{DoxyCompactItemize}

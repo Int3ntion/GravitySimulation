@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gravity Simulation: Исходный файл AddPlanetDialog.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gravity Simulation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_add_planet_dialog_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AddPlanetDialog.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_add_planet_dialog_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;QDialog&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;QLineEdit&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;QDoubleSpinBox&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;QColorDialog&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;QStringList&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_add_planet_dialog.html">   43</a></span><span class="keyword">class </span><a class="code hl_function" href="class_add_planet_dialog.html#a5f21f80b36be5dab159b5d1a06cfd369">AddPlanetDialog</a> : <span class="keyword">public</span> QDialog {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    Q_OBJECT</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_add_planet_dialog.html#a5f21f80b36be5dab159b5d1a06cfd369">AddPlanetDialog</a>(<span class="keyword">const</span> QStringList&amp; existingNames = QStringList(), QWidget* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    QString <a class="code hl_function" href="class_add_planet_dialog.html#a9cbe60da62aa82a132dc72f1f0bda8f4">getPlanetName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_add_planet_dialog.html#a6c569dff32546a2e7e29620186428169">getMass</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="class_add_planet_dialog.html#ae567d3363079e7fab4d91a06cefcc0c3">getRadius</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    std::vector&lt;double&gt; <a class="code hl_function" href="class_add_planet_dialog.html#a6b8b85f863c63c965c0cb68aaec5da9a">getPosition</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    std::vector&lt;double&gt; <a class="code hl_function" href="class_add_planet_dialog.html#a71ddcaf4ad8ae2c443738238c2c62c47">getVelocity</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    std::vector&lt;double&gt; <a class="code hl_function" href="class_add_planet_dialog.html#a617ac89f7a240f733dee313360bfad62">getColor</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_add_planet_dialog.html#a366fc881a0fb9f965cd67620201f7891">  116</a></span>    QDoubleSpinBox* <a class="code hl_variable" href="class_add_planet_dialog.html#a366fc881a0fb9f965cd67620201f7891">m_massSpin</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="class_add_planet_dialog.html#ab64ea8a2d7a0624446536ae23495d8e2">  119</a></span>    QDoubleSpinBox* <a class="code hl_variable" href="class_add_planet_dialog.html#ab64ea8a2d7a0624446536ae23495d8e2">m_radiusSpin</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="class_add_planet_dialog.html#aee4dd760a2ba0f1b14d6532b0e463d8f">  122</a></span>    QDoubleSpinBox* <a class="code hl_variable" href="class_add_planet_dialog.html#aee4dd760a2ba0f1b14d6532b0e463d8f">m_posXSpin</a>, * m_posYSpin, * m_posZSpin;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="class_add_planet_dialog.html#a750af2c23d80da042bea47b8e1794eaf">  125</a></span>    QDoubleSpinBox* <a class="code hl_variable" href="class_add_planet_dialog.html#a750af2c23d80da042bea47b8e1794eaf">m_velXSpin</a>, * m_velYSpin, * m_velZSpin;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">private</span> slots:</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">void</span> onNameTextChanged(<span class="keyword">const</span> QString&amp; text);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordtype">void</span> onColorButtonClicked();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    QLineEdit* m_nameEdit;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    QPushButton* m_colorButton;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    QPushButton* m_okButton;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    QStringList m_existingNames;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    QColor m_selectedColor;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>};</div>
+</div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a366fc881a0fb9f965cd67620201f7891"><div class="ttname"><a href="class_add_planet_dialog.html#a366fc881a0fb9f965cd67620201f7891">AddPlanetDialog::m_massSpin</a></div><div class="ttdeci">QDoubleSpinBox * m_massSpin</div><div class="ttdoc">Спинбокс для ввода массы планеты. Доступен для внешнего доступа.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.h:116</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a5f21f80b36be5dab159b5d1a06cfd369"><div class="ttname"><a href="class_add_planet_dialog.html#a5f21f80b36be5dab159b5d1a06cfd369">AddPlanetDialog::AddPlanetDialog</a></div><div class="ttdeci">AddPlanetDialog(const QStringList &amp;existingNames=QStringList(), QWidget *parent=nullptr)</div><div class="ttdoc">Конструктор класса AddPlanetDialog.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:33</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a617ac89f7a240f733dee313360bfad62"><div class="ttname"><a href="class_add_planet_dialog.html#a617ac89f7a240f733dee313360bfad62">AddPlanetDialog::getColor</a></div><div class="ttdeci">std::vector&lt; double &gt; getColor() const</div><div class="ttdoc">Возвращает цвет планеты в нормализованном формате RGB.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:183</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a6b8b85f863c63c965c0cb68aaec5da9a"><div class="ttname"><a href="class_add_planet_dialog.html#a6b8b85f863c63c965c0cb68aaec5da9a">AddPlanetDialog::getPosition</a></div><div class="ttdeci">std::vector&lt; double &gt; getPosition() const</div><div class="ttdoc">Возвращает вектор начальных координат планеты (X, Y, Z).</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:159</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a6c569dff32546a2e7e29620186428169"><div class="ttname"><a href="class_add_planet_dialog.html#a6c569dff32546a2e7e29620186428169">AddPlanetDialog::getMass</a></div><div class="ttdeci">double getMass() const</div><div class="ttdoc">Возвращает значение массы планеты.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:137</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a71ddcaf4ad8ae2c443738238c2c62c47"><div class="ttname"><a href="class_add_planet_dialog.html#a71ddcaf4ad8ae2c443738238c2c62c47">AddPlanetDialog::getVelocity</a></div><div class="ttdeci">std::vector&lt; double &gt; getVelocity() const</div><div class="ttdoc">Возвращает вектор начальной скорости планеты (Vx, Vy, Vz).</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:171</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a750af2c23d80da042bea47b8e1794eaf"><div class="ttname"><a href="class_add_planet_dialog.html#a750af2c23d80da042bea47b8e1794eaf">AddPlanetDialog::m_velXSpin</a></div><div class="ttdeci">QDoubleSpinBox * m_velXSpin</div><div class="ttdoc">Спинбоксы для ввода компонент скорости X, Y, Z соответственно. Доступны для внешнего доступа.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.h:125</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_a9cbe60da62aa82a132dc72f1f0bda8f4"><div class="ttname"><a href="class_add_planet_dialog.html#a9cbe60da62aa82a132dc72f1f0bda8f4">AddPlanetDialog::getPlanetName</a></div><div class="ttdeci">QString getPlanetName() const</div><div class="ttdoc">Возвращает имя новой планеты, введенное пользователем.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:126</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_ab64ea8a2d7a0624446536ae23495d8e2"><div class="ttname"><a href="class_add_planet_dialog.html#ab64ea8a2d7a0624446536ae23495d8e2">AddPlanetDialog::m_radiusSpin</a></div><div class="ttdeci">QDoubleSpinBox * m_radiusSpin</div><div class="ttdoc">Спинбокс для ввода радиуса планеты. Доступен для внешнего доступа.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.h:119</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_ae567d3363079e7fab4d91a06cefcc0c3"><div class="ttname"><a href="class_add_planet_dialog.html#ae567d3363079e7fab4d91a06cefcc0c3">AddPlanetDialog::getRadius</a></div><div class="ttdeci">double getRadius() const</div><div class="ttdoc">Возвращает значение радиуса планеты.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.cpp:148</div></div>
+<div class="ttc" id="aclass_add_planet_dialog_html_aee4dd760a2ba0f1b14d6532b0e463d8f"><div class="ttname"><a href="class_add_planet_dialog.html#aee4dd760a2ba0f1b14d6532b0e463d8f">AddPlanetDialog::m_posXSpin</a></div><div class="ttdeci">QDoubleSpinBox * m_posXSpin</div><div class="ttdoc">Спинбоксы для ввода координат X, Y, Z соответственно. Доступны для внешнего доступа.</div><div class="ttdef"><b>Определения</b> AddPlanetDialog.h:122</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="_add_planet_dialog_8h.html">AddPlanetDialog.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

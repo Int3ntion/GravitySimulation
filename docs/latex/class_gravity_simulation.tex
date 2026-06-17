@@ -1,0 +1,216 @@
+\doxysection{Класс Gravity\+Simulation}
+\hypertarget{class_gravity_simulation}{}\label{class_gravity_simulation}\index{GravitySimulation@{GravitySimulation}}
+
+
+Основной класс приложения, управляющий симуляцией гравитации и пользовательским интерфейсом.  
+
+
+
+
+{\ttfamily \+\#include $<$Gravity\+Simulation.\+h$>$}
+
+Граф наследования:\+Gravity\+Simulation:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gravity_simulation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые слоты}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_a1dc09ed2be4412c46aceddbfa9d1d61e}{on\+Start\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Слот для запуска симуляции гравитационного взаимодействия. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_ae41c8122a07b5d35696b0ad02cd43e04}{on\+Stop\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Слот для остановки симуляции гравитационного взаимодействия. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5}{on\+Add\+Planet}} ()
+\begin{DoxyCompactList}\small\item\em Слот обработки нажатия кнопки "{}Добавить планету"{}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd}{on\+Planet\+Double\+Clicked}} (QList\+Widget\+Item \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em Слот обработки двойного клика по элементу списка планет. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_a44ac1898d14a5c7031f9c7a5ebc51b7e}{on\+GSlider\+Changed}} (int value)
+\begin{DoxyCompactList}\small\item\em Слот обработки изменения значения слайдера гравитационной постоянной. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}{Gravity\+Simulation}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \doxylink{class_gravity_simulation}{Gravity\+Simulation}. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_gravity_simulation_a63a4861aec741a8afba98cca80681f70}{\texorpdfstring{$\sim$}{\string~}\+Gravity\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор класса \doxylink{class_gravity_simulation}{Gravity\+Simulation}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{class_gravity_simulation_af25375d29d04c39004f76648f6261c88}{update\+Planet\+List}} ()
+\begin{DoxyCompactList}\small\item\em Принудительно обновляет список планет в интерфейсе. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Основной класс приложения, управляющий симуляцией гравитации и пользовательским интерфейсом. 
+
+Класс отвечает за:\+
+\begin{DoxyItemize}
+\item Инициализацию и компоновку UI (виджет отрисовки, список планет, слайдер G).
+\item Обработку пользовательских событий (добавление планет, запуск/\+остановка симуляции).
+\item Синхронизацию данных между логикой симуляции (\doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}) и отображением (QList\+Widget). 
+\end{DoxyItemize}
+
+\label{class_gravity_simulation_doc-constructors}
+\Hypertarget{class_gravity_simulation_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}\index{GravitySimulation@{GravitySimulation}!GravitySimulation@{GravitySimulation}}
+\index{GravitySimulation@{GravitySimulation}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{GravitySimulation()}{GravitySimulation()}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7} 
+Gravity\+Simulation::\+\+Gravity\+Simulation (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+
+
+Конструктор класса \doxylink{class_gravity_simulation}{Gravity\+Simulation}. 
+
+Создает главное окно приложения, инициализирует все необходимые виджеты и устанавливает соединения сигналов и слотов.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em parent} & Указатель на родительский виджет. По умолчанию равен nullptr.\\
+\hline
+\end{DoxyParams}
+Инициализирует главное окно, настраивает пользовательский интерфейс (UI) и устанавливает соединения сигналов и слотов между виджетами и логикой приложения.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr). \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gravity_simulation_a63a4861aec741a8afba98cca80681f70}\index{GravitySimulation@{GravitySimulation}!````~GravitySimulation@{\texorpdfstring{$\sim$}{\string~}GravitySimulation}}
+\index{````~GravitySimulation@{\texorpdfstring{$\sim$}{\string~}GravitySimulation}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}GravitySimulation()}{\string~GravitySimulation()}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_a63a4861aec741a8afba98cca80681f70} 
+Gravity\+Simulation::\+\texorpdfstring{$\sim$}{\string~}\+Gravity\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Деструктор класса \doxylink{class_gravity_simulation}{Gravity\+Simulation}. 
+
+Освобождает ресурсы, занятые объектом. 
+
+\label{class_gravity_simulation_doc-func-members}
+\Hypertarget{class_gravity_simulation_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5}\index{GravitySimulation@{GravitySimulation}!onAddPlanet@{onAddPlanet}}
+\index{onAddPlanet@{onAddPlanet}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{onAddPlanet}{onAddPlanet}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5} 
+void Gravity\+Simulation::\+on\+Add\+Planet (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Слот обработки нажатия кнопки "{}Добавить планету"{}. 
+
+Обработчик нажатия кнопки "{}Добавить планету"{}.
+
+Открывает диалог \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}, собирает данные от пользователя и добавляет новый объект в симуляцию, если ввод корректен.
+
+Открывает диалог \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}, передавая ему список существующих имен для проверки уникальности. Если пользователь подтверждает ввод (Accepted), создается новый объект \doxylink{struct_object}{Object} и добавляется в симуляцию. \Hypertarget{class_gravity_simulation_a44ac1898d14a5c7031f9c7a5ebc51b7e}\index{GravitySimulation@{GravitySimulation}!onGSliderChanged@{onGSliderChanged}}
+\index{onGSliderChanged@{onGSliderChanged}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{onGSliderChanged}{onGSliderChanged}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_a44ac1898d14a5c7031f9c7a5ebc51b7e} 
+void Gravity\+Simulation::\+on\+GSlider\+Changed (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Слот обработки изменения значения слайдера гравитационной постоянной. 
+
+Обработчик изменения значения слайдера гравитационной постоянной (G).
+
+Преобразует целочисленное значение слайдера в реальное значение константы G и передает его в виджет симуляции.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em value} & Новое целочисленное значение, полученное от слайдера.\\
+\hline
+\end{DoxyParams}
+Преобразует целочисленное значение слайдера в реальное значение константы G (умножая на 1e-\/12) и присваивает его полю G виджета симуляции.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em value} & Новое целочисленное значение, полученное от слайдера. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd}\index{GravitySimulation@{GravitySimulation}!onPlanetDoubleClicked@{onPlanetDoubleClicked}}
+\index{onPlanetDoubleClicked@{onPlanetDoubleClicked}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{onPlanetDoubleClicked}{onPlanetDoubleClicked}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd} 
+void Gravity\+Simulation::\+on\+Planet\+Double\+Clicked (\begin{DoxyParamCaption}\item[{QList\+Widget\+Item \texorpdfstring{$\ast$}{*}}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Слот обработки двойного клика по элементу списка планет. 
+
+Обработчик двойного клика по элементу списка планет.
+
+Открывает диалоговое окно \doxylink{class_planet_info_dialog}{Planet\+Info\+Dialog} для редактирования информации о выбранной планете или её удаления.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em item} & Указатель на элемент списка (QList\+Widget\+Item), по которому был совершен двойной клик.\\
+\hline
+\end{DoxyParams}
+При двойном клике открывает диалог \doxylink{class_planet_info_dialog}{Planet\+Info\+Dialog} для просмотра/\+редактирования информации о выбранной планете.
+
+Логика диалога:\+
+\begin{DoxyItemize}
+\item Если пользователь нажал OK:\+ планета переименовывается.
+\item Если пользователь выбрал опцию удаления (возвращает -\/1):\+ планета удаляется из симуляции.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Аргументы}
+{\em item} & Указатель на элемент списка (QList\+Widget\+Item), по которому был сделан двойной клик. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_gravity_simulation_a1dc09ed2be4412c46aceddbfa9d1d61e}\index{GravitySimulation@{GravitySimulation}!onStartSimulation@{onStartSimulation}}
+\index{onStartSimulation@{onStartSimulation}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{onStartSimulation}{onStartSimulation}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_a1dc09ed2be4412c46aceddbfa9d1d61e} 
+void Gravity\+Simulation::\+on\+Start\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Слот для запуска симуляции гравитационного взаимодействия. 
+
+Запускает симуляцию гравитационного взаимодействия.
+
+Вызывает метод start\+Simulation() у виджета отрисовки (m\+\_\+gl\+Widget), активируя таймер обновления кадров и расчет физики.
+
+Вызывает метод start\+Simulation у виджета отрисовки (\doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}), который активирует таймер обновления кадров. \Hypertarget{class_gravity_simulation_ae41c8122a07b5d35696b0ad02cd43e04}\index{GravitySimulation@{GravitySimulation}!onStopSimulation@{onStopSimulation}}
+\index{onStopSimulation@{onStopSimulation}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{onStopSimulation}{onStopSimulation}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_ae41c8122a07b5d35696b0ad02cd43e04} 
+void Gravity\+Simulation::\+on\+Stop\+Simulation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Слот для остановки симуляции гравитационного взаимодействия. 
+
+Останавливает симуляцию гравитационного взаимодействия.
+
+Приостанавливает работу таймера и расчет физических величин в виджете отрисовки.
+
+Вызывает метод stop\+Simulation у виджета отрисовки, приостанавливая расчет физики и перерисовку сцены. \Hypertarget{class_gravity_simulation_af25375d29d04c39004f76648f6261c88}\index{GravitySimulation@{GravitySimulation}!updatePlanetList@{updatePlanetList}}
+\index{updatePlanetList@{updatePlanetList}!GravitySimulation@{GravitySimulation}}
+\doxysubsubsection{\texorpdfstring{updatePlanetList()}{updatePlanetList()}}
+{\footnotesize\ttfamily \label{class_gravity_simulation_af25375d29d04c39004f76648f6261c88} 
+void Gravity\+Simulation::\+update\+Planet\+List (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Принудительно обновляет список планет в интерфейсе. 
+
+Обновляет список планет в QList\+Widget.
+
+Очищает QList\+Widget и заново заполняет его именами всех объектов, хранящихся в симуляции. Вызывается при изменении состава планет.
+
+\begin{DoxySeeAlso}{См. также}
+\doxylink{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5}{on\+Add\+Planet()}, \doxylink{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd}{on\+Planet\+Double\+Clicked()}
+\end{DoxySeeAlso}
+Очищает текущий список и заново заполняет его именами всех объектов, хранящихся в векторе m\+\_\+objects виджета m\+\_\+gl\+Widget. Вызывается при изменении состава планет (добавление, удаление, переименование). 
+
+Объявления и описания членов классов находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_gravity_simulation_8h}{Gravity\+Simulation.\+h}}\item 
+\doxymbox{\hyperlink{_gravity_simulation_8cpp}{Gravity\+Simulation.\+cpp}}\end{DoxyCompactItemize}

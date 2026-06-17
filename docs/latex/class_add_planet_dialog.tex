@@ -1,0 +1,240 @@
+\doxysection{Класс Add\+Planet\+Dialog}
+\hypertarget{class_add_planet_dialog}{}\label{class_add_planet_dialog}\index{AddPlanetDialog@{AddPlanetDialog}}
+
+
+Модальное диалоговое окно для настройки параметров новой планеты.  
+
+
+
+
+{\ttfamily \+\#include $<$Add\+Planet\+Dialog.\+h$>$}
+
+Граф наследования:\+Add\+Planet\+Dialog:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_add_planet_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_add_planet_dialog_a5f21f80b36be5dab159b5d1a06cfd369}{Add\+Planet\+Dialog}} (const QString\+List \&existing\+Names=QString\+List(), QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{class_add_planet_dialog_a9cbe60da62aa82a132dc72f1f0bda8f4}{get\+Planet\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает имя новой планеты, введенное пользователем. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_add_planet_dialog_a6c569dff32546a2e7e29620186428169}{get\+Mass}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает значение массы планеты. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{class_add_planet_dialog_ae567d3363079e7fab4d91a06cefcc0c3}{get\+Radius}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает значение радиуса планеты. \end{DoxyCompactList}\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{class_add_planet_dialog_a6b8b85f863c63c965c0cb68aaec5da9a}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает вектор начальных координат планеты (X, Y, Z). \end{DoxyCompactList}\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{class_add_planet_dialog_a71ddcaf4ad8ae2c443738238c2c62c47}{get\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает вектор начальной скорости планеты (Vx, Vy, Vz). \end{DoxyCompactList}\item 
+std::\+vector$<$ double $>$ \doxymbox{\hyperlink{class_add_planet_dialog_a617ac89f7a240f733dee313360bfad62}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает цвет планеты в нормализованном формате RGB. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_add_planet_dialog_a366fc881a0fb9f965cd67620201f7891}\label{class_add_planet_dialog_a366fc881a0fb9f965cd67620201f7891} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+mass\+Spin}
+\begin{DoxyCompactList}\small\item\em Спинбокс для ввода массы планеты. Доступен для внешнего доступа. \end{DoxyCompactList}\item 
+\Hypertarget{class_add_planet_dialog_ab64ea8a2d7a0624446536ae23495d8e2}\label{class_add_planet_dialog_ab64ea8a2d7a0624446536ae23495d8e2} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+radius\+Spin}
+\begin{DoxyCompactList}\small\item\em Спинбокс для ввода радиуса планеты. Доступен для внешнего доступа. \end{DoxyCompactList}\item 
+\Hypertarget{class_add_planet_dialog_aee4dd760a2ba0f1b14d6532b0e463d8f}\label{class_add_planet_dialog_aee4dd760a2ba0f1b14d6532b0e463d8f} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+pos\+XSpin}
+\begin{DoxyCompactList}\small\item\em Спинбоксы для ввода координат X, Y, Z соответственно. Доступны для внешнего доступа. \end{DoxyCompactList}\item 
+\Hypertarget{class_add_planet_dialog_a690896c5463622b858a37381e6dcef87}\label{class_add_planet_dialog_a690896c5463622b858a37381e6dcef87} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+pos\+YSpin}
+\item 
+\Hypertarget{class_add_planet_dialog_a0e570614dee1fe4e2e634f5e8bab3305}\label{class_add_planet_dialog_a0e570614dee1fe4e2e634f5e8bab3305} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+pos\+ZSpin}
+\item 
+\Hypertarget{class_add_planet_dialog_a750af2c23d80da042bea47b8e1794eaf}\label{class_add_planet_dialog_a750af2c23d80da042bea47b8e1794eaf} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+vel\+XSpin}
+\begin{DoxyCompactList}\small\item\em Спинбоксы для ввода компонент скорости X, Y, Z соответственно. Доступны для внешнего доступа. \end{DoxyCompactList}\item 
+\Hypertarget{class_add_planet_dialog_a5ba5d8a4bd3caa30cc63e54c77fa0a11}\label{class_add_planet_dialog_a5ba5d8a4bd3caa30cc63e54c77fa0a11} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+vel\+YSpin}
+\item 
+\Hypertarget{class_add_planet_dialog_ab782abf2f621b5b6e8212dd10f7ed6f7}\label{class_add_planet_dialog_ab782abf2f621b5b6e8212dd10f7ed6f7} 
+QDouble\+Spin\+Box \texorpdfstring{$\ast$}{*} {\bfseries m\+\_\+vel\+ZSpin}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Модальное диалоговое окно для настройки параметров новой планеты. 
+
+Позволяет пользователю задать конфигурацию нового объекта симуляции. Управляет логикой валидации ввода, выбором цвета и компоновкой элементов интерфейса. 
+
+\label{class_add_planet_dialog_doc-constructors}
+\Hypertarget{class_add_planet_dialog_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_add_planet_dialog_a5f21f80b36be5dab159b5d1a06cfd369}\index{AddPlanetDialog@{AddPlanetDialog}!AddPlanetDialog@{AddPlanetDialog}}
+\index{AddPlanetDialog@{AddPlanetDialog}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{AddPlanetDialog()}{AddPlanetDialog()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a5f21f80b36be5dab159b5d1a06cfd369} 
+Add\+Planet\+Dialog::\+\+Add\+Planet\+Dialog (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{existing\+Names}{ = {\ttfamily QStringList()}, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор класса \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}. 
+
+Инициализирует диалог, создает все элементы управления (поля ввода, спинбоксы, кнопки) и настраивает их начальные состояния. Подключает сигналы и слоты для обработки событий ввода текста и выбора цвета.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em existing\+Names} & Список имен уже существующих планет. Используется для проверки уникальности имени новой планеты. По умолчанию пустой список. \\
+\hline
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr).\\
+\hline
+\end{DoxyParams}
+Инициализирует модальное диалоговое окно "{}Добавить планету"{}. Создает и настраивает все элементы интерфейса:\+ поля ввода, спинбоксы, кнопку выбора цвета и кнопки управления. Настраивает диапазоны значений, шаги изменения и начальные значения параметров. Подключает сигналы и слоты для валидации имени и выбора цвета.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em existing\+Names} & Список имен уже существующих планет, используемый для проверки уникальности имени новой планеты. \\
+\hline
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_add_planet_dialog_doc-func-members}
+\Hypertarget{class_add_planet_dialog_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_add_planet_dialog_a617ac89f7a240f733dee313360bfad62}\index{AddPlanetDialog@{AddPlanetDialog}!getColor@{getColor}}
+\index{getColor@{getColor}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a617ac89f7a240f733dee313360bfad62} 
+std::\+vector$<$ double $>$ Add\+Planet\+Dialog::\+get\+Color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает цвет планеты в нормализованном формате RGB. 
+
+Возвращает цвет планеты в формате RGB (нормализованные значения от 0.\+0 до 1.\+0).
+
+Преобразует внутренний объект QColor в вектор из трех значений double (от 0.\+0 до 1.\+0), который используется функциями отрисовки Open\+GL.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{r, g, b\}.
+\end{DoxyReturn}
+Преобразует объект QColor во внутренний формат симуляции (вектор из трех double). Используются методы red\+F(), green\+F(), blue\+F() для получения нормализованных значений.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{r, g, b\}. 
+\end{DoxyReturn}
+\Hypertarget{class_add_planet_dialog_a6c569dff32546a2e7e29620186428169}\index{AddPlanetDialog@{AddPlanetDialog}!getMass@{getMass}}
+\index{getMass@{getMass}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getMass()}{getMass()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a6c569dff32546a2e7e29620186428169} 
+double Add\+Planet\+Dialog::\+get\+Mass (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает значение массы планеты. 
+
+Возвращает значение массы планеты, установленное в спинбоксе.
+
+Масса используется в расчетах гравитационного взаимодействия.
+
+\begin{DoxyReturn}{Возвращает}
+double Значение массы в условных единицах симуляции.
+\end{DoxyReturn}
+Масса используется при создании объекта структуры \doxylink{struct_object}{Object}.
+
+\begin{DoxyReturn}{Возвращает}
+double Значение массы в условных единицах. 
+\end{DoxyReturn}
+\Hypertarget{class_add_planet_dialog_a9cbe60da62aa82a132dc72f1f0bda8f4}\index{AddPlanetDialog@{AddPlanetDialog}!getPlanetName@{getPlanetName}}
+\index{getPlanetName@{getPlanetName}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getPlanetName()}{getPlanetName()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a9cbe60da62aa82a132dc72f1f0bda8f4} 
+QString Add\+Planet\+Dialog::\+get\+Planet\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает имя новой планеты, введенное пользователем. 
+
+Используется после закрытия диалога для присвоения имени создаваемому объекту.
+
+\begin{DoxyReturn}{Возвращает}
+QString Строка с именем планеты.
+\end{DoxyReturn}
+Используется главным окном после закрытия диалога с результатом Accepted (OK) для создания объекта с указанным именем.
+
+\begin{DoxyReturn}{Возвращает}
+QString Строка с именем планеты. 
+\end{DoxyReturn}
+\Hypertarget{class_add_planet_dialog_a6b8b85f863c63c965c0cb68aaec5da9a}\index{AddPlanetDialog@{AddPlanetDialog}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a6b8b85f863c63c965c0cb68aaec5da9a} 
+std::\+vector$<$ double $>$ Add\+Planet\+Dialog::\+get\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает вектор начальных координат планеты (X, Y, Z). 
+
+Возвращает вектор координат (X, Y, Z) новой планеты.
+
+Координаты определяют начальную позицию объекта в 3D-\/пространстве симуляции.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{x, y, z\}.
+\end{DoxyReturn}
+Собирает значения из трех спинбоксов в один вектор std::\+vector$<$double$>$.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{x, y, z\}. 
+\end{DoxyReturn}
+\Hypertarget{class_add_planet_dialog_ae567d3363079e7fab4d91a06cefcc0c3}\index{AddPlanetDialog@{AddPlanetDialog}!getRadius@{getRadius}}
+\index{getRadius@{getRadius}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getRadius()}{getRadius()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_ae567d3363079e7fab4d91a06cefcc0c3} 
+double Add\+Planet\+Dialog::\+get\+Radius (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает значение радиуса планеты. 
+
+Возвращает значение радиуса планеты, установленное в спинбоксе.
+
+Радиус определяет размер визуализируемой сферы.
+
+\begin{DoxyReturn}{Возвращает}
+double Значение радиуса в единицах мира.
+\end{DoxyReturn}
+Радиус используется для отрисовки сферы планеты.
+
+\begin{DoxyReturn}{Возвращает}
+double Значение радиуса в единицах мира. 
+\end{DoxyReturn}
+\Hypertarget{class_add_planet_dialog_a71ddcaf4ad8ae2c443738238c2c62c47}\index{AddPlanetDialog@{AddPlanetDialog}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!AddPlanetDialog@{AddPlanetDialog}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily \label{class_add_planet_dialog_a71ddcaf4ad8ae2c443738238c2c62c47} 
+std::\+vector$<$ double $>$ Add\+Planet\+Dialog::\+get\+Velocity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает вектор начальной скорости планеты (Vx, Vy, Vz). 
+
+Возвращает вектор скорости (X, Y, Z) новой планеты.
+
+Скорость определяет начальное движение объекта и влияет на формирование орбиты.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{vx, vy, vz\}.
+\end{DoxyReturn}
+Собирает значения из трех спинбоксов в один вектор std::\+vector$<$double$>$. Начальный вектор скорости определяет траекторию движения объекта.
+
+\begin{DoxyReturn}{Возвращает}
+std::\+vector$<$double$>$ Вектор из трех элементов:\+ \{vx, vy, vz\}. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_add_planet_dialog_8h}{Add\+Planet\+Dialog.\+h}}\item 
+\doxymbox{\hyperlink{_add_planet_dialog_8cpp}{Add\+Planet\+Dialog.\+cpp}}\end{DoxyCompactItemize}

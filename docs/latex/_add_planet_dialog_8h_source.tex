@@ -1,0 +1,61 @@
+\doxysection{Add\+Planet\+Dialog.\+h}
+\hypertarget{_add_planet_dialog_8h_source}{}\label{_add_planet_dialog_8h_source}\doxymbox{\hyperlink{_add_planet_dialog_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <QDialog>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <QDoubleSpinBox>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <QColorDialog>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <QStringList>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_add_planet_dialog_a5f21f80b36be5dab159b5d1a06cfd369}{AddPlanetDialog}}\ :\ \textcolor{keyword}{public}\ QDialog\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_add_planet_dialog_a5f21f80b36be5dab159b5d1a06cfd369}{AddPlanetDialog}}(\textcolor{keyword}{const}\ QStringList\&\ existingNames\ =\ QStringList(),\ QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00059\ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ QString\ \doxymbox{\hyperlink{class_add_planet_dialog_a9cbe60da62aa82a132dc72f1f0bda8f4}{getPlanetName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_add_planet_dialog_a6c569dff32546a2e7e29620186428169}{getMass}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_add_planet_dialog_ae567d3363079e7fab4d91a06cefcc0c3}{getRadius}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00094\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{class_add_planet_dialog_a6b8b85f863c63c965c0cb68aaec5da9a}{getPosition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00103\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{class_add_planet_dialog_a71ddcaf4ad8ae2c443738238c2c62c47}{getVelocity}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{class_add_planet_dialog_a617ac89f7a240f733dee313360bfad62}{getColor}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00116\ \ \ \ \ QDoubleSpinBox*\ \doxymbox{\hyperlink{class_add_planet_dialog_a366fc881a0fb9f965cd67620201f7891}{m\_massSpin}};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00119\ \ \ \ \ QDoubleSpinBox*\ \doxymbox{\hyperlink{class_add_planet_dialog_ab64ea8a2d7a0624446536ae23495d8e2}{m\_radiusSpin}};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00122\ \ \ \ \ QDoubleSpinBox*\ \doxymbox{\hyperlink{class_add_planet_dialog_aee4dd760a2ba0f1b14d6532b0e463d8f}{m\_posXSpin}},\ *\ m\_posYSpin,\ *\ m\_posZSpin;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00125\ \ \ \ \ QDoubleSpinBox*\ \doxymbox{\hyperlink{class_add_planet_dialog_a750af2c23d80da042bea47b8e1794eaf}{m\_velXSpin}},\ *\ m\_velYSpin,\ *\ m\_velZSpin;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{void}\ onNameTextChanged(\textcolor{keyword}{const}\ QString\&\ text);}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{void}\ onColorButtonClicked();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00148\ \ \ \ \ QLineEdit*\ m\_nameEdit;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00151\ \ \ \ \ QPushButton*\ m\_colorButton;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00154\ \ \ \ \ QPushButton*\ m\_okButton;}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00157\ \ \ \ \ QStringList\ m\_existingNames;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00160\ \ \ \ \ QColor\ m\_selectedColor;}
+\DoxyCodeLine{00161\ \};}
+
+\end{DoxyCode}

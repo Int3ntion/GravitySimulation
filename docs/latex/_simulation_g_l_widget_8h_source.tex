@@ -1,0 +1,132 @@
+\doxysection{Simulation\+GLWidget.\+h}
+\hypertarget{_simulation_g_l_widget_8h_source}{}\label{_simulation_g_l_widget_8h_source}\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QOpenGLWidget>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QOpenGLFunctions>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <QKeyEvent>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{struct\ }\doxymbox{\hyperlink{struct_object_a54f726863d7dd73cc5a3d1588e927659}{Object}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}{position}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_object_aacfbf5151daad699c60efc27fb702406}{radius}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{struct_object_abbd565f533683168a39d703f3b5c6bae}{mass}};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00050\ \ \ \ \ std::vector<double>\ \doxymbox{\hyperlink{struct_object_a62cb1c6ffcce0a16939d345dc527d9db}{color}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00053\ \ \ \ \ QString\ \doxymbox{\hyperlink{struct_object_ae9c7bbe181d6d49d69b72a1b59ee4e95}{name}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00068\ \ \ \ \ \doxymbox{\hyperlink{struct_object_a54f726863d7dd73cc5a3d1588e927659}{Object}}(std::vector<double>\ pos,\ std::vector<double>\ vel,\ \textcolor{keywordtype}{double}\ m,\ \textcolor{keywordtype}{double}\ r\ =\ 20.0f,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::vector<double>\ c\ =\ \{\ 1.0f,\ 0.0f,\ 0.0f\ \},\ QString\ n\ =\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ :\ \doxymbox{\hyperlink{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}{position}}(pos),\ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}(vel),\ \doxymbox{\hyperlink{struct_object_aacfbf5151daad699c60efc27fb702406}{radius}}(r),\ \doxymbox{\hyperlink{struct_object_abbd565f533683168a39d703f3b5c6bae}{mass}}(m),\ \doxymbox{\hyperlink{struct_object_a62cb1c6ffcce0a16939d345dc527d9db}{color}}(c),\ \doxymbox{\hyperlink{struct_object_ae9c7bbe181d6d49d69b72a1b59ee4e95}{name}}(n)\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_object_a826f5f9f4719842e3d8ce0dfeca59f8c}{accelerate}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[0]\ +=\ x;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[1]\ +=\ y;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[2]\ +=\ z;}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_object_aae5fcb8e6ec18c6087ae5e091bf333fa}{updatePos}}(\textcolor{keywordtype}{double}\ dt)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}{position}}[0]\ +=\ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[0]\ *\ dt;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}{position}}[1]\ +=\ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[1]\ *\ dt;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{struct_object_ad3d87adbf3b5ec32872f29cbb2b600f7}{position}}[2]\ +=\ \doxymbox{\hyperlink{struct_object_a96a05cc05dc70a73f3ec3d1b1826704a}{velocity}}[2]\ *\ dt;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{struct_object_a7d7ac5c880ad4a305ec6b3542659f11f}{drawSphere}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_simulation_g_l_widget_ad0519dbc15499d778f6a5c5153e8015e}{SimulationGLWidget}}\ :\ \textcolor{keyword}{public}\ QOpenGLWidget,\ \textcolor{keyword}{protected}\ QOpenGLFunctions\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_ad0519dbc15499d778f6a5c5153e8015e}{SimulationGLWidget}}(QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ \ \ \ \ \doxymbox{\hyperlink{class_simulation_g_l_widget_ac6c175d52b32d6b7aafec1baacb64575}{\string~SimulationGLWidget}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00148\ \ \ \ \ std::vector<Object>\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a6c6bcf926ed022d91bbce06688f2e1f0}{m\_objects}};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_af55df4fb752bbabee1d33c16150f5a9a}{G}}\ =\ 6.6743e-\/11;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_ad2549607dde643c6407976cc978e24fa}{dt}}\ =\ 1e-\/7;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a397aaaac01d7ffae4eb71e845f7cfde0}{startSimulation}}();}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_ae9dc6995a47711b57916691879eee531}{stopSimulation}}();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a8f7648972d51fb8ddbac1cd7e5ea7926}{calculateForces}}();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a3f1615ec26488a6a27b9c66013a0c0e1}{updateObjects}}();}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a842bc555e047a48292ad2956fb6cf685}{initializeGL}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_ab68e8f53fd8e456c078a9fa11b4c3abb}{resizeGL}}(\textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a2a81138e7f3594e268afcb41dde35ee2}{paintGL}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00228\ \ \ \ \ QTimer*\ m\_timer;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraX\ =\ 0.0;}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraY\ =\ -\/1000.0;}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraZ\ =\ -\/4500.0;}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraSpeed\ =\ 100.0;}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_rotationSpeed\ =\ 1.0;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraPitch\ =\ 10.0;}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{double}\ m\_cameraYaw\ =\ 0.0;}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyWPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyAPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keySPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyDPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyEPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyQPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyUpPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyDownPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyLeftPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keyRightPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_keySpacePressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00285\ \ \ \ \ std::vector<std::vector<double>>\ m\_gravityField;}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_gridResolution\ =\ 100;}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{void}\ calculateGravityField();}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordtype}{void}\ keyPressEvent(QKeyEvent*\ event);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{keywordtype}{void}\ keyReleaseEvent(QKeyEvent*\ event);}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordtype}{void}\ updateCamera();}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ signals:}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_simulation_g_l_widget_a54d7733cc089f22d472dcbc286449219}{planetListChanged}}();}
+\DoxyCodeLine{00337\ \};}
+
+\end{DoxyCode}

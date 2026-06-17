@@ -1,0 +1,28 @@
+\doxysection{Файл Simulation\+GLWidget.\+cpp}
+\hypertarget{_simulation_g_l_widget_8cpp}{}\label{_simulation_g_l_widget_8cpp}\index{SimulationGLWidget.cpp@{SimulationGLWidget.cpp}}
+
+
+Реализация виджета Open\+GL для симуляции гравитационного взаимодействия и отрисовки 3D-\/сцены.  
+
+
+{\ttfamily \+\#include "{}Simulation\+GLWidget.\+h"{}}\newline
+{\ttfamily \+\#include $<$cmath$>$}\newline
+{\ttfamily \+\#include $<$Windows.\+h$>$}\newline
+{\ttfamily \+\#include $<$gl/\+\+GLU.\+h$>$}\newline
+
+
+\doxysubsection{Подробное описание}
+Реализация виджета Open\+GL для симуляции гравитационного взаимодействия и отрисовки 3D-\/сцены. 
+
+Данный файл содержит реализацию класса \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}, который наследуется от QOpen\+GLWidget. Он отвечает за:\+
+\begin{DoxyItemize}
+\item Инициализацию контекста Open\+GL и настройку проекции.
+\item Расчет гравитационных сил между объектами (N-\/body simulation).
+\item Построение карты гравитационного потенциала (сетка).
+\item Управление камерой от первого лица.
+\item Отрисовку планет в виде сфер и гравитационной сетки.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Автор}
+Шестаков Денис Сергеевич 
+\end{DoxyAuthor}

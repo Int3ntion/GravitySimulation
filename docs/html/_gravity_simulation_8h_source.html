@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gravity Simulation: Исходный файл GravitySimulation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gravity Simulation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_gravity_simulation_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">GravitySimulation.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_gravity_simulation_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;QtWidgets/QMainWindow&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;QOpenGLWidget&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;QListWidget&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;QPushButton&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;QHBoxLayout&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;QVBoxLayout&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;QLabel&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="_simulation_g_l_widget_8h.html">SimulationGLWidget.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="};">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_gravity_simulation.html">   35</a></span><span class="keyword">class </span><a class="code hl_function" href="class_gravity_simulation.html#ac50f89a53108a90b20a2169665c780a7">GravitySimulation</a> : <span class="keyword">public</span> QMainWindow</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Q_OBJECT</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="class_gravity_simulation.html#ac50f89a53108a90b20a2169665c780a7">GravitySimulation</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="class_gravity_simulation.html#a63a4861aec741a8afba98cca80681f70">~GravitySimulation</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_gravity_simulation.html#af25375d29d04c39004f76648f6261c88">updatePlanetList</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_gravity_simulation.html#a1dc09ed2be4412c46aceddbfa9d1d61e">onStartSimulation</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_gravity_simulation.html#ae41c8122a07b5d35696b0ad02cd43e04">onStopSimulation</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_gravity_simulation.html#a52edc7c2d0f2c5ef10426fcb56cc92c5">onAddPlanet</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_gravity_simulation.html#a4dd4a9b666d97d101480ce494e31d9fd">onPlanetDoubleClicked</a>(QListWidgetItem* item);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_gravity_simulation.html#a44ac1898d14a5c7031f9c7a5ebc51b7e">onGSliderChanged</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <a class="code hl_class" href="class_simulation_g_l_widget.html">SimulationGLWidget</a>* m_glWidget;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    QListWidget* m_listWidget;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    QHBoxLayout* m_mainLayout;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    QSlider* m_gSlider;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordtype">void</span> setupUI();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
+</div>
+<div class="ttc" id="a_simulation_g_l_widget_8h_html"><div class="ttname"><a href="_simulation_g_l_widget_8h.html">SimulationGLWidget.h</a></div><div class="ttdoc">Заголовок виджета OpenGL для симуляции гравитационного взаимодействия.</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_a1dc09ed2be4412c46aceddbfa9d1d61e"><div class="ttname"><a href="class_gravity_simulation.html#a1dc09ed2be4412c46aceddbfa9d1d61e">GravitySimulation::onStartSimulation</a></div><div class="ttdeci">void onStartSimulation()</div><div class="ttdoc">Слот для запуска симуляции гравитационного взаимодействия.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:96</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_a44ac1898d14a5c7031f9c7a5ebc51b7e"><div class="ttname"><a href="class_gravity_simulation.html#a44ac1898d14a5c7031f9c7a5ebc51b7e">GravitySimulation::onGSliderChanged</a></div><div class="ttdeci">void onGSliderChanged(int value)</div><div class="ttdoc">Слот обработки изменения значения слайдера гравитационной постоянной.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:198</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_a4dd4a9b666d97d101480ce494e31d9fd"><div class="ttname"><a href="class_gravity_simulation.html#a4dd4a9b666d97d101480ce494e31d9fd">GravitySimulation::onPlanetDoubleClicked</a></div><div class="ttdeci">void onPlanetDoubleClicked(QListWidgetItem *item)</div><div class="ttdoc">Слот обработки двойного клика по элементу списка планет.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:167</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_a52edc7c2d0f2c5ef10426fcb56cc92c5"><div class="ttname"><a href="class_gravity_simulation.html#a52edc7c2d0f2c5ef10426fcb56cc92c5">GravitySimulation::onAddPlanet</a></div><div class="ttdeci">void onAddPlanet()</div><div class="ttdoc">Слот обработки нажатия кнопки &quot;Добавить планету&quot;.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:132</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_a63a4861aec741a8afba98cca80681f70"><div class="ttname"><a href="class_gravity_simulation.html#a63a4861aec741a8afba98cca80681f70">GravitySimulation::~GravitySimulation</a></div><div class="ttdeci">~GravitySimulation()</div><div class="ttdoc">Деструктор класса GravitySimulation.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:40</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_ac50f89a53108a90b20a2169665c780a7"><div class="ttname"><a href="class_gravity_simulation.html#ac50f89a53108a90b20a2169665c780a7">GravitySimulation::GravitySimulation</a></div><div class="ttdeci">GravitySimulation(QWidget *parent=nullptr)</div><div class="ttdoc">Конструктор класса GravitySimulation.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:27</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_ae41c8122a07b5d35696b0ad02cd43e04"><div class="ttname"><a href="class_gravity_simulation.html#ae41c8122a07b5d35696b0ad02cd43e04">GravitySimulation::onStopSimulation</a></div><div class="ttdeci">void onStopSimulation()</div><div class="ttdoc">Слот для остановки симуляции гравитационного взаимодействия.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:106</div></div>
+<div class="ttc" id="aclass_gravity_simulation_html_af25375d29d04c39004f76648f6261c88"><div class="ttname"><a href="class_gravity_simulation.html#af25375d29d04c39004f76648f6261c88">GravitySimulation::updatePlanetList</a></div><div class="ttdeci">void updatePlanetList()</div><div class="ttdoc">Принудительно обновляет список планет в интерфейсе.</div><div class="ttdef"><b>Определения</b> GravitySimulation.cpp:117</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html"><div class="ttname"><a href="class_simulation_g_l_widget.html">SimulationGLWidget</a></div><div class="ttdoc">Основной виджет приложения для симуляции и визуализации гравитации.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:126</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="_gravity_simulation_8h.html">GravitySimulation.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

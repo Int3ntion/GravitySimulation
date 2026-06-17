@@ -1,0 +1,93 @@
+\doxysection{Класс Planet\+Info\+Dialog}
+\hypertarget{class_planet_info_dialog}{}\label{class_planet_info_dialog}\index{PlanetInfoDialog@{PlanetInfoDialog}}
+
+
+Модальное диалоговое окно для просмотра и частичного редактирования данных планеты.  
+
+
+
+
+{\ttfamily \+\#include $<$Planet\+Info\+Dialog.\+h$>$}
+
+Граф наследования:\+Planet\+Info\+Dialog:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_planet_info_dialog}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}{Planet\+Info\+Dialog}} (const \doxymbox{\hyperlink{struct_object}{Object}} \&planet, QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Конструктор класса \doxylink{class_planet_info_dialog}{Planet\+Info\+Dialog}. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{class_planet_info_dialog_a2ffc34e57fced7adbadf32cb07882038}{get\+New\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Возвращает новое имя планеты, введенное пользователем в поле редактирования. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Модальное диалоговое окно для просмотра и частичного редактирования данных планеты. 
+
+Предоставляет интерфейс для отображения детальной информации об объекте типа \doxylink{struct_object}{Object}:\+ название, масса, векторы позиции и скорости. Позволяет переименовать планету или запросить её удаление из симуляции. 
+
+\label{class_planet_info_dialog_doc-constructors}
+\Hypertarget{class_planet_info_dialog_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}\index{PlanetInfoDialog@{PlanetInfoDialog}!PlanetInfoDialog@{PlanetInfoDialog}}
+\index{PlanetInfoDialog@{PlanetInfoDialog}!PlanetInfoDialog@{PlanetInfoDialog}}
+\doxysubsubsection{\texorpdfstring{PlanetInfoDialog()}{PlanetInfoDialog()}}
+{\footnotesize\ttfamily \label{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08} 
+Planet\+Info\+Dialog::\+\+Planet\+Info\+Dialog (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{struct_object}{Object}} \&}]{planet}{, }\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор класса \doxylink{class_planet_info_dialog}{Planet\+Info\+Dialog}. 
+
+Создает диалоговое окно, инициализирует его заголовок на основе имени планеты и заполняет все поля интерфейса данными переданного объекта. Настраивает компоновку элементов (вертикальная иерархия с горизонтальными группами для координат и скорости).
+
+
+\begin{DoxyParams}{Аргументы}
+{\em planet} & Константная ссылка на объект планеты (структура \doxylink{struct_object}{Object}), данные которой будут отображены в диалоге. \\
+\hline
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr).\\
+\hline
+\end{DoxyParams}
+Инициализирует модальное диалоговое окно с информацией о переданной планете. Создает и настраивает все элементы интерфейса:\+ метки, поля ввода, спинбоксы и кнопки управления. Настраивает компоновку (layout) элементов.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em planet} & Константная ссылка на объект планеты (структура \doxylink{struct_object}{Object}), данные которой будут отображены в диалоге. \\
+\hline
+{\em parent} & Указатель на родительский виджет (по умолчанию nullptr). \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_planet_info_dialog_doc-func-members}
+\Hypertarget{class_planet_info_dialog_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_planet_info_dialog_a2ffc34e57fced7adbadf32cb07882038}\index{PlanetInfoDialog@{PlanetInfoDialog}!getNewName@{getNewName}}
+\index{getNewName@{getNewName}!PlanetInfoDialog@{PlanetInfoDialog}}
+\doxysubsubsection{\texorpdfstring{getNewName()}{getNewName()}}
+{\footnotesize\ttfamily \label{class_planet_info_dialog_a2ffc34e57fced7adbadf32cb07882038} 
+QString Planet\+Info\+Dialog::\+get\+New\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Возвращает новое имя планеты, введенное пользователем в поле редактирования. 
+
+Вызывается главным окном после закрытия диалога с результатом Accepted (OK), чтобы получить актуальное имя для обновления объекта в симуляции.
+
+\begin{DoxyReturn}{Возвращает}
+QString Строка с новым именем планеты. Если пользователь не менял имя, возвращается исходное значение.
+\end{DoxyReturn}
+Используется главным окном после успешного закрытия диалога (accept), чтобы обновить имя объекта в симуляции. Если пользователь ничего не изменил, возвращается исходное имя.
+
+\begin{DoxyReturn}{Возвращает}
+QString Строка с новым именем планеты. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_planet_info_dialog_8h}{Planet\+Info\+Dialog.\+h}}\item 
+\doxymbox{\hyperlink{_planet_info_dialog_8cpp}{Planet\+Info\+Dialog.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,41 @@
+\doxysection{Файл Add\+Planet\+Dialog.\+h}
+\hypertarget{_add_planet_dialog_8h}{}\label{_add_planet_dialog_8h}\index{AddPlanetDialog.h@{AddPlanetDialog.h}}
+
+
+Заголовок диалогового окна для добавления новой планеты в гравитационную симуляцию.  
+
+
+{\ttfamily \+\#include $<$QDialog$>$}\newline
+{\ttfamily \+\#include $<$QLine\+Edit$>$}\newline
+{\ttfamily \+\#include $<$QDouble\+Spin\+Box$>$}\newline
+{\ttfamily \+\#include $<$QColor\+Dialog$>$}\newline
+{\ttfamily \+\#include $<$QPush\+Button$>$}\newline
+{\ttfamily \+\#include $<$QVBox\+Layout$>$}\newline
+{\ttfamily \+\#include $<$QHBox\+Layout$>$}\newline
+{\ttfamily \+\#include $<$QLabel$>$}\newline
+{\ttfamily \+\#include $<$QString\+List$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_add_planet_dialog}{Add\+Planet\+Dialog}}
+\begin{DoxyCompactList}\small\item\em Модальное диалоговое окно для настройки параметров новой планеты. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовок диалогового окна для добавления новой планеты в гравитационную симуляцию. 
+
+Данный файл объявляет класс \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}, наследующийся от QDialog. Диалог предоставляет пользовательский интерфейс для ввода всех необходимых параметров нового объекта:\+ имени, массы, радиуса, цвета, начальных координат и скорости.
+
+Ключевые особенности класса:\+
+\begin{DoxyItemize}
+\item Валидация имени:\+ проверка на пустоту и уникальность среди существующих планет.
+\item Блокировка кнопки "{}\+OK"{} до тех пор, пока имя не станет валидным.
+\item Удобный выбор цвета через стандартный диалог QColor\+Dialog.
+\item Широкий диапазон значений для физических параметров (масса, скорость, координаты), адаптированный под масштаб симуляции.
+\end{DoxyItemize}
+
+После успешного закрытия диалога (accept) вызывающий код должен использовать геттеры для получения данных и создания объекта структуры \doxylink{struct_object}{Object}.
+
+\begin{DoxyAuthor}{Автор}
+Шестаков Денис Сергеевич 
+\end{DoxyAuthor}

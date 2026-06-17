@@ -1,0 +1,33 @@
+\doxysection{Файл Simulation\+GLWidget.\+h}
+\hypertarget{_simulation_g_l_widget_8h}{}\label{_simulation_g_l_widget_8h}\index{SimulationGLWidget.h@{SimulationGLWidget.h}}
+
+
+Заголовок виджета Open\+GL для симуляции гравитационного взаимодействия.  
+
+
+{\ttfamily \+\#include $<$QOpen\+GLWidget$>$}\newline
+{\ttfamily \+\#include $<$QOpen\+GLFunctions$>$}\newline
+{\ttfamily \+\#include $<$QTimer$>$}\newline
+{\ttfamily \+\#include $<$QKey\+Event$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{struct_object}{Object}}
+\begin{DoxyCompactList}\small\item\em Вспомогательный класс (структура данных), описывающий физическое тело в симуляции. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_simulation_g_l_widget}{Simulation\+GLWidget}}
+\begin{DoxyCompactList}\small\item\em Основной виджет приложения для симуляции и визуализации гравитации. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовок виджета Open\+GL для симуляции гравитационного взаимодействия. 
+
+Данный файл объявляет:\+
+\begin{DoxyItemize}
+\item Структуру {\ttfamily \doxylink{struct_object}{Object}}, описывающую физическое тело в симуляции. Содержит данные о позиции, скорости, массе, радиусе, цвете и имени, а также методы для обновления состояния и отрисовки.
+\item Класс {\ttfamily \doxylink{class_simulation_g_l_widget}{Simulation\+GLWidget}}, наследующийся от {\ttfamily QOpen\+GLWidget} и {\ttfamily QOpen\+GLFunctions}. Управляет рендерингом сцены, физикой гравитации (N-\/body simulation), камерой от первого лица и обработкой ввода пользователя.
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Автор}
+Шестаков Денис Сергеевич 
+\end{DoxyAuthor}

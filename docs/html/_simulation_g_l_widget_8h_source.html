@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gravity Simulation: Исходный файл SimulationGLWidget.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gravity Simulation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('_simulation_g_l_widget_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SimulationGLWidget.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_simulation_g_l_widget_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;QOpenGLWidget&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;QOpenGLFunctions&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;QTimer&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;QKeyEvent&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_object.html">   36</a></span><span class="keyword">struct </span><a class="code hl_function" href="struct_object.html#a54f726863d7dd73cc5a3d1588e927659">Object</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">   38</a></span>    std::vector&lt;double&gt; <a class="code hl_variable" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">position</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">   41</a></span>    std::vector&lt;double&gt; <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_object.html#aacfbf5151daad699c60efc27fb702406">   44</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_object.html#aacfbf5151daad699c60efc27fb702406">radius</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_object.html#abbd565f533683168a39d703f3b5c6bae">   47</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_object.html#abbd565f533683168a39d703f3b5c6bae">mass</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_object.html#a62cb1c6ffcce0a16939d345dc527d9db">   50</a></span>    std::vector&lt;double&gt; <a class="code hl_variable" href="struct_object.html#a62cb1c6ffcce0a16939d345dc527d9db">color</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct_object.html#ae9c7bbe181d6d49d69b72a1b59ee4e95">   53</a></span>    QString <a class="code hl_variable" href="struct_object.html#ae9c7bbe181d6d49d69b72a1b59ee4e95">name</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="struct_object.html#a54f726863d7dd73cc5a3d1588e927659">   68</a></span>    <a class="code hl_function" href="struct_object.html#a54f726863d7dd73cc5a3d1588e927659">Object</a>(std::vector&lt;double&gt; pos, std::vector&lt;double&gt; vel, <span class="keywordtype">double</span> m, <span class="keywordtype">double</span> r = 20.0f,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        std::vector&lt;double&gt; c = { 1.0f, 0.0f, 0.0f }, QString n = <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        : <a class="code hl_variable" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">position</a>(pos), <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>(vel), <a class="code hl_variable" href="struct_object.html#aacfbf5151daad699c60efc27fb702406">radius</a>(r), <a class="code hl_variable" href="struct_object.html#abbd565f533683168a39d703f3b5c6bae">mass</a>(m), <a class="code hl_variable" href="struct_object.html#a62cb1c6ffcce0a16939d345dc527d9db">color</a>(c), <a class="code hl_variable" href="struct_object.html#ae9c7bbe181d6d49d69b72a1b59ee4e95">name</a>(n) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="struct_object.html#a826f5f9f4719842e3d8ce0dfeca59f8c">   83</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_object.html#a826f5f9f4719842e3d8ce0dfeca59f8c">accelerate</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[0] += x;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[1] += y;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[2] += z;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="struct_object.html#aae5fcb8e6ec18c6087ae5e091bf333fa">   96</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_object.html#aae5fcb8e6ec18c6087ae5e091bf333fa">updatePos</a>(<span class="keywordtype">double</span> dt) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <a class="code hl_variable" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">position</a>[0] += <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[0] * dt;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">position</a>[1] += <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[1] * dt;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <a class="code hl_variable" href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">position</a>[2] += <a class="code hl_variable" href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">velocity</a>[2] * dt;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_object.html#a7d7ac5c880ad4a305ec6b3542659f11f">drawSphere</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>};</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span></div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="};">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_simulation_g_l_widget.html">  126</a></span><span class="keyword">class </span><a class="code hl_function" href="class_simulation_g_l_widget.html#ad0519dbc15499d778f6a5c5153e8015e">SimulationGLWidget</a> : <span class="keyword">public</span> QOpenGLWidget, <span class="keyword">protected</span> QOpenGLFunctions {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    Q_OBJECT</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_simulation_g_l_widget.html#ad0519dbc15499d778f6a5c5153e8015e">SimulationGLWidget</a>(QWidget* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_function" href="class_simulation_g_l_widget.html#ac6c175d52b32d6b7aafec1baacb64575">~SimulationGLWidget</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="class_simulation_g_l_widget.html#a6c6bcf926ed022d91bbce06688f2e1f0">  148</a></span>    std::vector&lt;Object&gt; <a class="code hl_variable" href="class_simulation_g_l_widget.html#a6c6bcf926ed022d91bbce06688f2e1f0">m_objects</a>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="class_simulation_g_l_widget.html#af55df4fb752bbabee1d33c16150f5a9a">  151</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_simulation_g_l_widget.html#af55df4fb752bbabee1d33c16150f5a9a">G</a> = 6.6743e-11;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="class_simulation_g_l_widget.html#ad2549607dde643c6407976cc978e24fa">  155</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_simulation_g_l_widget.html#ad2549607dde643c6407976cc978e24fa">dt</a> = 1e-7;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">public</span> slots:</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_simulation_g_l_widget.html#a397aaaac01d7ffae4eb71e845f7cfde0">startSimulation</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_simulation_g_l_widget.html#ae9dc6995a47711b57916691879eee531">stopSimulation</a>();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_simulation_g_l_widget.html#a8f7648972d51fb8ddbac1cd7e5ea7926">calculateForces</a>();</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">void</span> <a class="code hl_slot" href="class_simulation_g_l_widget.html#a3f1615ec26488a6a27b9c66013a0c0e1">updateObjects</a>();</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_simulation_g_l_widget.html#a842bc555e047a48292ad2956fb6cf685">initializeGL</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_simulation_g_l_widget.html#ab68e8f53fd8e456c078a9fa11b4c3abb">resizeGL</a>(<span class="keywordtype">int</span> w, <span class="keywordtype">int</span> h) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_simulation_g_l_widget.html#a2a81138e7f3594e268afcb41dde35ee2">paintGL</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    QTimer* m_timer;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">double</span> m_cameraX = 0.0;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordtype">double</span> m_cameraY = -1000.0;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordtype">double</span> m_cameraZ = -4500.0;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">double</span> m_cameraSpeed = 100.0;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordtype">double</span> m_rotationSpeed = 1.0;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordtype">double</span> m_cameraPitch = 10.0;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordtype">double</span> m_cameraYaw = 0.0;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordtype">bool</span> m_keyWPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordtype">bool</span> m_keyAPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keywordtype">bool</span> m_keySPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordtype">bool</span> m_keyDPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordtype">bool</span> m_keyEPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordtype">bool</span> m_keyQPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordtype">bool</span> m_keyUpPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordtype">bool</span> m_keyDownPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keywordtype">bool</span> m_keyLeftPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordtype">bool</span> m_keyRightPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keywordtype">bool</span> m_keySpacePressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    std::vector&lt;std::vector&lt;double&gt;&gt; m_gravityField;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordtype">int</span> m_gridResolution = 100;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordtype">void</span> calculateGravityField();</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordtype">void</span> keyPressEvent(QKeyEvent* event);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordtype">void</span> keyReleaseEvent(QKeyEvent* event);</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    <span class="keywordtype">void</span> updateCamera();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>signals:</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="class_simulation_g_l_widget.html#a54d7733cc089f22d472dcbc286449219">  336</a></span>    <span class="keywordtype">void</span> <a class="code hl_signal" href="class_simulation_g_l_widget.html#a54d7733cc089f22d472dcbc286449219">planetListChanged</a>();</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>};</div>
+</div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a2a81138e7f3594e268afcb41dde35ee2"><div class="ttname"><a href="class_simulation_g_l_widget.html#a2a81138e7f3594e268afcb41dde35ee2">SimulationGLWidget::paintGL</a></div><div class="ttdeci">void paintGL() override</div><div class="ttdoc">Основной метод отрисовки кадра.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:147</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a397aaaac01d7ffae4eb71e845f7cfde0"><div class="ttname"><a href="class_simulation_g_l_widget.html#a397aaaac01d7ffae4eb71e845f7cfde0">SimulationGLWidget::startSimulation</a></div><div class="ttdeci">void startSimulation()</div><div class="ttdoc">Запускает симуляцию гравитационного взаимодействия.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:260</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a3f1615ec26488a6a27b9c66013a0c0e1"><div class="ttname"><a href="class_simulation_g_l_widget.html#a3f1615ec26488a6a27b9c66013a0c0e1">SimulationGLWidget::updateObjects</a></div><div class="ttdeci">void updateObjects()</div><div class="ttdoc">Выполняет полный цикл обновления состояния симуляции.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:244</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a54d7733cc089f22d472dcbc286449219"><div class="ttname"><a href="class_simulation_g_l_widget.html#a54d7733cc089f22d472dcbc286449219">SimulationGLWidget::planetListChanged</a></div><div class="ttdeci">void planetListChanged()</div><div class="ttdoc">Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции.</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a6c6bcf926ed022d91bbce06688f2e1f0"><div class="ttname"><a href="class_simulation_g_l_widget.html#a6c6bcf926ed022d91bbce06688f2e1f0">SimulationGLWidget::m_objects</a></div><div class="ttdeci">std::vector&lt; Object &gt; m_objects</div><div class="ttdoc">Список всех объектов симуляции.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:148</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a842bc555e047a48292ad2956fb6cf685"><div class="ttname"><a href="class_simulation_g_l_widget.html#a842bc555e047a48292ad2956fb6cf685">SimulationGLWidget::initializeGL</a></div><div class="ttdeci">void initializeGL() override</div><div class="ttdoc">Инициализация OpenGL контекста при первом создании виджета.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:106</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_a8f7648972d51fb8ddbac1cd7e5ea7926"><div class="ttname"><a href="class_simulation_g_l_widget.html#a8f7648972d51fb8ddbac1cd7e5ea7926">SimulationGLWidget::calculateForces</a></div><div class="ttdeci">void calculateForces()</div><div class="ttdoc">Рассчитывает силы гравитационного притяжения между всеми объектами.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:211</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_ab68e8f53fd8e456c078a9fa11b4c3abb"><div class="ttname"><a href="class_simulation_g_l_widget.html#ab68e8f53fd8e456c078a9fa11b4c3abb">SimulationGLWidget::resizeGL</a></div><div class="ttdeci">void resizeGL(int w, int h) override</div><div class="ttdoc">Обработка изменения размера окна виджета.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:131</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_ac6c175d52b32d6b7aafec1baacb64575"><div class="ttname"><a href="class_simulation_g_l_widget.html#ac6c175d52b32d6b7aafec1baacb64575">SimulationGLWidget::~SimulationGLWidget</a></div><div class="ttdeci">~SimulationGLWidget()</div><div class="ttdoc">Деструктор класса SimulationGLWidget.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:95</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_ad0519dbc15499d778f6a5c5153e8015e"><div class="ttname"><a href="class_simulation_g_l_widget.html#ad0519dbc15499d778f6a5c5153e8015e">SimulationGLWidget::SimulationGLWidget</a></div><div class="ttdeci">SimulationGLWidget(QWidget *parent=nullptr)</div><div class="ttdoc">Конструктор класса SimulationGLWidget.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:80</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_ad2549607dde643c6407976cc978e24fa"><div class="ttname"><a href="class_simulation_g_l_widget.html#ad2549607dde643c6407976cc978e24fa">SimulationGLWidget::dt</a></div><div class="ttdeci">double dt</div><div class="ttdoc">Шаг времени для численного интегрирования физики. Маленькое значение (1e-7) необходимо для стабильнос...</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:155</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_ae9dc6995a47711b57916691879eee531"><div class="ttname"><a href="class_simulation_g_l_widget.html#ae9dc6995a47711b57916691879eee531">SimulationGLWidget::stopSimulation</a></div><div class="ttdeci">void stopSimulation()</div><div class="ttdoc">Останавливает симуляцию гравитационного взаимодействия.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:272</div></div>
+<div class="ttc" id="aclass_simulation_g_l_widget_html_af55df4fb752bbabee1d33c16150f5a9a"><div class="ttname"><a href="class_simulation_g_l_widget.html#af55df4fb752bbabee1d33c16150f5a9a">SimulationGLWidget::G</a></div><div class="ttdeci">double G</div><div class="ttdoc">Гравитационная постоянная (G). Значение по умолчанию соответствует реальной физической константе.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:151</div></div>
+<div class="ttc" id="astruct_object_html_a54f726863d7dd73cc5a3d1588e927659"><div class="ttname"><a href="struct_object.html#a54f726863d7dd73cc5a3d1588e927659">Object::Object</a></div><div class="ttdeci">Object(std::vector&lt; double &gt; pos, std::vector&lt; double &gt; vel, double m, double r=20.0f, std::vector&lt; double &gt; c={ 1.0f, 0.0f, 0.0f }, QString n=&quot;&quot;)</div><div class="ttdoc">Конструктор структуры Object.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:68</div></div>
+<div class="ttc" id="astruct_object_html_a62cb1c6ffcce0a16939d345dc527d9db"><div class="ttname"><a href="struct_object.html#a62cb1c6ffcce0a16939d345dc527d9db">Object::color</a></div><div class="ttdeci">std::vector&lt; double &gt; color</div><div class="ttdoc">Цвет объекта в формате RGB (значения от 0.0 до 1.0).</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:50</div></div>
+<div class="ttc" id="astruct_object_html_a7d7ac5c880ad4a305ec6b3542659f11f"><div class="ttname"><a href="struct_object.html#a7d7ac5c880ad4a305ec6b3542659f11f">Object::drawSphere</a></div><div class="ttdeci">void drawSphere() const</div><div class="ttdoc">Отрисовывает объект в виде сферы с использованием OpenGL.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.cpp:36</div></div>
+<div class="ttc" id="astruct_object_html_a826f5f9f4719842e3d8ce0dfeca59f8c"><div class="ttname"><a href="struct_object.html#a826f5f9f4719842e3d8ce0dfeca59f8c">Object::accelerate</a></div><div class="ttdeci">void accelerate(double x, double y, double z)</div><div class="ttdoc">Применяет ускорение к объекту за один шаг времени.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:83</div></div>
+<div class="ttc" id="astruct_object_html_a96a05cc05dc70a73f3ec3d1b1826704a"><div class="ttname"><a href="struct_object.html#a96a05cc05dc70a73f3ec3d1b1826704a">Object::velocity</a></div><div class="ttdeci">std::vector&lt; double &gt; velocity</div><div class="ttdoc">Вектор скорости объекта (vx, vy, vz).</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:41</div></div>
+<div class="ttc" id="astruct_object_html_aacfbf5151daad699c60efc27fb702406"><div class="ttname"><a href="struct_object.html#aacfbf5151daad699c60efc27fb702406">Object::radius</a></div><div class="ttdeci">double radius</div><div class="ttdoc">Радиус объекта в единицах мира.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:44</div></div>
+<div class="ttc" id="astruct_object_html_aae5fcb8e6ec18c6087ae5e091bf333fa"><div class="ttname"><a href="struct_object.html#aae5fcb8e6ec18c6087ae5e091bf333fa">Object::updatePos</a></div><div class="ttdeci">void updatePos(double dt)</div><div class="ttdoc">Обновляет позицию объекта на основе текущей скорости.</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:96</div></div>
+<div class="ttc" id="astruct_object_html_abbd565f533683168a39d703f3b5c6bae"><div class="ttname"><a href="struct_object.html#abbd565f533683168a39d703f3b5c6bae">Object::mass</a></div><div class="ttdeci">double mass</div><div class="ttdoc">Масса объекта (в условных единицах, совместимых с константой G).</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:47</div></div>
+<div class="ttc" id="astruct_object_html_ad3d87adbf3b5ec32872f29cbb2b600f7"><div class="ttname"><a href="struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7">Object::position</a></div><div class="ttdeci">std::vector&lt; double &gt; position</div><div class="ttdoc">Текущая позиция объекта в 3D-пространстве (x, y, z).</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:38</div></div>
+<div class="ttc" id="astruct_object_html_ae9c7bbe181d6d49d69b72a1b59ee4e95"><div class="ttname"><a href="struct_object.html#ae9c7bbe181d6d49d69b72a1b59ee4e95">Object::name</a></div><div class="ttdeci">QString name</div><div class="ttdoc">Имя объекта (например, &quot;Солнце&quot;, &quot;Земля&quot;).</div><div class="ttdef"><b>Определения</b> SimulationGLWidget.h:53</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="_simulation_g_l_widget_8h.html">SimulationGLWidget.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

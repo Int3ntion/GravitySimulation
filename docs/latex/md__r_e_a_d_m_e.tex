@@ -1,0 +1,170 @@
+\chapter{Gravity\+Simulation }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{GravitySimulation@{GravitySimulation}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+
+
+  
+
+Симулятор гравитационного взаимодействия небесных тел с визуализацией через Open\+GL и интерфейс на Qt Widgets.
+
+Данный проект демонстрирует:\+
+\begin{DoxyItemize}
+\item Работу с {\ttfamily QOpen\+GLWidget} и Immediate Mode ({\ttfamily gl\+Begin/\+gl\+End}).
+\item Многопоточную логику физики (расчёт сил, обновление позиций планет, реализация гравитационной сетки).
+\item Динамическое управение камерой (WASD, стрелки и пробел).
+\item Взаимодействие с пользователем через диалоги добавления планеты или просмотра информации о планете.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysection{\texorpdfstring{Важное примечание перед началом}{Важное примечание перед началом}}\label{md__r_e_a_d_m_e_autotoc_md2}
+Данный проект {\bfseries{не содержит}} скомпилированных бинарных файлов ({\ttfamily .exe}, {\ttfamily .dll}) и папок сборки. В репозитории находятся только исходные коды и файлы конфигурации CMake.
+
+Чтобы запустить проект, Вам необходимо иметь установленный {\bfseries{Qt6}} и {\bfseries{CMake}}.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{Требования}{Требования}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Для сборки проекта необходимо иметь:\+
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries{CMake}} (версии {\bfseries{3.\+16}} или выше).
+\item {\bfseries{Qt6}} (обязательно наличие компонентов:\+ {\bfseries{Core}}, {\bfseries{Widgets}}, {\bfseries{Open\+GLWidgets}}).
+\begin{DoxyItemize}
+\item {\itshape Совет:\+} Проще всего установить через официальный установщик Qt или через msys2.
+\end{DoxyItemize}
+\item {\bfseries{Компилятор C++}} (MSVC для Windows, GCC/\+\+Clang для Linux/\+mac\+OS).
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{\texorpdfstring{Установка зависимостей}{Установка зависимостей}}\label{md__r_e_a_d_m_e_autotoc_md6}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{Windows}{Windows}}\label{md__r_e_a_d_m_e_autotoc_md7}
+Скачайте и установите Qt через {\bfseries{Qt Maintenance Tool}} либо через {\bfseries{msys2}}. При установке обязательно выберите модуль {\bfseries{Qt 6.\+x.\+x \texorpdfstring{$>$}{>} MSVC 2019 64-\/bit (или 2022)}} и компоненты {\ttfamily Qt Widgets}, {\ttfamily Qt Open\+GLWidgets}. Убедитесь, что пути к {\ttfamily bin} и {\ttfamily lib} добавлены в переменную среды {\ttfamily PATH}.\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{Linux (Ubuntu/\+\+Debian)}{Linux (Ubuntu/\+\+Debian)}}\label{md__r_e_a_d_m_e_autotoc_md8}
+В терминале выполните следующие команды:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo\ apt-\/get\ update}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ qt6-\/base-\/dev\ qt6-\/openglwidgets-\/dev\ cmake\ build-\/essential}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{Mac\+OS}{Mac\+OS}}\label{md__r_e_a_d_m_e_autotoc_md9}
+В терминале выполните следующую команду:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{brew\ install\ qt\ cmake}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Инструкция по сборке и запуску}{Инструкция по сборке и запуску}}\label{md__r_e_a_d_m_e_autotoc_md11}
+
+\begin{DoxyEnumerate}
+\item Выполните клонирование репозитория 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/Int3ntion/GravitySimulation.git}
+\DoxyCodeLine{cd\ GravitySimulation}
+
+\end{DoxyCode}
+
+\item Создайте папку сборки 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mkdir\ build}
+\DoxyCodeLine{cd\ build}
+
+\end{DoxyCode}
+
+\item Конфигурация проекта 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/DCMAKE\_POLICY\_VERSION\_MINIMUM=3.5\ ..}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item {\bfseries{Внимание!}} В случае, если Qt не добавлен в PATH, используете следующую команду, заменив путь на Ваш:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ ..\ -\/DCMAKE\_PREFIX\_PATH="{}C:/Qt/6.*.*/msvc2019\_64"{}}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+\item Компиляция проекта 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cmake\ -\/-\/build\ .}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item Если вы используете {\itshape Visual Studio}, можно открыть файл Gravity\+Simulation.\+sln, сгенерированный в папке {\itshape build}, и нажать {\itshape Build}
+\end{DoxyItemize}
+\item Запуск
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item {\bfseries{Windows}}
+\end{DoxyItemize}
+
+После сборки в папке {\itshape build} запустите файл {\bfseries{Gravity\+Simulation.\+exe}}.
+\begin{DoxyItemize}
+\item Так как в репозитории нет DLL-\/библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом {\bfseries{Gravity\+Simulation.\+exe}}:\+ {\ttfamily cmd windeployqt.\+exe -\/-\/release -\/-\/no-\/compiler-\/runtime Gravity\+Simulation.\+exe }
+\end{DoxyItemize}
+
+Linux /\+ mac\+OS
+
+Запустите полученный бинарный файл из папки сборки:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./GravitySimulation}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item На Linux может потребоваться настроить {\bfseries{LD\+\_\+\+LIBRARY\+\_\+\+PATH}}, если Qt был установлен в нестандартное место.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Особенности реализации проекта:\+}{Особенности реализации проекта:\+}}\label{md__r_e_a_d_m_e_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item Интерфейс реализован без .ui файлов. Главное окно создаётся программно, чтобы избежать конфликтов версий Qt Designer и упростить понимание логики компоновки виджетов.
+\item Для отрисовки сферы используется классический алгоритм генерации сферы через циклы и {\itshape gl\+Begin(\+GL\+\_\+\+QUAD\+\_\+\+STRIP)}.
+\item Сетка гравитационного поля пересчитывается каждый кадр в {\itshape calculate\+Gravity\+Field()}. Для баланса производительности разрешение сетки ({\itshape m\+\_\+grid\+Resolution}) установлено на 30. Увеличение этого значения может {\bfseries{значительно снизить FPS}}.
+\item Управление
+\begin{DoxyItemize}
+\item {\bfseries{W, A, S, D}} -\/ Перемещение камеры.
+\item {\bfseries{Q, E}} -\/ Подъём/\+спуск камеры.
+\item {\bfseries{Стрелки}} -\/ Вращение камеры.
+\item {\bfseries{Пробел}} -\/ Пауза при зажатии.
+\item {\bfseries{Двойной клик по планете в списке}} -\/ Редактирование имени, просмотр информации и удаление объекта.
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysection{\texorpdfstring{Структура проекта}{Структура проекта}}\label{md__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyTable}{2}{}{}{1}
+\SetCell{bg=\tableheadbgcolor,font=\bfseries}Файл  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Назначение  \\
+{\ttfamily \doxylink{main_8cpp}{main.\+cpp}}  &Точка входа в приложение, создание экземпляра {\ttfamily QApplication}.  \\
+{\ttfamily \doxylink{_gravity_simulation_8h}{Gravity\+Simulation.\+h}/\+cpp}  &Главное окно приложения, логика списка планет, связь между UI и графическим виджетом.  \\
+{\ttfamily \doxylink{_simulation_g_l_widget_8h}{Simulation\+GLWidget.\+h}/\+cpp}  &Основной виджет Open\+GL:\+ отрисовка сцены, расчёт физики, управление камерой, обработка событий клавиатуры.  \\
+{\ttfamily \doxylink{_add_planet_dialog_8h}{Add\+Planet\+Dialog.\+h}/\+cpp}  &Диалоговое окно для создания новой планеты.  \\
+{\ttfamily \doxylink{_planet_info_dialog_8h}{Planet\+Info\+Dialog.\+h}/\+cpp}  &Диалоговое окно для просмотра и редактирования свойств существующей планеты.  \\
+{\ttfamily CMake\+Lists.\+txt}  &Скрипт сборки проекта, настройки компиляции и подключения библиотек Qt.  \\
+{\ttfamily .gitignore}  &Правила игнорирования временных файлов, папок сборки и бинарных артефактов.  \\
+\end{DoxyTable}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysection{\texorpdfstring{Как внести свой вклад в проект}{Как внести свой вклад в проект}}\label{md__r_e_a_d_m_e_autotoc_md17}
+
+\begin{DoxyEnumerate}
+\item Создайте форк репозитория.
+\item Внесите изменения в ветку {\itshape feature/\+your-\/feature}.
+\item Создайте Pull Request.
+\end{DoxyEnumerate}
+
+Приветствуются предложения по оптимизации отрисовки, улучшению физической модели или рефакторингу UI.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysection{\texorpdfstring{Лицензия}{Лицензия}}\label{md__r_e_a_d_m_e_autotoc_md19}
+Проект распространяется под лицензией MIT. 

@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gravity Simulation: Класс SimulationGLWidget</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Gravity Simulation
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('class_simulation_g_l_widget.html','','class_simulation_g_l_widget-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Класс SimulationGLWidget</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Основной виджет приложения для симуляции и визуализации гравитации.  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_simulation_g_l_widget_8h_source.html">SimulationGLWidget.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:SimulationGLWidget:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_simulation_g_l_widget.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-slots" class="groupheader"><a id="pub-slots" name="pub-slots"></a>
+Открытые слоты</h2></td></tr>
+<tr class="memitem:a397aaaac01d7ffae4eb71e845f7cfde0" id="r_a397aaaac01d7ffae4eb71e845f7cfde0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a397aaaac01d7ffae4eb71e845f7cfde0">startSimulation</a> ()</td></tr>
+<tr class="memdesc:a397aaaac01d7ffae4eb71e845f7cfde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запускает симуляцию гравитационного взаимодействия.  <br /></td></tr>
+<tr class="memitem:ae9dc6995a47711b57916691879eee531" id="r_ae9dc6995a47711b57916691879eee531"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae9dc6995a47711b57916691879eee531">stopSimulation</a> ()</td></tr>
+<tr class="memdesc:ae9dc6995a47711b57916691879eee531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Останавливает симуляцию гравитационного взаимодействия.  <br /></td></tr>
+<tr class="memitem:a8f7648972d51fb8ddbac1cd7e5ea7926" id="r_a8f7648972d51fb8ddbac1cd7e5ea7926"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8f7648972d51fb8ddbac1cd7e5ea7926">calculateForces</a> ()</td></tr>
+<tr class="memdesc:a8f7648972d51fb8ddbac1cd7e5ea7926"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитывает силы гравитационного притяжения между всеми объектами.  <br /></td></tr>
+<tr class="memitem:a3f1615ec26488a6a27b9c66013a0c0e1" id="r_a3f1615ec26488a6a27b9c66013a0c0e1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3f1615ec26488a6a27b9c66013a0c0e1">updateObjects</a> ()</td></tr>
+<tr class="memdesc:a3f1615ec26488a6a27b9c66013a0c0e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Выполняет полный цикл обновления состояния симуляции.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-signals" class="groupheader"><a id="signals" name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:a54d7733cc089f22d472dcbc286449219" id="r_a54d7733cc089f22d472dcbc286449219"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a54d7733cc089f22d472dcbc286449219">planetListChanged</a> ()</td></tr>
+<tr class="memdesc:a54d7733cc089f22d472dcbc286449219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ad0519dbc15499d778f6a5c5153e8015e" id="r_ad0519dbc15499d778f6a5c5153e8015e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad0519dbc15499d778f6a5c5153e8015e">SimulationGLWidget</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:ad0519dbc15499d778f6a5c5153e8015e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>.  <br /></td></tr>
+<tr class="memitem:ac6c175d52b32d6b7aafec1baacb64575" id="r_ac6c175d52b32d6b7aafec1baacb64575"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac6c175d52b32d6b7aafec1baacb64575">~SimulationGLWidget</a> ()</td></tr>
+<tr class="memdesc:ac6c175d52b32d6b7aafec1baacb64575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a6c6bcf926ed022d91bbce06688f2e1f0" id="r_a6c6bcf926ed022d91bbce06688f2e1f0"><td class="memItemLeft"><a id="a6c6bcf926ed022d91bbce06688f2e1f0" name="a6c6bcf926ed022d91bbce06688f2e1f0"></a>
+std::vector&lt; <a class="el" href="struct_object.html">Object</a> &gt;&#160;</td><td class="memItemRight"><b>m_objects</b></td></tr>
+<tr class="memdesc:a6c6bcf926ed022d91bbce06688f2e1f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список всех объектов симуляции. <br /></td></tr>
+<tr class="memitem:af55df4fb752bbabee1d33c16150f5a9a" id="r_af55df4fb752bbabee1d33c16150f5a9a"><td class="memItemLeft"><a id="af55df4fb752bbabee1d33c16150f5a9a" name="af55df4fb752bbabee1d33c16150f5a9a"></a>
+double&#160;</td><td class="memItemRight"><b>G</b> = 6.6743e-11</td></tr>
+<tr class="memdesc:af55df4fb752bbabee1d33c16150f5a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Гравитационная постоянная (G). Значение по умолчанию соответствует реальной физической константе. <br /></td></tr>
+<tr class="memitem:ad2549607dde643c6407976cc978e24fa" id="r_ad2549607dde643c6407976cc978e24fa"><td class="memItemLeft"><a id="ad2549607dde643c6407976cc978e24fa" name="ad2549607dde643c6407976cc978e24fa"></a>
+double&#160;</td><td class="memItemRight"><b>dt</b> = 1e-7</td></tr>
+<tr class="memdesc:ad2549607dde643c6407976cc978e24fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Шаг времени для численного интегрирования физики. Маленькое значение (1e-7) необходимо для стабильности симуляции при больших массах. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a842bc555e047a48292ad2956fb6cf685" id="r_a842bc555e047a48292ad2956fb6cf685"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a842bc555e047a48292ad2956fb6cf685">initializeGL</a> () override</td></tr>
+<tr class="memdesc:a842bc555e047a48292ad2956fb6cf685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация OpenGL контекста при первом создании виджета.  <br /></td></tr>
+<tr class="memitem:ab68e8f53fd8e456c078a9fa11b4c3abb" id="r_ab68e8f53fd8e456c078a9fa11b4c3abb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab68e8f53fd8e456c078a9fa11b4c3abb">resizeGL</a> (int w, int h) override</td></tr>
+<tr class="memdesc:ab68e8f53fd8e456c078a9fa11b4c3abb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка изменения размера окна виджета.  <br /></td></tr>
+<tr class="memitem:a2a81138e7f3594e268afcb41dde35ee2" id="r_a2a81138e7f3594e268afcb41dde35ee2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2a81138e7f3594e268afcb41dde35ee2">paintGL</a> () override</td></tr>
+<tr class="memdesc:a2a81138e7f3594e268afcb41dde35ee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод отрисовки кадра.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Основной виджет приложения для симуляции и визуализации гравитации. </p>
+<p>Класс объединяет логику физического движка и рендеринг в реальном времени. Основные возможности:</p><ul>
+<li>Реализация N-body симуляции (расчет гравитационных сил между всеми объектами).</li>
+<li>Визуализация гравитационного поля в виде деформированной сетки.</li>
+<li>Камера от первого лица с управлением через клавиатуру (WASD, стрелки, QE).</li>
+<li>Интеграция с Qt через сигналы и слоты для уведомления UI об изменениях. </li>
+</ul>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="ad0519dbc15499d778f6a5c5153e8015e" name="ad0519dbc15499d778f6a5c5153e8015e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0519dbc15499d778f6a5c5153e8015e">&#9670;&#160;</a></span>SimulationGLWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimulationGLWidget::SimulationGLWidget </td>
+          <td>(</td>
+          <td class="paramtype">QWidget *</td>          <td class="paramname"><span class="paramname"><em>parent</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>. </p>
+<p>Создает виджет, инициализирует параметры камеры по умолчанию и создает таймер для управления частотой кадров симуляции.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Указатель на родительский виджет (по умолчанию nullptr).</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Инициализирует виджет, настраивает политику фокуса, создает таймер для обновления кадров и подключает сигналы таймера к слотам обновления физики и перерисовки. Сразу после создания запускает симуляцию.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Указатель на родительский виджет. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac6c175d52b32d6b7aafec1baacb64575" name="ac6c175d52b32d6b7aafec1baacb64575"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c175d52b32d6b7aafec1baacb64575">&#9670;&#160;</a></span>~SimulationGLWidget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SimulationGLWidget::~SimulationGLWidget </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Деструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>. </p>
+<p>Освобождает ресурсы, занятые таймером. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a8f7648972d51fb8ddbac1cd7e5ea7926" name="a8f7648972d51fb8ddbac1cd7e5ea7926"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f7648972d51fb8ddbac1cd7e5ea7926">&#9670;&#160;</a></span>calculateForces</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::calculateForces </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Рассчитывает силы гравитационного притяжения между всеми объектами. </p>
+<p>Рассчитывает суммарную гравитационную силу, действующую на каждый объект.</p>
+<p>Проходит по всем парам объектов, вычисляет силу по закону всемирного тяготения и применяет соответствующее ускорение к каждому объекту.</p>
+<p>Реализует упрощенную модель N-body задачи. Для каждой пары объектов вычисляется сила притяжения по закону всемирного тяготения. Вводится ограничение минимального расстояния (150 единиц) для предотвращения численной нестабильности при столкновении. Ускорение применяется непосредственно к скорости объекта через метод accelerate. </p>
+
+</div>
+</div>
+<a id="a842bc555e047a48292ad2956fb6cf685" name="a842bc555e047a48292ad2956fb6cf685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a842bc555e047a48292ad2956fb6cf685">&#9670;&#160;</a></span>initializeGL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::initializeGL </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация OpenGL контекста при первом создании виджета. </p>
+<p>Инициализация контекста OpenGL при первом создании виджета.</p>
+<p>Вызывается автоматически фреймворком Qt. Здесь производится:</p><ul>
+<li>Инициализация функций OpenGL.</li>
+<li>Включение теста глубины (GL_DEPTH_TEST).</li>
+<li>Создание начального набора объектов (Солнце, Земля, Метеор).</li>
+<li>Расчет начального гравитационного поля.</li>
+<li>Генерация сигнала <span class="tt"><a class="el" href="#a54d7733cc089f22d472dcbc286449219" title="Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции.">planetListChanged</a></span>.</li>
+</ul>
+<p>Включает тест глубины (GL_DEPTH_TEST) для корректного перекрытия объектов. Заполняет начальный вектор объектов (Солнце, Земля, Метеор) и рассчитывает начальное гравитационное поле. Генерирует сигнал об изменении списка планет. </p>
+
+</div>
+</div>
+<a id="a2a81138e7f3594e268afcb41dde35ee2" name="a2a81138e7f3594e268afcb41dde35ee2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a81138e7f3594e268afcb41dde35ee2">&#9670;&#160;</a></span>paintGL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::paintGL </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Основной метод отрисовки кадра. </p>
+<p>Основной метод отрисовки кадра (вызывается каждый раз при обновлении виджета).</p>
+<p>Очищает буфер, применяет трансформации камеры, рисует гравитационную сетку и все объекты симуляции. Вызывается каждый раз, когда виджет нужно перерисовать.</p>
+<p>Выполняет следующие действия:</p><ol type="1">
+<li>Очищает буфер цвета и глубины.</li>
+<li>Настраивает матрицу вида (ModelView) с учетом положения и вращения камеры.</li>
+<li>Отрисовывает сетку гравитационного поля (линии).</li>
+<li>Отрисовывает все объекты (планеты) как сферы. </li>
+</ol>
+
+</div>
+</div>
+<a id="a54d7733cc089f22d472dcbc286449219" name="a54d7733cc089f22d472dcbc286449219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d7733cc089f22d472dcbc286449219">&#9670;&#160;</a></span>planetListChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::planetListChanged </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel signal">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сигнал, уведомляющий главное окно об изменении списка объектов в симуляции. </p>
+<p>Генерируется после инициализации объектов или при добавлении/удалении планет. Позволяет синхронизировать список в UI (QListWidget) с данными симуляции. </p>
+
+</div>
+</div>
+<a id="ab68e8f53fd8e456c078a9fa11b4c3abb" name="ab68e8f53fd8e456c078a9fa11b4c3abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab68e8f53fd8e456c078a9fa11b4c3abb">&#9670;&#160;</a></span>resizeGL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::resizeGL </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Обработка изменения размера окна виджета. </p>
+<p>Обработка изменения размера окна OpenGL-контекста.</p>
+<p>Обновляет область просмотра (viewport) и пересчитывает матрицу проекции с учетом нового соотношения сторон окна.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Новая ширина окна в пикселях. </td></tr>
+    <tr><td class="paramname">h</td><td>Новая высота окна в пикселях.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Настраивает область просмотра (viewport) и устанавливает перспективную проекцию. Угол обзора устанавливается 45 градусов, соотношение сторон берется из новых размеров окна. Дальняя плоскость отсечения установлена на 40000 единиц.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>Новая ширина окна в пикселях. </td></tr>
+    <tr><td class="paramname">h</td><td>Новая высота окна в пикселях. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a397aaaac01d7ffae4eb71e845f7cfde0" name="a397aaaac01d7ffae4eb71e845f7cfde0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a397aaaac01d7ffae4eb71e845f7cfde0">&#9670;&#160;</a></span>startSimulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::startSimulation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запускает симуляцию гравитационного взаимодействия. </p>
+<p>Запускает симуляцию, устанавливая шаг времени и запуская таймер.</p>
+<p>Устанавливает шаг времени и запускает внутренний таймер, который вызывает обновление физики и перерисовку кадра.</p>
+<p>Шаг времени dt устанавливается равным 1e-7 (очень маленький шаг для стабильности). Таймер запускается с интервалом 16 мс, что соответствует примерно 60 FPS. </p>
+
+</div>
+</div>
+<a id="ae9dc6995a47711b57916691879eee531" name="ae9dc6995a47711b57916691879eee531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9dc6995a47711b57916691879eee531">&#9670;&#160;</a></span>stopSimulation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::stopSimulation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Останавливает симуляцию гравитационного взаимодействия. </p>
+<p>Останавливает симуляцию.</p>
+<p>Останавливает таймер обновления кадров. Если симуляция была приостановлена клавишей пробела, также сбрасывает шаг времени в ноль.</p>
+<p>Если пробел не нажат, просто останавливает таймер. Если пробел нажат (режим паузы), устанавливает шаг времени в 0, чтобы физика не продолжала считаться даже если таймер вдруг сработает. </p>
+
+</div>
+</div>
+<a id="a3f1615ec26488a6a27b9c66013a0c0e1" name="a3f1615ec26488a6a27b9c66013a0c0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1615ec26488a6a27b9c66013a0c0e1">&#9670;&#160;</a></span>updateObjects</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::updateObjects </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel slot">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет полный цикл обновления состояния симуляции. </p>
+<p>Обновляет состояние симуляции (физика + камера).</p>
+<p>Последовательно вызывает:</p><ol type="1">
+<li>Расчет сил (<span class="tt"><a class="el" href="#a8f7648972d51fb8ddbac1cd7e5ea7926" title="Рассчитывает силы гравитационного притяжения между всеми объектами.">calculateForces</a></span>).</li>
+<li>Обновление позиций объектов.</li>
+<li>Пересчет карты гравитационного поля.</li>
+<li>Обновление камеры на основе ввода пользователя.</li>
+<li>Запрос перерисовки виджета.</li>
+</ol>
+<p>Вызывается по таймеру. Последовательность действий:</p><ol type="1">
+<li>Расчет сил и обновление скоростей объектов.</li>
+<li>Обновление позиций объектов.</li>
+<li>Пересчет карты гравитационного поля.</li>
+<li>Обновление позиции камеры на основе нажатых клавиш.</li>
+<li>Запрос перерисовки виджета. </li>
+</ol>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="_simulation_g_l_widget_8h_source.html">SimulationGLWidget.h</a></li>
+<li><a class="el" href="_simulation_g_l_widget_8cpp.html">SimulationGLWidget.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="class_simulation_g_l_widget.html">SimulationGLWidget</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
