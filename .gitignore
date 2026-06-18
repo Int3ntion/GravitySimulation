@@ -8,14 +8,19 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 
-# IDE (Qt Creator, Visual Studio)
 *.user
 *.pro.user
 .vs/
 .idea/
+GravityS.01998AFE/
+.qtcreator/
+.clang-format
 *.sln
 *.vcxproj
 *.filters
+*.ui
+*.slnx
+*.qrc
 
 *.tmp
 *.log
@@ -26,7 +31,7 @@ compile_commands.json
 *.dylib
 *.a
 *.lib
+x64/
 
-# Файлы, специфичные для Windows
 Thumbs.db
 Desktop.ini
