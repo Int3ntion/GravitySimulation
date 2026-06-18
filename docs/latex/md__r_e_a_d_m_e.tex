@@ -107,7 +107,12 @@
 
 После сборки в папке {\itshape build} запустите файл {\bfseries{Gravity\+Simulation.\+exe}}.
 \begin{DoxyItemize}
-\item Так как в репозитории нет DLL-\/библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом {\bfseries{Gravity\+Simulation.\+exe}}:\+ {\ttfamily cmd windeployqt.\+exe -\/-\/release -\/-\/no-\/compiler-\/runtime Gravity\+Simulation.\+exe }
+\item Так как в репозитории нет DLL-\/библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом {\bfseries{Gravity\+Simulation.\+exe}}:\+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{windeployqt.exe\ -\/-\/release\ -\/-\/no-\/compiler-\/runtime\ GravitySimulation.exe}
+
+\end{DoxyCode}
+
 \end{DoxyItemize}
 
 Linux /\+ mac\+OS
@@ -123,7 +128,40 @@ Linux /\+ mac\+OS
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Особенности реализации проекта:\+}{Особенности реализации проекта:\+}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{Основные сценарии использования}{Основные сценарии использования}}\label{md__r_e_a_d_m_e_autotoc_md13}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysubsection{\texorpdfstring{Сценарий 1:\+ Запуск и осмотр сцены}{Сценарий 1:\+ Запуск и осмотр сцены}}\label{md__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyEnumerate}
+\item Запустите приложение ({\ttfamily Gravity\+Simulation.\+exe} или бинарный файл).
+\item Вы увидите окно с несколькими сферами (планетами) и сеткой гравитационного поля.
+\item Используйте клавиши {\bfseries{W, A, S, D}} для перемещения камеры по сцене, чтобы рассмотреть объекты с разных ракурсов (Если окно не реагирует на нажатие клавиш, нажмите на виджет с симуляцией левой кнопкой мыши).
+\item Нажимайте {\bfseries{стрелки}}, чтобы вращать камеру вокруг центра сцены.
+\end{DoxyEnumerate}
+
+ {\itshape Рис. 1:\+ Главное окно, общий вид сцены с визуализацией гравитационной сетки и планетами.}\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysubsection{\texorpdfstring{Сценарий 2:\+ Добавление новой планеты}{Сценарий 2:\+ Добавление новой планеты}}\label{md__r_e_a_d_m_e_autotoc_md15}
+
+\begin{DoxyEnumerate}
+\item Найдите кнопку «Добавить планету» (или соответствующий пункт меню, если есть).
+\item Откроется модальное окно {\ttfamily \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}}.
+\item Введите уникальное имя (например, "{}\+Mars"{}). Если имя занято, кнопка "{}\+OK"{} станет неактивной.
+\item Задайте массу, радиус и начальные координаты.
+\item Нажмите на кнопку {\bfseries{«Выбрать цвет»}}, чтобы открыть системный диалог и подобрать оттенок для новой планеты.
+\item Подтвердите создание кнопкой «\+OK». Планета мгновенно появится на сцене и начнет двигаться согласно законам гравитации.
+\end{DoxyEnumerate}
+
+ {\itshape Рис. 2:\+ Интерфейс настройки параметров новой планеты.}\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysubsection{\texorpdfstring{Сценарий 3:\+ Редактирование и удаление объекта}{Сценарий 3:\+ Редактирование и удаление объекта}}\label{md__r_e_a_d_m_e_autotoc_md16}
+
+\begin{DoxyEnumerate}
+\item В интерфейсе найдите список планет. Дважды кликните по названию планеты, информацию которой Вы хотите узнать.
+\item Откроется окно информации. Здесь вы можете изменить имя планеты.
+\item Поля «Масса», «Координаты» и «Скорость» заблокированы для редактирования, так как они рассчитываются физическим движком.
+\item Если объект больше не нужен, нажмите кнопку {\bfseries{«Удалить планету»}}. Объект исчезнет из симуляции.
+\end{DoxyEnumerate}
+
+ {\itshape Рис. 3:\+ Интерфейс просмотра информации о выбранной планете.}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysection{\texorpdfstring{Особенности реализации проекта:\+}{Особенности реализации проекта:\+}}\label{md__r_e_a_d_m_e_autotoc_md18}
 
 \begin{DoxyEnumerate}
 \item Интерфейс реализован без .ui файлов. Главное окно создаётся программно, чтобы избежать конфликтов версий Qt Designer и упростить понимание логики компоновки виджетов.
@@ -140,7 +178,7 @@ Linux /\+ mac\+OS
 \end{DoxyEnumerate}
 
 \DoxyHorRuler{0}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysection{\texorpdfstring{Структура проекта}{Структура проекта}}\label{md__r_e_a_d_m_e_autotoc_md15}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md20}{}\doxysection{\texorpdfstring{Структура проекта}{Структура проекта}}\label{md__r_e_a_d_m_e_autotoc_md20}
 
 \begin{DoxyTable}{2}{}{}{1}
 \SetCell{bg=\tableheadbgcolor,font=\bfseries}Файл  &\SetCell{bg=\tableheadbgcolor,font=\bfseries}Назначение  \\
@@ -155,7 +193,7 @@ Linux /\+ mac\+OS
 
 
 \DoxyHorRuler{0}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysection{\texorpdfstring{Как внести свой вклад в проект}{Как внести свой вклад в проект}}\label{md__r_e_a_d_m_e_autotoc_md17}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md22}{}\doxysection{\texorpdfstring{Как внести свой вклад в проект}{Как внести свой вклад в проект}}\label{md__r_e_a_d_m_e_autotoc_md22}
 
 \begin{DoxyEnumerate}
 \item Создайте форк репозитория.
@@ -166,5 +204,5 @@ Linux /\+ mac\+OS
 Приветствуются предложения по оптимизации отрисовки, улучшению физической модели или рефакторингу UI.
 
 \DoxyHorRuler{0}
-\hypertarget{md__r_e_a_d_m_e_autotoc_md19}{}\doxysection{\texorpdfstring{Лицензия}{Лицензия}}\label{md__r_e_a_d_m_e_autotoc_md19}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md24}{}\doxysection{\texorpdfstring{Лицензия}{Лицензия}}\label{md__r_e_a_d_m_e_autotoc_md24}
 Проект распространяется под лицензией MIT. 

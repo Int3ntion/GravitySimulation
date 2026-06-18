@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simulationglwidget_0',['SimulationGLWidget',['../class_simulation_g_l_widget.html',1,'']]]
+  ['planetinfodialog_0',['PlanetInfoDialog',['../class_planet_info_dialog.html',1,'']]]
 ];

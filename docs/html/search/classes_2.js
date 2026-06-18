@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['object_0',['Object',['../struct_object.html',1,'']]]
+  ['initializationexception_0',['InitializationException',['../class_initialization_exception.html',1,'']]],
+  ['invalidplanetdataexception_1',['InvalidPlanetDataException',['../class_invalid_planet_data_exception.html',1,'']]]
 ];

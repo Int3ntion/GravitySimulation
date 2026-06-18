@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ubuntu_20debian_0',['Linux (Ubuntu/Debian)',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]],
-  ['updateobjects_1',['updateObjects',['../class_simulation_g_l_widget.html#a3f1615ec26488a6a27b9c66013a0c0e1',1,'SimulationGLWidget']]],
-  ['updateplanetlist_2',['updatePlanetList',['../class_gravity_simulation.html#af25375d29d04c39004f76648f6261c88',1,'GravitySimulation']]],
-  ['updatepos_3',['updatePos',['../struct_object.html#aae5fcb8e6ec18c6087ae5e091bf333fa',1,'Object']]]
+  ['paintgl_0',['paintGL',['../class_simulation_g_l_widget.html#a2a81138e7f3594e268afcb41dde35ee2',1,'SimulationGLWidget']]],
+  ['planetinfodialog_1',['PlanetInfoDialog',['../class_planet_info_dialog.html',1,'PlanetInfoDialog'],['../class_planet_info_dialog.html#af7e3e8764dc2296649d0a3b0df248b08',1,'PlanetInfoDialog::PlanetInfoDialog()']]],
+  ['planetinfodialog_2ecpp_2',['PlanetInfoDialog.cpp',['../_planet_info_dialog_8cpp.html',1,'']]],
+  ['planetinfodialog_2eh_3',['PlanetInfoDialog.h',['../_planet_info_dialog_8h.html',1,'']]],
+  ['planetlistchanged_4',['planetListChanged',['../class_simulation_g_l_widget.html#a54d7733cc089f22d472dcbc286449219',1,'SimulationGLWidget']]],
+  ['position_5',['position',['../struct_object.html#ad3d87adbf3b5ec32872f29cbb2b600f7',1,'Object']]]
 ];

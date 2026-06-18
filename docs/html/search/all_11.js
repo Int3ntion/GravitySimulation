@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['зависимостей_0',['Установка зависимостей',['../md__r_e_a_d_m_e.html#autotoc_md6',1,'']]],
-  ['запуску_1',['Инструкция по сборке и запуску',['../md__r_e_a_d_m_e.html#autotoc_md11',1,'']]]
+  ['windows_0',['Windows',['../md__r_e_a_d_m_e.html#autotoc_md7',1,'']]]
 ];

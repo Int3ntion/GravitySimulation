@@ -1,0 +1,57 @@
+\doxysection{Класс Initialization\+Exception}
+\hypertarget{class_initialization_exception}{}\label{class_initialization_exception}\index{InitializationException@{InitializationException}}
+
+
+Исключение, выбрасываемое при неудачной инициализации компонентов симуляции.  
+
+
+
+
+{\ttfamily \+\#include $<$Simulation\+Exceptions.\+h$>$}
+
+Граф наследования:\+Initialization\+Exception:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_initialization_exception}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_initialization_exception_a296e8d6b811d6a8c42e30bf7600df540}{Initialization\+Exception}} (const QString \&msg)
+\begin{DoxyCompactList}\small\item\em Конструктор исключения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Исключение, выбрасываемое при неудачной инициализации компонентов симуляции. 
+
+Возникает на этапе запуска приложения или создания виджета Open\+GL. Сценарии использования:\+
+\begin{DoxyItemize}
+\item Ошибка создания контекста Open\+GL.
+\item Не удалось выделить память для буферов вершин.
+\item Сбой инициализации таймера обновления кадра. 
+\end{DoxyItemize}
+
+\label{class_initialization_exception_doc-constructors}
+\Hypertarget{class_initialization_exception_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_initialization_exception_a296e8d6b811d6a8c42e30bf7600df540}\index{InitializationException@{InitializationException}!InitializationException@{InitializationException}}
+\index{InitializationException@{InitializationException}!InitializationException@{InitializationException}}
+\doxysubsubsection{\texorpdfstring{InitializationException()}{InitializationException()}}
+{\footnotesize\ttfamily \label{class_initialization_exception_a296e8d6b811d6a8c42e30bf7600df540} 
+Initialization\+Exception::\+\+Initialization\+Exception (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Конструктор исключения. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Подробное описание причины сбоя инициализации. \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов класса находятся в файле:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_simulation_exceptions_8h}{Simulation\+Exceptions.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,35 @@
+\doxysection{Файл Simulation\+Exceptions.\+h}
+\hypertarget{_simulation_exceptions_8h}{}\label{_simulation_exceptions_8h}\index{SimulationExceptions.h@{SimulationExceptions.h}}
+
+
+Определение пользовательских исключений для гравитационной симуляции.  
+
+
+{\ttfamily \+\#include $<$QString$>$}\newline
+{\ttfamily \+\#include $<$stdexcept$>$}\newline
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_invalid_planet_data_exception}{Invalid\+Planet\+Data\+Exception}}
+\begin{DoxyCompactList}\small\item\em Исключение, выбрасываемое при попытке создания планеты с некорректными данными. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_initialization_exception}{Initialization\+Exception}}
+\begin{DoxyCompactList}\small\item\em Исключение, выбрасываемое при неудачной инициализации компонентов симуляции. \end{DoxyCompactList}\item 
+class \doxymbox{\hyperlink{class_simulation_logic_exception}{Simulation\+Logic\+Exception}}
+\begin{DoxyCompactList}\small\item\em Исключение, сигнализирующее о нарушении логики работы симуляции во время выполнения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Определение пользовательских исключений для гравитационной симуляции. 
+
+Данный заголовок содержит классы исключений. Все исключения наследуются от std::\+runtime\+\_\+error для совместимости со стандартной обработкой ошибок C++, но принимают QString для удобной локализации сообщений об ошибках и интеграции с Qt.
+
+Классы исключений позволяют четко разделять типы ошибок:\+
+\begin{DoxyItemize}
+\item \doxylink{class_invalid_planet_data_exception}{Invalid\+Planet\+Data\+Exception}:\+ ошибки валидации входных данных (масса, координаты).
+\item \doxylink{class_initialization_exception}{Initialization\+Exception}:\+ критические ошибки инициализации ресурсов (Open\+GL, таймеры).
+\item \doxylink{class_simulation_logic_exception}{Simulation\+Logic\+Exception}:\+ ошибки внутренней логики симуляции (деление на ноль, некорректные параметры сетки гравитационного поля).
+\end{DoxyItemize}
+
+\begin{DoxyAuthor}{Автор}
+Шестаков Денис Сергеевич 
+\end{DoxyAuthor}

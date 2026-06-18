@@ -1,0 +1,59 @@
+\doxysection{Класс Simulation\+Logic\+Exception}
+\hypertarget{class_simulation_logic_exception}{}\label{class_simulation_logic_exception}\index{SimulationLogicException@{SimulationLogicException}}
+
+
+Исключение, сигнализирующее о нарушении логики работы симуляции во время выполнения.  
+
+
+
+
+{\ttfamily \+\#include $<$Simulation\+Exceptions.\+h$>$}
+
+Граф наследования:\+Simulation\+Logic\+Exception:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_simulation_logic_exception}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_simulation_logic_exception_a53d2b27f352a2ef2e700910e1dc3cce8}{Simulation\+Logic\+Exception}} (const QString \&msg)
+\begin{DoxyCompactList}\small\item\em Конструктор исключения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Исключение, сигнализирующее о нарушении логики работы симуляции во время выполнения. 
+
+Выбрасывается внутри вычислительных методов (calculate\+Forces, calculate\+Gravity\+Field) при обнаружении аномальных состояний, которые делают дальнейшие расчеты невозможными или бессмысленными.
+
+Сценарии использования:\+
+\begin{DoxyItemize}
+\item Попытка расчета гравитационного поля с недопустимым разрешением сетки (0 или отрицательное).
+\item Обнаружение NaN или Inf в векторах скорости/\+позиции.
+\item Деление на ноль в физических формулах. 
+\end{DoxyItemize}
+
+\label{class_simulation_logic_exception_doc-constructors}
+\Hypertarget{class_simulation_logic_exception_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_simulation_logic_exception_a53d2b27f352a2ef2e700910e1dc3cce8}\index{SimulationLogicException@{SimulationLogicException}!SimulationLogicException@{SimulationLogicException}}
+\index{SimulationLogicException@{SimulationLogicException}!SimulationLogicException@{SimulationLogicException}}
+\doxysubsubsection{\texorpdfstring{SimulationLogicException()}{SimulationLogicException()}}
+{\footnotesize\ttfamily \label{class_simulation_logic_exception_a53d2b27f352a2ef2e700910e1dc3cce8} 
+Simulation\+Logic\+Exception::\+\+Simulation\+Logic\+Exception (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Конструктор исключения. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Описание логической ошибки или условия, которое привело к сбою. \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов класса находятся в файле:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_simulation_exceptions_8h}{Simulation\+Exceptions.\+h}}\end{DoxyCompactItemize}

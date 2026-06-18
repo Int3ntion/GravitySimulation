@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['radius_0',['radius',['../struct_object.html#aacfbf5151daad699c60efc27fb702406',1,'Object']]],
-  ['resizegl_1',['resizeGL',['../class_simulation_g_l_widget.html#ab68e8f53fd8e456c078a9fa11b4c3abb',1,'SimulationGLWidget']]]
+  ['name_0',['name',['../struct_object.html#ae9c7bbe181d6d49d69b72a1b59ee4e95',1,'Object']]]
 ];

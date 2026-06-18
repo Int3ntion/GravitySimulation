@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debian_0',['Linux (Ubuntu/Debian)',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]]
+  ['1_3a_20запуск_20и_20осмотр_20сцены_0',['Сценарий 1: Запуск и осмотр сцены',['../md__r_e_a_d_m_e.html#autotoc_md14',1,'']]]
 ];

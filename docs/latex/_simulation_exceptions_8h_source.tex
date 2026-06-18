@@ -1,0 +1,37 @@
+\doxysection{Simulation\+Exceptions.\+h}
+\hypertarget{_simulation_exceptions_8h_source}{}\label{_simulation_exceptions_8h_source}\doxymbox{\hyperlink{_simulation_exceptions_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ SIMULATIONEXCEPTIONS\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ SIMULATIONEXCEPTIONS\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_invalid_planet_data_exception_acb48937f96dc7ae5abbaf6aaca521df0}{InvalidPlanetDataException}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_invalid_planet_data_exception_acb48937f96dc7ae5abbaf6aaca521df0}{InvalidPlanetDataException}}(\textcolor{keyword}{const}\ QString\&\ msg)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ :\ std::runtime\_error(msg.toStdString())\ \{\}}
+\DoxyCodeLine{00052\ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_initialization_exception_a296e8d6b811d6a8c42e30bf7600df540}{InitializationException}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_initialization_exception_a296e8d6b811d6a8c42e30bf7600df540}{InitializationException}}(\textcolor{keyword}{const}\ QString\&\ msg)}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ :\ std::runtime\_error(msg.toStdString())\ \{\}}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_simulation_logic_exception_a53d2b27f352a2ef2e700910e1dc3cce8}{SimulationLogicException}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_simulation_logic_exception_a53d2b27f352a2ef2e700910e1dc3cce8}{SimulationLogicException}}(\textcolor{keyword}{const}\ QString\&\ msg)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ :\ std::runtime\_error(msg.toStdString())\ \{\}}
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ !SIMULATIONEXCEPTIONS\_H}}
+
+\end{DoxyCode}

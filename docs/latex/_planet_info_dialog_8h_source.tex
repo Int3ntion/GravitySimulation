@@ -6,37 +6,39 @@
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <QDialog>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <QDoubleSpinBox>}}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QLabel>}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{SimulationGLWidget.h}}"{}}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}{PlanetInfoDialog}}\ :\ \textcolor{keyword}{public}\ QDialog\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ Q\_OBJECT}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}{PlanetInfoDialog}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_object}{Object}}\&\ planet,\ QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00070\ \ \ \ \ QString\ \doxymbox{\hyperlink{class_planet_info_dialog_a2ffc34e57fced7adbadf32cb07882038}{getNewName}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keyword}{private}\ slots:}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ onDeleteButtonClicked();}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00084\ \ \ \ \ QLineEdit*\ m\_nameEdit;}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00087\ \ \ \ \ QDoubleSpinBox*\ m\_massSpin;}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00090\ \ \ \ \ QDoubleSpinBox*\ m\_posXSpin,\ *\ m\_posYSpin,\ *\ m\_posZSpin;}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00093\ \ \ \ \ QDoubleSpinBox*\ m\_velXSpin,\ *\ m\_velYSpin,\ *\ m\_velZSpin;}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00096\ \ \ \ \ QPushButton*\ m\_deleteButton;}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_planetIndex;}
-\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <QDoubleSpinBox>}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <QLineEdit>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{SimulationGLWidget.h}}"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}{PlanetInfoDialog}}\ :\ \textcolor{keyword}{public}\ QDialog}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{class_planet_info_dialog_af7e3e8764dc2296649d0a3b0df248b08}{PlanetInfoDialog}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_object}{Object}}\&\ planet,\ QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00072\ \ \ \ \ QString\ \doxymbox{\hyperlink{class_planet_info_dialog_a2ffc34e57fced7adbadf32cb07882038}{getNewName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ onDeleteButtonClicked();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00086\ \ \ \ \ QLineEdit*\ m\_nameEdit;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00089\ \ \ \ \ QDoubleSpinBox*\ m\_massSpin;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ \ \ \ \ QDoubleSpinBox\ *m\_posXSpin,\ *m\_posYSpin,\ *m\_posZSpin;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00095\ \ \ \ \ QDoubleSpinBox\ *m\_velXSpin,\ *m\_velYSpin,\ *m\_velZSpin;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00098\ \ \ \ \ QPushButton*\ m\_deleteButton;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{int}\ m\_planetIndex;}
+\DoxyCodeLine{00102\ \};}
 
 \end{DoxyCode}

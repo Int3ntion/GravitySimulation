@@ -1,0 +1,60 @@
+\doxysection{Класс Invalid\+Planet\+Data\+Exception}
+\hypertarget{class_invalid_planet_data_exception}{}\label{class_invalid_planet_data_exception}\index{InvalidPlanetDataException@{InvalidPlanetDataException}}
+
+
+Исключение, выбрасываемое при попытке создания планеты с некорректными данными.  
+
+
+
+
+{\ttfamily \+\#include $<$Simulation\+Exceptions.\+h$>$}
+
+Граф наследования:\+Invalid\+Planet\+Data\+Exception:\+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_invalid_planet_data_exception}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_invalid_planet_data_exception_acb48937f96dc7ae5abbaf6aaca521df0}{Invalid\+Planet\+Data\+Exception}} (const QString \&msg)
+\begin{DoxyCompactList}\small\item\em Конструктор исключения. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Исключение, выбрасываемое при попытке создания планеты с некорректными данными. 
+
+Используется в модулях ввода данных (например, \doxylink{class_add_planet_dialog}{Add\+Planet\+Dialog}) и валидации перед добавлением объекта в симуляцию. Сценарии выброса:\+
+\begin{DoxyItemize}
+\item Отрицательная масса или радиус.
+\item Некорректные координаты (NaN, Inf).
+\end{DoxyItemize}
+
+Наследуется от std::\+runtime\+\_\+error. Конструктор автоматически конвертирует QString в std::\+string для совместимости со стандартным интерфейсом исключений. 
+
+\label{class_invalid_planet_data_exception_doc-constructors}
+\Hypertarget{class_invalid_planet_data_exception_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_invalid_planet_data_exception_acb48937f96dc7ae5abbaf6aaca521df0}\index{InvalidPlanetDataException@{InvalidPlanetDataException}!InvalidPlanetDataException@{InvalidPlanetDataException}}
+\index{InvalidPlanetDataException@{InvalidPlanetDataException}!InvalidPlanetDataException@{InvalidPlanetDataException}}
+\doxysubsubsection{\texorpdfstring{InvalidPlanetDataException()}{InvalidPlanetDataException()}}
+{\footnotesize\ttfamily \label{class_invalid_planet_data_exception_acb48937f96dc7ae5abbaf6aaca521df0} 
+Invalid\+Planet\+Data\+Exception::\+\+Invalid\+Planet\+Data\+Exception (\begin{DoxyParamCaption}\item[{const QString \&}]{msg}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Конструктор исключения. 
+
+Инициализирует базовое исключение std::\+runtime\+\_\+error сообщением, преобразованным из QString в std::\+string.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Текст ошибки, переданный через QString. \\
+\hline
+\end{DoxyParams}
+
+
+Объявления и описания членов класса находятся в файле:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_simulation_exceptions_8h}{Simulation\+Exceptions.\+h}}\end{DoxyCompactItemize}

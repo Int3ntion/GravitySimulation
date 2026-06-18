@@ -34,10 +34,15 @@ var NAVTREE =
         [ "MacOS", "md__r_e_a_d_m_e.html#autotoc_md9", null ]
       ] ],
       [ "Инструкция по сборке и запуску", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
-      [ "Особенности реализации проекта:", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
-      [ "Структура проекта", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-      [ "Как внести свой вклад в проект", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-      [ "Лицензия", "md__r_e_a_d_m_e.html#autotoc_md19", null ]
+      [ "Основные сценарии использования", "md__r_e_a_d_m_e.html#autotoc_md13", [
+        [ "Сценарий 1: Запуск и осмотр сцены", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
+        [ "Сценарий 2: Добавление новой планеты", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
+        [ "Сценарий 3: Редактирование и удаление объекта", "md__r_e_a_d_m_e.html#autotoc_md16", null ]
+      ] ],
+      [ "Особенности реализации проекта:", "md__r_e_a_d_m_e.html#autotoc_md18", null ],
+      [ "Структура проекта", "md__r_e_a_d_m_e.html#autotoc_md20", null ],
+      [ "Как внести свой вклад в проект", "md__r_e_a_d_m_e.html#autotoc_md22", null ],
+      [ "Лицензия", "md__r_e_a_d_m_e.html#autotoc_md24", null ]
     ] ],
     [ "Классы", "annotated.html", [
       [ "Классы", "annotated.html", "annotated_dup" ],

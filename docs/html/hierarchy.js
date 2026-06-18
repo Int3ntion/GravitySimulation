@@ -17,5 +17,10 @@ var hierarchy =
     [ "QOpenGLWidget", null, [
       [ "SimulationGLWidget", "class_simulation_g_l_widget.html", null ],
       [ "SimulationGLWidget", "class_simulation_g_l_widget.html", null ]
+    ] ],
+    [ "std::runtime_error", null, [
+      [ "InitializationException", "class_initialization_exception.html", null ],
+      [ "InvalidPlanetDataException", "class_invalid_planet_data_exception.html", null ],
+      [ "SimulationLogicException", "class_simulation_logic_exception.html", null ]
     ] ]
 ];

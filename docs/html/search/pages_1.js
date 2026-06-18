@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gravitysimulation_0',['GravitySimulation',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['2_3a_20добавление_20новой_20планеты_0',['Сценарий 2: Добавление новой планеты',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]]
 ];

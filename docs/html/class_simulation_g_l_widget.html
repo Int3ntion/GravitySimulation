@@ -152,6 +152,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_simulati
 <tr class="memdesc:ad0519dbc15499d778f6a5c5153e8015e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>.  <br /></td></tr>
 <tr class="memitem:ac6c175d52b32d6b7aafec1baacb64575" id="r_ac6c175d52b32d6b7aafec1baacb64575"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac6c175d52b32d6b7aafec1baacb64575">~SimulationGLWidget</a> ()</td></tr>
 <tr class="memdesc:ac6c175d52b32d6b7aafec1baacb64575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор класса <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>.  <br /></td></tr>
+<tr class="memitem:aa5658c2d61593cb856b952c1523050f5" id="r_aa5658c2d61593cb856b952c1523050f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa5658c2d61593cb856b952c1523050f5">calculateGravityField</a> ()</td></tr>
+<tr class="memdesc:aa5658c2d61593cb856b952c1523050f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Пересчитывает значения гравитационного потенциала для визуализации сетки.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Открытые атрибуты</h2></td></tr>
@@ -164,6 +166,12 @@ double&#160;</td><td class="memItemRight"><b>G</b> = 6.6743e-11</td></tr>
 <tr class="memitem:ad2549607dde643c6407976cc978e24fa" id="r_ad2549607dde643c6407976cc978e24fa"><td class="memItemLeft"><a id="ad2549607dde643c6407976cc978e24fa" name="ad2549607dde643c6407976cc978e24fa"></a>
 double&#160;</td><td class="memItemRight"><b>dt</b> = 1e-7</td></tr>
 <tr class="memdesc:ad2549607dde643c6407976cc978e24fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Шаг времени для численного интегрирования физики. Маленькое значение (1e-7) необходимо для стабильности симуляции при больших массах. <br /></td></tr>
+<tr class="memitem:a7ea9ac894d7390ad8869dac0d752ba50" id="r_a7ea9ac894d7390ad8869dac0d752ba50"><td class="memItemLeft"><a id="a7ea9ac894d7390ad8869dac0d752ba50" name="a7ea9ac894d7390ad8869dac0d752ba50"></a>
+int&#160;</td><td class="memItemRight"><b>m_gridResolution</b> = 100</td></tr>
+<tr class="memdesc:a7ea9ac894d7390ad8869dac0d752ba50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Разрешение сетки гравитационного поля (количество шагов по осям). <br /></td></tr>
+<tr class="memitem:a1b1ea171ac2cef035bd64258ad841b0e" id="r_a1b1ea171ac2cef035bd64258ad841b0e"><td class="memItemLeft"><a id="a1b1ea171ac2cef035bd64258ad841b0e" name="a1b1ea171ac2cef035bd64258ad841b0e"></a>
+QTimer *&#160;</td><td class="memItemRight"><b>m_timer</b></td></tr>
+<tr class="memdesc:a1b1ea171ac2cef035bd64258ad841b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таймер, управляющий частотой обновления симуляции (примерно 60 FPS). <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Защищенные члены</h2></td></tr>
@@ -272,6 +280,28 @@ double&#160;</td><td class="memItemRight"><b>dt</b> = 1e-7</td></tr>
 <p>Рассчитывает суммарную гравитационную силу, действующую на каждый объект.</p>
 <p>Проходит по всем парам объектов, вычисляет силу по закону всемирного тяготения и применяет соответствующее ускорение к каждому объекту.</p>
 <p>Реализует упрощенную модель N-body задачи. Для каждой пары объектов вычисляется сила притяжения по закону всемирного тяготения. Вводится ограничение минимального расстояния (150 единиц) для предотвращения численной нестабильности при столкновении. Ускорение применяется непосредственно к скорости объекта через метод accelerate. </p>
+
+</div>
+</div>
+<a id="aa5658c2d61593cb856b952c1523050f5" name="aa5658c2d61593cb856b952c1523050f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5658c2d61593cb856b952c1523050f5">&#9670;&#160;</a></span>calculateGravityField()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SimulationGLWidget::calculateGravityField </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Пересчитывает значения гравитационного потенциала для визуализации сетки. </p>
+<p>Рассчитывает карту гравитационного потенциала для визуализации сетки.</p>
+<p>Заполняет массив <span class="tt">m_gravityField</span>, суммируя вклад каждого объекта симуляции в каждой точке расчетной области. Используется упрощенная формула для визуализации "гравитационных ям".</p>
+<p>Создает двумерный массив m_gravityField размером (resolution+1)x(resolution+1). Для каждой точки сетки суммируется потенциал от всех объектов в симуляции. Формула потенциала упрощена для визуализации: V = -A * r / sqrt(dx^2 + dy^2 + r^2), где A зависит от логарифма массы. Результат смещается на -300 для лучшей видимости. </p>
 
 </div>
 </div>

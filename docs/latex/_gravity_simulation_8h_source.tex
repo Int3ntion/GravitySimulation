@@ -5,49 +5,50 @@
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QtWidgets/QMainWindow>}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QOpenGLWidget>}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QListWidget>}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QDebug>}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <QLabel>}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{SimulationGLWidget.h}}"{}}}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}{GravitySimulation}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
-\DoxyCodeLine{00036\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ Q\_OBJECT}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00048\ \ \ \ \ \doxymbox{\hyperlink{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}{GravitySimulation}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{class_gravity_simulation_a63a4861aec741a8afba98cca80681f70}{\string~GravitySimulation}}();}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_af25375d29d04c39004f76648f6261c88}{updatePlanetList}}();}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{keyword}{public}\ slots:}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a1dc09ed2be4412c46aceddbfa9d1d61e}{onStartSimulation}}();}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_ae41c8122a07b5d35696b0ad02cd43e04}{onStopSimulation}}();}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5}{onAddPlanet}}();}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd}{onPlanetDoubleClicked}}(QListWidgetItem*\ item);}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a44ac1898d14a5c7031f9c7a5ebc51b7e}{onGSliderChanged}}(\textcolor{keywordtype}{int}\ value);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00113\ \ \ \ \ \doxymbox{\hyperlink{class_simulation_g_l_widget}{SimulationGLWidget}}*\ m\_glWidget;}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00116\ \ \ \ \ QListWidget*\ m\_listWidget;}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00119\ \ \ \ \ QHBoxLayout*\ m\_mainLayout;}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00122\ \ \ \ \ QSlider*\ m\_gSlider;}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUI();}
-\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <QListWidget>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <QOpenGLWidget>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <QtWidgets/QMainWindow>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_simulation_g_l_widget_8h}{SimulationGLWidget.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}{GravitySimulation}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \doxymbox{\hyperlink{class_gravity_simulation_ac50f89a53108a90b20a2169665c780a7}{GravitySimulation}}(QWidget*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{class_gravity_simulation_a63a4861aec741a8afba98cca80681f70}{\string~GravitySimulation}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_af25375d29d04c39004f76648f6261c88}{updatePlanetList}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a1dc09ed2be4412c46aceddbfa9d1d61e}{onStartSimulation}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_ae41c8122a07b5d35696b0ad02cd43e04}{onStopSimulation}}();}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a52edc7c2d0f2c5ef10426fcb56cc92c5}{onAddPlanet}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a4dd4a9b666d97d101480ce494e31d9fd}{onPlanetDoubleClicked}}(QListWidgetItem*\ item);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_gravity_simulation_a44ac1898d14a5c7031f9c7a5ebc51b7e}{onGSliderChanged}}(\textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00114\ \ \ \ \ \doxymbox{\hyperlink{class_simulation_g_l_widget}{SimulationGLWidget}}*\ m\_glWidget;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00117\ \ \ \ \ QListWidget*\ m\_listWidget;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00120\ \ \ \ \ QHBoxLayout*\ m\_mainLayout;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00123\ \ \ \ \ QSlider*\ m\_gSlider;}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ setupUI();}
+\DoxyCodeLine{00133\ \};}
 
 \end{DoxyCode}

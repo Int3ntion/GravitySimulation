@@ -1,6 +1,6 @@
 var struct_object =
 [
-    [ "Object", "struct_object.html#a54f726863d7dd73cc5a3d1588e927659", null ],
+    [ "Object", "struct_object.html#a6b00fe8a38b853f2bdff338ba0eaaeda", null ],
     [ "accelerate", "struct_object.html#a826f5f9f4719842e3d8ce0dfeca59f8c", null ],
     [ "drawSphere", "struct_object.html#a7d7ac5c880ad4a305ec6b3542659f11f", null ],
     [ "updatePos", "struct_object.html#aae5fcb8e6ec18c6087ae5e091bf333fa", null ],

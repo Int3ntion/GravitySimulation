@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['m_5fmassspin_0',['m_massSpin',['../class_add_planet_dialog.html#a366fc881a0fb9f965cd67620201f7891',1,'AddPlanetDialog']]],
-  ['m_5fobjects_1',['m_objects',['../class_simulation_g_l_widget.html#a6c6bcf926ed022d91bbce06688f2e1f0',1,'SimulationGLWidget']]],
-  ['m_5fposxspin_2',['m_posXSpin',['../class_add_planet_dialog.html#aee4dd760a2ba0f1b14d6532b0e463d8f',1,'AddPlanetDialog']]],
-  ['m_5fradiusspin_3',['m_radiusSpin',['../class_add_planet_dialog.html#ab64ea8a2d7a0624446536ae23495d8e2',1,'AddPlanetDialog']]],
-  ['m_5fvelxspin_4',['m_velXSpin',['../class_add_planet_dialog.html#a750af2c23d80da042bea47b8e1794eaf',1,'AddPlanetDialog']]],
-  ['macos_5',['MacOS',['../md__r_e_a_d_m_e.html#autotoc_md9',1,'']]],
-  ['main_6',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
-  ['main_2ecpp_7',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['mass_8',['mass',['../struct_object.html#abbd565f533683168a39d703f3b5c6bae',1,'Object']]]
+  ['g_0',['G',['../class_simulation_g_l_widget.html#af55df4fb752bbabee1d33c16150f5a9a',1,'SimulationGLWidget']]],
+  ['getcolor_1',['getColor',['../class_add_planet_dialog.html#a617ac89f7a240f733dee313360bfad62',1,'AddPlanetDialog']]],
+  ['getmass_2',['getMass',['../class_add_planet_dialog.html#a6c569dff32546a2e7e29620186428169',1,'AddPlanetDialog']]],
+  ['getnewname_3',['getNewName',['../class_planet_info_dialog.html#a2ffc34e57fced7adbadf32cb07882038',1,'PlanetInfoDialog']]],
+  ['getplanetname_4',['getPlanetName',['../class_add_planet_dialog.html#a9cbe60da62aa82a132dc72f1f0bda8f4',1,'AddPlanetDialog']]],
+  ['getposition_5',['getPosition',['../class_add_planet_dialog.html#a6b8b85f863c63c965c0cb68aaec5da9a',1,'AddPlanetDialog']]],
+  ['getradius_6',['getRadius',['../class_add_planet_dialog.html#ae567d3363079e7fab4d91a06cefcc0c3',1,'AddPlanetDialog']]],
+  ['getvelocity_7',['getVelocity',['../class_add_planet_dialog.html#a71ddcaf4ad8ae2c443738238c2c62c47',1,'AddPlanetDialog']]],
+  ['gravitysimulation_8',['GravitySimulation',['../class_gravity_simulation.html',1,'GravitySimulation'],['../class_gravity_simulation.html#ac50f89a53108a90b20a2169665c780a7',1,'GravitySimulation::GravitySimulation()'],['../md__r_e_a_d_m_e.html',1,'GravitySimulation']]],
+  ['gravitysimulation_2ecpp_9',['GravitySimulation.cpp',['../_gravity_simulation_8cpp.html',1,'']]],
+  ['gravitysimulation_2eh_10',['GravitySimulation.h',['../_gravity_simulation_8h.html',1,'']]]
 ];

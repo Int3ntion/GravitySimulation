@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linux_20ubuntu_20debian_0',['Linux (Ubuntu/Debian)',['../md__r_e_a_d_m_e.html#autotoc_md8',1,'']]]
+  ['3_3a_20редактирование_20и_20удаление_20объекта_0',['Сценарий 3: Редактирование и удаление объекта',['../md__r_e_a_d_m_e.html#autotoc_md16',1,'']]]
 ];

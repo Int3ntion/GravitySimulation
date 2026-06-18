@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['calculateforces_0',['calculateForces',['../class_simulation_g_l_widget.html#a8f7648972d51fb8ddbac1cd7e5ea7926',1,'SimulationGLWidget']]]
+  ['calculateforces_0',['calculateForces',['../class_simulation_g_l_widget.html#a8f7648972d51fb8ddbac1cd7e5ea7926',1,'SimulationGLWidget']]],
+  ['calculategravityfield_1',['calculateGravityField',['../class_simulation_g_l_widget.html#aa5658c2d61593cb856b952c1523050f5',1,'SimulationGLWidget']]]
 ];

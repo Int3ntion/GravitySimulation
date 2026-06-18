@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['planetinfodialog_0',['PlanetInfoDialog',['../class_planet_info_dialog.html',1,'']]]
+  ['object_0',['Object',['../struct_object.html',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['calculateforces_0',['calculateForces',['../class_simulation_g_l_widget.html#a8f7648972d51fb8ddbac1cd7e5ea7926',1,'SimulationGLWidget']]],
-  ['color_1',['color',['../struct_object.html#a62cb1c6ffcce0a16939d345dc527d9db',1,'Object']]]
+  ['2_3a_20добавление_20новой_20планеты_0',['Сценарий 2: Добавление новой планеты',['../md__r_e_a_d_m_e.html#autotoc_md15',1,'']]]
 ];

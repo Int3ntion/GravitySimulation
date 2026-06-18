@@ -186,9 +186,8 @@ MacOS</h2>
 <li><b>Windows</b></li>
 </ul>
 <p>После сборки в папке <em>build</em> запустите файл <b>GravitySimulation.exe</b>.</p><ul>
-<li>Так как в репозитории нет DLL-библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом <b>GravitySimulation.exe</b>: <span class="tt">cmd
-    windeployqt.exe --release --no-compiler-runtime GravitySimulation.exe
-    </span></li>
+<li>Так как в репозитории нет DLL-библиотек Qt, при запуске вы можете получить ошибку отсутствия файлов. Чтобы программа работала на любом ПК, нужно развернуть зависимости. Выполните следующую команду в папке с файлом <b>GravitySimulation.exe</b>: <div class="fragment"><div class="line">windeployqt.exe --release --no-compiler-runtime GravitySimulation.exe</div>
+</div><!-- fragment --></li>
 </ul>
 <p>Linux / macOS</p>
 <p>Запустите полученный бинарный файл из папки сборки: </p><div class="fragment"><div class="line">./GravitySimulation</div>
@@ -197,6 +196,38 @@ MacOS</h2>
 </ul>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+Основные сценарии использования</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
+Сценарий 1: Запуск и осмотр сцены</h2>
+<ol type="1">
+<li>Запустите приложение (<span class="tt">GravitySimulation.exe</span> или бинарный файл).</li>
+<li>Вы увидите окно с несколькими сферами (планетами) и сеткой гравитационного поля.</li>
+<li>Используйте клавиши <b>W, A, S, D</b> для перемещения камеры по сцене, чтобы рассмотреть объекты с разных ракурсов (Если окно не реагирует на нажатие клавиш, нажмите на виджет с симуляцией левой кнопкой мыши).</li>
+<li>Нажимайте <b>стрелки</b>, чтобы вращать камеру вокруг центра сцены.</li>
+</ol>
+<p><img src="docs/screenshots/main_window.png" alt="Главное окно симуляции" class="inline"/> <em>Рис. 1: Главное окно, общий вид сцены с визуализацией гравитационной сетки и планетами.</em></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+Сценарий 2: Добавление новой планеты</h2>
+<ol type="1">
+<li>Найдите кнопку «Добавить планету» (или соответствующий пункт меню, если есть).</li>
+<li>Откроется модальное окно <span class="tt"><a class="el" href="class_add_planet_dialog.html" title="Модальное диалоговое окно для настройки параметров новой планеты.">AddPlanetDialog</a></span>.</li>
+<li>Введите уникальное имя (например, "Mars"). Если имя занято, кнопка "OK" станет неактивной.</li>
+<li>Задайте массу, радиус и начальные координаты.</li>
+<li>Нажмите на кнопку <b>«Выбрать цвет»</b>, чтобы открыть системный диалог и подобрать оттенок для новой планеты.</li>
+<li>Подтвердите создание кнопкой «OK». Планета мгновенно появится на сцене и начнет двигаться согласно законам гравитации.</li>
+</ol>
+<p><img src="docs/screenshots/add_planet_window.png" alt="Диалог добавления планеты" class="inline"/> <em>Рис. 2: Интерфейс настройки параметров новой планеты.</em></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+Сценарий 3: Редактирование и удаление объекта</h2>
+<ol type="1">
+<li>В интерфейсе найдите список планет. Дважды кликните по названию планеты, информацию которой Вы хотите узнать.</li>
+<li>Откроется окно информации. Здесь вы можете изменить имя планеты.</li>
+<li>Поля «Масса», «Координаты» и «Скорость» заблокированы для редактирования, так как они рассчитываются физическим движком.</li>
+<li>Если объект больше не нужен, нажмите кнопку <b>«Удалить планету»</b>. Объект исчезнет из симуляции.</li>
+</ol>
+<p><img src="docs/screenshots/read_info_window.png" alt="Диалог просмотра информации планеты" class="inline"/> <em>Рис. 3: Интерфейс просмотра информации о выбранной планете.</em></p>
+<hr  />
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Особенности реализации проекта:</h1>
 <ol type="1">
 <li>Интерфейс реализован без .ui файлов. Главное окно создаётся программно, чтобы избежать конфликтов версий Qt Designer и упростить понимание логики компоновки виджетов.</li>
@@ -212,7 +243,7 @@ MacOS</h2>
 </li>
 </ol>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 Структура проекта</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -233,7 +264,7 @@ MacOS</h2>
 <td class="markdownTableBodyLeft"><span class="tt">.gitignore</span>  </td><td class="markdownTableBodyLeft">Правила игнорирования временных файлов, папок сборки и бинарных артефактов.  </td></tr>
 </table>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 Как внести свой вклад в проект</h1>
 <ol type="1">
 <li>Создайте форк репозитория.</li>
@@ -242,7 +273,7 @@ MacOS</h2>
 </ol>
 <p>Приветствуются предложения по оптимизации отрисовки, улучшению физической модели или рефакторингу UI.</p>
 <hr  />
-<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 Лицензия</h1>
 <p>Проект распространяется под лицензией MIT. </p>
 </div></div><!-- contents -->

@@ -122,10 +122,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('_gravity_simul
 <p>Реализация главного окна приложения симуляции гравитации.  
 <a href="#details">Подробнее...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_gravity_simulation_8h_source.html">GravitySimulation.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_simulation_g_l_widget_8h_source.html">SimulationGLWidget.h</a>&quot;</code><br />
+<code>#include &lt;QDebug&gt;</code><br />
+<code>#include &lt;QMessageBox&gt;</code><br />
 <code>#include &quot;<a class="el" href="_add_planet_dialog_8h_source.html">AddPlanetDialog.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_planet_info_dialog_8h_source.html">PlanetInfoDialog.h</a>&quot;</code><br />
-<code>#include &lt;QDebug&gt;</code><br />
+<code>#include &quot;<a class="el" href="_simulation_exceptions_8h_source.html">SimulationExceptions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_simulation_g_l_widget_8h_source.html">SimulationGLWidget.h</a>&quot;</code><br />
 </div><a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Реализация главного окна приложения симуляции гравитации. </p>
 <p>Этот файл содержит реализацию класса <a class="el" href="class_gravity_simulation.html" title="Основной класс приложения, управляющий симуляцией гравитации и пользовательским интерфейсом.">GravitySimulation</a>, который управляет основным интерфейсом приложения: отрисовкой сцены (через <a class="el" href="class_simulation_g_l_widget.html" title="Основной виджет приложения для симуляции и визуализации гравитации.">SimulationGLWidget</a>), списком планет, диалогами добавления/редактирования и настройкой гравитационной постоянной.</p>
