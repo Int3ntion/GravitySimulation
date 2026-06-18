@@ -33,6 +33,7 @@ set(SOURCES
     PlanetInfoDialog.h
     AddPlanetDialog.cpp
     AddPlanetDialog.h
+    SimulationExceptions.h
 )
 
 add_executable(GravitySimulation WIN32 ${SOURCES})
@@ -49,7 +50,7 @@ target_link_libraries(GravitySimulation PRIVATE
     glu32
 )
 
-add_executable(tests 
+add_executable(tests_main 
     tests/test_main.cpp
     SimulationGLWidget.cpp
     AddPlanetDialog.cpp
@@ -57,7 +58,7 @@ add_executable(tests
     PlanetInfoDialog.cpp
 )
 
-target_link_libraries(tests PRIVATE 
+target_link_libraries(tests_main PRIVATE 
     doctest::doctest
     Qt6::Widgets
     Qt6::Core
@@ -68,11 +69,40 @@ target_link_libraries(tests PRIVATE
     glu32
 )
 
-target_include_directories(tests PRIVATE 
+target_include_directories(tests_main PRIVATE 
     ${CMAKE_SOURCE_DIR}
 )
 
 add_test(
-    NAME Tests
-    COMMAND tests.exe
+    NAME Tests_main
+    COMMAND tests_main.exe
 )
+
+add_executable(tests_exceptions 
+    tests/test_exceptions.cpp
+    SimulationGLWidget.cpp
+    AddPlanetDialog.cpp
+    GravitySimulation.cpp
+    PlanetInfoDialog.cpp
+)
+
+target_link_libraries(tests_exceptions PRIVATE 
+    doctest::doctest
+    Qt6::Widgets
+    Qt6::Core
+    Qt6::Gui
+    Qt6::OpenGL
+    Qt6::OpenGLWidgets
+    opengl32
+    glu32
+)
+
+target_include_directories(tests_exceptions PRIVATE 
+    ${CMAKE_SOURCE_DIR}
+)
+
+add_test(
+    NAME Tests_exceptions
+    COMMAND tests_exceptions.exe
+)
+

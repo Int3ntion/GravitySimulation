@@ -2,21 +2,26 @@
 #define DOCTEST_CONFIG_NO_MULTITHREADING
 
 #include <doctest/doctest.h>
-#include <mutex>
-#include <stdexcept>
+
 #include <QApplication>
-#include "../SimulationGLWidget.h" 
-#include "../AddPlanetDialog.h"
-#include "../GravitySimulation.h"
 #include <QStringList>
 #include <cmath>
+#include <mutex>
+#include <stdexcept>
+
+#include "../AddPlanetDialog.h"
+#include "../GravitySimulation.h"
+#include "../SimulationExceptions.h"
+#include "../SimulationGLWidget.h"
 
 static QApplication* app_ptr = nullptr;
 
-QApplication& getApp() {
-    if (!app_ptr) {
+QApplication& getApp()
+{
+    if (!app_ptr)
+    {
         int fake_argc = 1;
-        char* fake_argv[] = { (char*)"tests", nullptr };
+        char* fake_argv[] = {(char*)"tests", nullptr};
 
         static QApplication app(fake_argc, fake_argv);
         app_ptr = &app;
@@ -24,16 +29,17 @@ QApplication& getApp() {
     return *app_ptr;
 }
 
-TEST_CASE("Object: Constructor") {
+TEST_CASE("Object: Constructor")
+{
     getApp();
 
-    std::vector<double> pos = { 0.0, 0.0, 0.0 };
-    std::vector<double> vel = { 10.0, 0.0, 0.0 };
+    std::vector<double> pos = {0.0, 0.0, 0.0};
+    std::vector<double> vel = {10.0, 0.0, 0.0};
     double mass = 1000.0;
     double radius = 50.0;
     QString name = "TestPlanet";
 
-    Object obj(pos, vel, mass, radius, { 1,0,0 }, name);
+    Object obj(pos, vel, mass, radius, {1, 0, 0}, name);
 
     CHECK(obj.name == name);
     CHECK(obj.mass == mass);
@@ -43,13 +49,14 @@ TEST_CASE("Object: Constructor") {
     CHECK(obj.velocity[0] == 10.0);
 }
 
-TEST_CASE("Object: Velocity and position") {
+TEST_CASE("Object: Velocity and position")
+{
     getApp();
 
-    std::vector<double> pos = { 0.0, 0.0, 0.0 };
-    std::vector<double> vel = { 0.0, 0.0, 0.0 };
+    std::vector<double> pos = {0.0, 0.0, 0.0};
+    std::vector<double> vel = {0.0, 0.0, 0.0};
 
-    Object obj(pos, vel, 1000.0, 50.0, { 1,1,1 }, "MovingObj");
+    Object obj(pos, vel, 1000.0, 50.0, {1, 1, 1}, "MovingObj");
 
     double ax = 1.0, ay = 0.5, az = -0.2;
     double dt = 1.0;
@@ -66,15 +73,16 @@ TEST_CASE("Object: Velocity and position") {
     CHECK(obj.position[2] == doctest::Approx(-0.2));
 }
 
-TEST_CASE("SimulationGLWidget: Gravity calculate") {
+TEST_CASE("SimulationGLWidget: Gravity calculate")
+{
     getApp();
 
     SimulationGLWidget widget;
     widget.m_objects.clear();
     widget.dt = 1.0;
 
-    Object heavy({ 0, 0, 0 }, { 0, 0, 0 }, 1e20, 100, { 1, 0, 0 }, "Heavy");
-    Object light({ 1000, 0, 0 }, { 0, 0, 0 }, 1e10, 10, { 0, 1, 0 }, "Light");
+    Object heavy({0, 0, 0}, {0, 0, 0}, 1e20, 100, {1, 0, 0}, "Heavy");
+    Object light({1000, 0, 0}, {0, 0, 0}, 1e10, 10, {0, 1, 0}, "Light");
 
     widget.m_objects.push_back(heavy);
     widget.m_objects.push_back(light);
@@ -92,15 +100,16 @@ TEST_CASE("SimulationGLWidget: Gravity calculate") {
     CHECK(std::abs(updatedLight.velocity[0]) == doctest::Approx(expectedVelChange));
 }
 
-TEST_CASE("SimulationGLWidget: Zero Distance Protection") {
+TEST_CASE("SimulationGLWidget: Zero Distance Protection")
+{
     getApp();
 
     SimulationGLWidget widget;
     widget.m_objects.clear();
     if (widget.dt == 0) widget.dt = 1.0;
 
-    Object p1_data({ 0, 0, 0 }, { 0, 0, 0 }, 1e20, 10, {}, "P1");
-    Object p2_data({ 0, 0, 0 }, { 0, 0, 0 }, 1e20, 10, {}, "P2");
+    Object p1_data({0, 0, 0}, {0, 0, 0}, 1e20, 10, {}, "P1");
+    Object p2_data({0, 0, 0}, {0, 0, 0}, 1e20, 10, {}, "P2");
 
     widget.m_objects.push_back(p1_data);
     widget.m_objects.push_back(p2_data);
@@ -118,17 +127,18 @@ TEST_CASE("SimulationGLWidget: Zero Distance Protection") {
     CHECK(std::abs(obj2.velocity[0]) < 1e15);
 }
 
-TEST_CASE("SimulationGLWidget: Gravity Formula Accuracy") {
+TEST_CASE("SimulationGLWidget: Gravity Formula Accuracy")
+{
     getApp();
 
     SimulationGLWidget widget;
     widget.m_objects.clear();
     if (widget.dt == 0) widget.dt = 1.0;
 
-    double distance = 1000.0; 
-    
-    Object heavy({ 0, 0, 0 }, { 0, 0, 0 }, 1e20, 100, { 1, 0, 0 }, "Heavy");
-    Object light({ distance, 0, 0 }, { 0, 0, 0 }, 1e10, 10, { 0, 1, 0 }, "Light");
+    double distance = 1000.0;
+
+    Object heavy({0, 0, 0}, {0, 0, 0}, 1e20, 100, {1, 0, 0}, "Heavy");
+    Object light({distance, 0, 0}, {0, 0, 0}, 1e10, 10, {0, 1, 0}, "Light");
 
     widget.m_objects.push_back(heavy);
     widget.m_objects.push_back(light);
@@ -136,7 +146,7 @@ TEST_CASE("SimulationGLWidget: Gravity Formula Accuracy") {
 
     widget.calculateForces();
 
-    const auto& updatedLight = widget.m_objects[1]; 
+    const auto& updatedLight = widget.m_objects[1];
 
     double expectedAcc = (widget.G * heavy.mass) / (distance * distance);
     double expectedVelocityChange = expectedAcc * widget.dt;
@@ -147,7 +157,8 @@ TEST_CASE("SimulationGLWidget: Gravity Formula Accuracy") {
     CHECK(updatedLight.velocity[2] == doctest::Approx(0.0));
 }
 
-TEST_CASE("AddPlanetDialog: Mass and radius") {
+TEST_CASE("AddPlanetDialog: Mass and radius")
+{
     getApp();
 
     QStringList empty;
@@ -166,7 +177,8 @@ TEST_CASE("AddPlanetDialog: Mass and radius") {
     CHECK(dialog.getRadius() == 1000.0);
 }
 
-TEST_CASE("AddPlanetDialog: Coords and Velocity") {
+TEST_CASE("AddPlanetDialog: Coords and Velocity")
+{
     getApp();
 
     QStringList empty;
@@ -189,14 +201,15 @@ TEST_CASE("AddPlanetDialog: Coords and Velocity") {
     CHECK(vel[2] == 0);
 }
 
-TEST_CASE("GravitySimulation: Planet list update") {
+TEST_CASE("GravitySimulation: Planet list update")
+{
     getApp();
 
     SimulationGLWidget glWidget;
     glWidget.m_objects.clear();
 
-    glWidget.m_objects.push_back(Object({ 0, 0, 0 }, { 0, 0, 0 }, 0, 0, { 1, 1, 1 }, "Sun"));
-    glWidget.m_objects.push_back(Object({ 0, 0, 0 }, { 0, 0, 0 }, 0, 0, { 1, 1, 1 }, "Earth"));
+    glWidget.m_objects.push_back(Object({0, 0, 0}, {0, 0, 0}, 0, 0, {1, 1, 1}, "Sun"));
+    glWidget.m_objects.push_back(Object({0, 0, 0}, {0, 0, 0}, 0, 0, {1, 1, 1}, "Earth"));
 
     GravitySimulation sim;
     CHECK(glWidget.m_objects.size() == 2);
@@ -204,20 +217,20 @@ TEST_CASE("GravitySimulation: Planet list update") {
     CHECK(glWidget.m_objects[1].name == "Earth");
 }
 
-TEST_CASE("Physics: Conservation of Momentum Approximation Negative Case") {
+TEST_CASE("Physics: Conservation of Momentum Approximation Negative Case")
+{
     getApp();
 
     SimulationGLWidget widget;
     widget.m_objects.clear();
     widget.G = 0;
 
-    Object p1({ -100, 0, 0 }, { 10, 0, 0 }, 100.0, 10, { 1, 1, 1 }, "Left");
-    Object p2({ 100, 0, 0 }, { -10, 0, 0 }, 100.0, 10, { 1, 1, 1 }, "Right");
+    Object p1({-100, 0, 0}, {10, 0, 0}, 100.0, 10, {1, 1, 1}, "Left");
+    Object p2({100, 0, 0}, {-10, 0, 0}, 100.0, 10, {1, 1, 1}, "Right");
 
     widget.m_objects.push_back(p1);
     widget.m_objects.push_back(p2);
 
-    
     widget.updateObjects();
 
     double p1_new_momentum = widget.m_objects[0].mass * widget.m_objects[0].velocity[0];
@@ -225,5 +238,5 @@ TEST_CASE("Physics: Conservation of Momentum Approximation Negative Case") {
 
     double total_momentum = p1_new_momentum + p2_new_momentum;
 
-    CHECK(total_momentum == doctest::Approx(0.0).epsilon(1e-9)); // epsilon - погрешность
+    CHECK(total_momentum == doctest::Approx(0.0).epsilon(1e-9));  // epsilon - погрешность
 }

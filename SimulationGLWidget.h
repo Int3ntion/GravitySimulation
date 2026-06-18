@@ -159,6 +159,21 @@ class SimulationGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
     /// Маленькое значение (1e-7) необходимо для стабильности симуляции при больших массах.
     double dt = 1e-7;
 
+    /// @brief Разрешение сетки гравитационного поля (количество шагов по осям).
+    int m_gridResolution = 100;
+
+    /// @brief Таймер, управляющий частотой обновления симуляции (примерно 60 FPS).
+    QTimer* m_timer;
+
+    /**
+     * @brief Пересчитывает значения гравитационного потенциала для визуализации сетки.
+     *
+     * Заполняет массив `m_gravityField`, суммируя вклад каждого объекта симуляции
+     * в каждой точке расчетной области. Используется упрощенная формула для визуализации
+     * "гравитационных ям".
+     */
+    void calculateGravityField();
+
    public slots:
     /**
      * @brief Запускает симуляцию гравитационного взаимодействия.
@@ -229,9 +244,6 @@ class SimulationGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
     void paintGL() override;
 
    private:
-    /// @brief Таймер, управляющий частотой обновления симуляции (примерно 60 FPS).
-    QTimer* m_timer;
-
     /// @brief Координата X позиции камеры.
     double m_cameraX = 0.0;
 
@@ -288,18 +300,6 @@ class SimulationGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
     /// @brief Двумерный массив, хранящий значения гравитационного потенциала для сетки.
     std::vector<std::vector<double>> m_gravityField;
-
-    /// @brief Разрешение сетки гравитационного поля (количество шагов по осям).
-    int m_gridResolution = 100;
-
-    /**
-     * @brief Пересчитывает значения гравитационного потенциала для визуализации сетки.
-     *
-     * Заполняет массив `m_gravityField`, суммируя вклад каждого объекта симуляции
-     * в каждой точке расчетной области. Используется упрощенная формула для визуализации
-     * "гравитационных ям".
-     */
-    void calculateGravityField();
 
     /**
      * @brief Обработчик события нажатия клавиши клавиатуры.

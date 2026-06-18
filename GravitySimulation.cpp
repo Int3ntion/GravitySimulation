@@ -13,9 +13,11 @@
 #include "GravitySimulation.h"
 
 #include <QDebug>
+#include <QMessageBox>
 
 #include "AddPlanetDialog.h"
 #include "PlanetInfoDialog.h"
+#include "SimulationExceptions.h"
 #include "SimulationGLWidget.h"
 
 /**
@@ -146,19 +148,34 @@ void GravitySimulation::onAddPlanet()
     }
 
     AddPlanetDialog dialog(existingNames, this);
-    if (dialog.exec() == QDialog::Accepted)
-    {
-        QString name = dialog.getPlanetName();
-        double mass = dialog.getMass();
-        std::vector<double> position = dialog.getPosition();
-        std::vector<double> velocity = dialog.getVelocity();
-        double radius = dialog.getRadius();
-        std::vector<double> color = dialog.getColor();
 
-        Object newPlanet(position, velocity, mass, radius, color, name);
-        m_glWidget->m_objects.push_back(newPlanet);
-        m_glWidget->update();
-        updatePlanetList();
+    try
+    {
+        if (dialog.exec() == QDialog::Accepted)
+        {
+            QString name = dialog.getPlanetName();
+            double mass = dialog.getMass();
+            std::vector<double> position = dialog.getPosition();
+            std::vector<double> velocity = dialog.getVelocity();
+            double radius = dialog.getRadius();
+            std::vector<double> color = dialog.getColor();
+
+            Object newPlanet(position, velocity, mass, radius, color, name);
+            m_glWidget->m_objects.push_back(newPlanet);
+            m_glWidget->update();
+            updatePlanetList();
+        }
+    }
+    catch (const InvalidPlanetDataException& e)
+    {
+        QMessageBox::critical(this, "Ошибка ввода данных", e.what());
+        qWarning() << "Ошибка добавления планеты: " << e.what();
+    }
+    catch (const std::exception& e)
+    {
+        QMessageBox::critical(this, "Критическая ошибка",
+                              "Произошла непредвиденная ошибка при добавлении планеты:\n" + QString::fromStdString(e.what()));
+        qCritical() << "Неизвестная ошибка в onAddPlanet: " << e.what();
     }
 }
 
@@ -177,27 +194,43 @@ void GravitySimulation::onAddPlanet()
 void GravitySimulation::onPlanetDoubleClicked(QListWidgetItem* item)
 {
     int index = m_listWidget->row(item);
-    if (index < 0 || index > m_glWidget->m_objects.size()) return;
+    if (index < 0 || index > m_glWidget->m_objects.size())
+    {
+        QMessageBox::warning(this, "Ошибка", "Выбран неверный элемент списка.");
+        return;
+    }
 
     Object& planet = m_glWidget->m_objects[index];
 
     PlanetInfoDialog dialog(planet, this);
-    int result = dialog.exec();
 
-    if (result == QDialog::Accepted)
+    try
     {
-        QString newName = dialog.getNewName();
-        if (!newName.isEmpty())
+        int result = dialog.exec();
+
+        if (result == QDialog::Accepted)
         {
-            planet.name = newName;
+            QString newName = dialog.getNewName();
+            if (!newName.isEmpty())
+            {
+                planet.name = newName;
+                updatePlanetList();
+            }
+        }
+        else if (result == -1)
+        {
+            m_glWidget->m_objects.erase(m_glWidget->m_objects.begin() + index);
+            m_glWidget->update();
             updatePlanetList();
         }
     }
-    else if (result == -1)
+    catch (const InvalidPlanetDataException& e)
     {
-        m_glWidget->m_objects.erase(m_glWidget->m_objects.begin() + index);
-        m_glWidget->update();
-        updatePlanetList();
+        QMessageBox::critical(this, "Ошибка редактирования", e.what());
+    }
+    catch (const std::exception& e)
+    {
+        QMessageBox::critical(this, "Критическая ошибка", QString::fromStdString(e.what()));
     }
 }
 

@@ -21,6 +21,8 @@
 
 #include <cmath>
 
+#include "SimulationExceptions.h"
+
 /**
  * @class Object
  * @brief Вспомогательный класс (структура данных), описывающий физическое тело
@@ -87,6 +89,11 @@ SimulationGLWidget::SimulationGLWidget(QWidget* parent)
 {
     setFocusPolicy(Qt::StrongFocus);
     m_timer = new QTimer(this);
+    if (!m_timer)
+    {
+        throw InitializationException("Не удалось создать таймер обновления!");
+    }
+
     connect(m_timer, &QTimer::timeout, this, &SimulationGLWidget::updateObjects);
     connect(m_timer, &QTimer::timeout, this,
             static_cast<void (QOpenGLWidget::*)()>(&QOpenGLWidget::update));
@@ -111,6 +118,12 @@ SimulationGLWidget::~SimulationGLWidget() { delete m_timer; }
 void SimulationGLWidget::initializeGL()
 {
     initializeOpenGLFunctions();
+
+    if (!context()->isValid())
+    {
+        throw InitializationException("Не удалось инициализировать контекст OpenGL!");
+    }
+
     glEnable(GL_DEPTH_TEST);
 
     // Инициализация объектов
@@ -242,12 +255,19 @@ void SimulationGLWidget::calculateForces()
             double dx = obj2.position[0] - obj.position[0];
             double dy = obj2.position[1] - obj.position[1];
             double dz = obj2.position[2] - obj.position[2];
+
             double distance = std::sqrt(dx * dx + dy * dy + dz * dz);
             if (distance < 150)
                 distance = 150;
 
             std::vector<double> direction = {dx / distance, dy / distance,
                                              dz / distance};
+
+            if (!std::isfinite(direction[0]) || !std::isfinite(direction[1]) || !std::isfinite(direction[2]))
+            {
+                throw SimulationLogicException("Обнаружены некорректные значения векторов (NaN/Inf) в расчете сил.");
+            }
+
             double acc1 = G * obj2.mass / (distance * distance);
             std::vector<double> acc = {acc1 * direction[0], acc1 * direction[1],
                                        acc1 * direction[2]};
@@ -268,14 +288,27 @@ void SimulationGLWidget::calculateForces()
  */
 void SimulationGLWidget::updateObjects()
 {
-    calculateForces();
-    for (auto& obj : m_objects)
+    try
     {
-        obj.updatePos(dt);
+        calculateForces();
+        for (auto& obj : m_objects)
+        {
+            obj.updatePos(dt);
+        }
+        calculateGravityField();
+        updateCamera();
+        update();
     }
-    calculateGravityField();
-    updateCamera();
-    update();
+    catch (const SimulationLogicException& e)
+    {
+        qCritical() << "Логическая ошибка симуляции: " << e.what();
+        m_timer->stop();
+    }
+    catch (const std::exception& e)
+    {
+        qCritical() << "Критическая ошибка в цикле обновления: " << e.what();
+        m_timer->stop();
+    }
 }
 
 /**
@@ -322,11 +355,20 @@ void SimulationGLWidget::stopSimulation()
 void SimulationGLWidget::calculateGravityField()
 {
     const int size = m_gridResolution;
+    if (size <= 0) throw SimulationLogicException("Разрешение сетки гравитационного поля должно быть больше 0.");
+
     const double worldSize = 4000.0;
     const double step = (2.0 * worldSize) / size;
 
-    m_gravityField = std::vector<std::vector<double>>(
-        size + 1, std::vector<double>(size + 1, 0.0));
+    try
+    {
+        m_gravityField = std::vector<std::vector<double>>(
+            size + 1, std::vector<double>(size + 1, 0.0));
+    }
+    catch (const std::bad_alloc&)
+    {
+        throw InitializationException("Недостаточно памяти для создания карты гравитационного поля!");
+    }
 
     for (int i = 0; i <= size; ++i)
     {
@@ -345,8 +387,15 @@ void SimulationGLWidget::calculateGravityField()
                 double dz = z - z0;
                 double r = 700;
 
+                double denominator = std::sqrt(dx * dx + dz * dz + r * r);
+
+                if (denominator < 1e-9)
+                {
+                    throw SimulationLogicException("Ошибка расчета потенциала: деление на ноль.");
+                }
+
                 double A = std::log10(obj.mass) * 5e1;
-                double potential = -A * r / (std::sqrt(dx * dx + dz * dz + r * r));
+                double potential = -A * r / denominator;
                 totalPotential += potential;
             }
             m_gravityField[i][j] = totalPotential - 300;
@@ -512,14 +561,14 @@ void SimulationGLWidget::updateCamera()
     if (m_keyUpPressed)
     {
         m_cameraPitch -= m_rotationSpeed;
-        if (m_cameraPitch > 90.0)
-            m_cameraPitch = 90.0;
+        if (m_cameraPitch < -90.0)
+            m_cameraPitch = -90.0;
     }
     if (m_keyDownPressed)
     {
         m_cameraPitch += m_rotationSpeed;
-        if (m_cameraPitch < -90.0)
-            m_cameraPitch = -90.0;
+        if (m_cameraPitch > 90.0)
+            m_cameraPitch = 90.0;
     }
     if (m_keyLeftPressed)
     {
