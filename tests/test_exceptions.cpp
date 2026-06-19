@@ -29,18 +29,6 @@ QApplication& getApp()
     return *app_ptr;
 }
 
-TEST_CASE("SimulationGLWidget: Constructor throws InitializationException")
-{
-    getApp();
-
-    CHECK_THROWS_AS(
-        []()
-        {
-            throw InitializationException("Тест конструктора");
-        }(),
-        InitializationException);
-}
-
 TEST_CASE("SimulationGLWidget: calculateGravityField throws SimulationLogicException")
 {
     getApp();

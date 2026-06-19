@@ -70,7 +70,7 @@ AddPlanetDialog::AddPlanetDialog(const QStringList& existingNames, QWidget* pare
     for (auto* spin : {m_velXSpin, m_velYSpin, m_velZSpin})
     {
         spin->setRange(-1e8, 1e8);
-        spin->setSingleStep(1e5);
+        spin->setSingleStep(100);
         velLayout->addWidget(spin);
     }
     mainLayout->addLayout(velLayout);
@@ -99,8 +99,6 @@ AddPlanetDialog::AddPlanetDialog(const QStringList& existingNames, QWidget* pare
     connect(cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 
     mainLayout->addLayout(buttonLayout);
-
-    // onNameTextChanged(m_nameEdit->text());
 }
 
 /**
